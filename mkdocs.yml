@@ -6,6 +6,7 @@ repo_url: https://github.com/joselejimenez/AplicacionesHibridas
 repo_name: joselejimenez/AplicacionesHibridas
 edit_uri: edit/main/docs/
 copyright: IES Rafael Alberti (Cádiz) · 2º DAM · Curso 2026-2027
+strict: true
 
 theme:
   name: material
@@ -84,21 +85,11 @@ nav:
       - Decisión tecnológica: modulo/decision-tecnologica.md
       - Coordinación con PMDM y DI: modulo/coordinacion.md
       - Planificación: modulo/planificacion.md
-  - "T0 · Dart":
-      - t0/index.md
-      - Trabajar en DartPad: t0/01-dartpad.md
-      - De Java a Dart: t0/02-java-dart.md
-      - De Kotlin a Dart: t0/03-kotlin-dart.md
-      - Lo propio de Dart: t0/04-lo-propio-de-dart.md
-      - "Future y async/await": t0/05-future-async.md
-      - Streams: t0/06-streams.md
-      - Práctica T0: t0/practica.md
-  - "T1 · Arquitectura":
-      - t1/index.md
-      - Cuatro formas de hacer una app: t1/01-enfoques.md
-      - Flutter por dentro: t1/02-flutter-por-dentro.md
-      - "Kotlin Multiplatform: la tercera vía": t1/03-kmp.md
-      - Elegir con criterio: t1/04-comparativa.md
-      - Instalar Flutter: t1/05-instalacion.md
-      - Primer proyecto: t1/06-primer-proyecto.md
-      - Práctica T1: t1/practica.md
+  - "Tema 1 · Entorno y Dart": tema1/index.md
+  - "Tema 2 · Arquitectura":
+      - tema2/index.md
+      - Cuatro formas de hacer una app: tema2/01-enfoques.md
+      - Flutter por dentro: tema2/02-flutter-por-dentro.md
+      - "Kotlin Multiplatform: la tercera vía": tema2/03-kmp.md
+      - Elegir con criterio: tema2/04-comparativa.md
+      - Práctica: tema2/practica.md
