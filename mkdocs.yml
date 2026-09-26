@@ -1,0 +1,104 @@
+site_name: Aplicaciones Híbridas · 2º DAM
+site_description: Material didáctico del módulo propio de centro "Aplicaciones Híbridas" (2º DAM, IES Rafael Alberti, Cádiz) con Flutter y Dart.
+site_author: Departamento de Informática · IES Rafael Alberti
+site_url: https://joselejimenez.github.io/AplicacionesHibridas/
+repo_url: https://github.com/joselejimenez/AplicacionesHibridas
+repo_name: joselejimenez/AplicacionesHibridas
+edit_uri: edit/main/docs/
+copyright: IES Rafael Alberti (Cádiz) · 2º DAM · Curso 2026-2027
+
+theme:
+  name: material
+  language: es
+  icon:
+    logo: material/cellphone-link
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Inicio: index.md
+  - El módulo:
+      - modulo/index.md
+      - Resultados de aprendizaje: modulo/ra.md
+      - Decisión tecnológica: modulo/decision-tecnologica.md
+      - Coordinación con PMDM y DI: modulo/coordinacion.md
+      - Planificación: modulo/planificacion.md
+  - "T0 · Dart":
+      - t0/index.md
+      - Trabajar en DartPad: t0/01-dartpad.md
+      - De Java a Dart: t0/02-java-dart.md
+      - De Kotlin a Dart: t0/03-kotlin-dart.md
+      - Lo propio de Dart: t0/04-lo-propio-de-dart.md
+      - "Future y async/await": t0/05-future-async.md
+      - Streams: t0/06-streams.md
+      - Práctica T0: t0/practica.md
+  - "T1 · Arquitectura":
+      - t1/index.md
+      - Cuatro formas de hacer una app: t1/01-enfoques.md
+      - Flutter por dentro: t1/02-flutter-por-dentro.md
+      - "Kotlin Multiplatform: la tercera vía": t1/03-kmp.md
+      - Elegir con criterio: t1/04-comparativa.md
+      - Instalar Flutter: t1/05-instalacion.md
+      - Primer proyecto: t1/06-primer-proyecto.md
+      - Práctica T1: t1/practica.md
