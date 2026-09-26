@@ -1,0 +1,11 @@
+# Entorno de Python y web generada
+.venv/
+site/
+__pycache__/
+
+# Sistema
+.DS_Store
+
+# Soluciones, cuestionarios y demos del profesor.
+# Si el repositorio es PRIVADO y quieres guardarlos también, borra esta línea.
+materiales-docente/

@@ -1,0 +1,111 @@
+site_name: Desarrollo de Aplicaciones Híbridas
+site_description: Módulo de libre configuración · 2º DAM · IES Rafael Alberti · Curso 2026-2027
+site_author: Departamento de Informática · IES Rafael Alberti
+copyright: Curso 2026-2027 · IES Rafael Alberti (Cádiz) · CC BY-SA 4.0
+docs_dir: docs
+
+theme:
+  name: material
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    logo: material/cellphone-link
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search:
+      lang: es
+
+nav:
+  - Inicio:
+      - index.md
+      - Cómo funciona el curso: curso/funcionamiento.md
+      - Calendario: curso/calendario.md
+      - Evaluación: curso/evaluacion.md
+      - Preparar el entorno: curso/entorno.md
+  - UD1 Fundamentos:
+      - ud1/index.md
+      - Práctica guiada 0: ud1/practica-0.md
+      - Actividades: ud1/actividades.md
+  - UD2 Angular + Ionic:
+      - ud2/index.md
+      - Actividades: ud2/actividades.md
+  - UD3 Componentes y móvil:
+      - ud3/index.md
+      - Actividades: ud3/actividades.md
+  - UD4 APIs y datos:
+      - ud4/index.md
+      - Actividades: ud4/actividades.md
+  - UD5 Calidad y despliegue:
+      - ud5/index.md
+      - Actividades: ud5/actividades.md
+  - Docente:
+      - docente/index.md
+      - Sesión 1 paso a paso: docente/sesion-1.md
+      - Demo Hola DAM: docente/demo-hola-dam.md
+      - Guía de sesiones: docente/sesiones.md
+      - Mapa RA / CE: docente/mapa-ra-ce.md
+      - Rúbricas: docente/rubricas.md
+      - Prueba de diciembre: docente/prueba-diciembre.md
+      - Guía FFEOE (RA3): docente/ffeoe.md
+      - Qué cambia respecto a 2025-26: docente/cambios-2026.md
+  - Recursos:
+      - Chuleta Angular moderno: recursos/chuleta.md
+      - Problemas frecuentes: recursos/problemas.md
+      - Glosario: recursos/glosario.md
+
+validation:
+  links:
+    anchors: warn
