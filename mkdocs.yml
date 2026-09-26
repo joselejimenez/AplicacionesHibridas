@@ -79,28 +79,29 @@ nav:
       - ud1/index.md
       - Práctica guiada 0: ud1/practica-0.md
       - Actividades: ud1/actividades.md
-  - UD2 Angular + Ionic:
-      - ud2/index.md
-      - Actividades: ud2/actividades.md
-  - UD3 Componentes y móvil:
-      - ud3/index.md
-      - Actividades: ud3/actividades.md
-  - UD4 APIs y datos:
-      - ud4/index.md
-      - Actividades: ud4/actividades.md
-  - UD5 Calidad y despliegue:
-      - ud5/index.md
-      - Actividades: ud5/actividades.md
-  - Docente:
-      - docente/index.md
-      - Sesión 1 paso a paso: docente/sesion-1.md
-      - Demo Hola DAM: docente/demo-hola-dam.md
-      - Guía de sesiones: docente/sesiones.md
-      - Mapa RA / CE: docente/mapa-ra-ce.md
-      - Rúbricas: docente/rubricas.md
-      - Prueba de diciembre: docente/prueba-diciembre.md
-      - Guía FFEOE (RA3): docente/ffeoe.md
-      - Qué cambia respecto a 2025-26: docente/cambios-2026.md
+      
+#  - UD2 Angular + Ionic:
+#      - ud2/index.md
+#      - Actividades: ud2/actividades.md
+#  - UD3 Componentes y móvil:
+#      - ud3/index.md
+#      - Actividades: ud3/actividades.md
+#  - UD4 APIs y datos:
+#      - ud4/index.md
+#      - Actividades: ud4/actividades.md
+#  - UD5 Calidad y despliegue:
+#      - ud5/index.md
+#      - Actividades: ud5/actividades.md
+#  - Docente:
+#      - docente/index.md
+#      - Sesión 1 paso a paso: docente/sesion-1.md
+#      - Demo Hola DAM: docente/demo-hola-dam.md
+#      - Guía de sesiones: docente/sesiones.md
+#      - Mapa RA / CE: docente/mapa-ra-ce.md
+#      - Rúbricas: docente/rubricas.md
+#      - Prueba de diciembre: docente/prueba-diciembre.md
+#      - Guía FFEOE (RA3): docente/ffeoe.md
+#      - Qué cambia respecto a 2025-26: docente/cambios-2026.md
   - Recursos:
       - Chuleta Angular moderno: recursos/chuleta.md
       - Problemas frecuentes: recursos/problemas.md
