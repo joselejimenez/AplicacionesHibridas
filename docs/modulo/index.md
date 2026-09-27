@@ -26,7 +26,11 @@ El ciclo tiene tres módulos que tocan el desarrollo móvil. Para no repetir teo
 |---|---|---|---|
 | [Tema 1 · Entorno, Dart y primera app](../tema1/index.md) | Instalación del entorno, Dart desde cero hasta la asincronía, primera app en varias plataformas | RA1 e · RA2 a | 3 sesiones |
 | [Tema 2 · Arquitectura multiplataforma](../tema2/index.md) | Nativo, WebView, compilado, interpretado, KMP. Elegir con criterio | **Cierra RA1** | 1 sesión |
-| Tema 3 y siguientes | Interfaces, funcionalidades nativas, datos locales y remotos; optimización, pruebas y despliegue | RA2, RA3 | Resto del periodo |
+| [Tema 3 · Interfaces y navegación](../tema3/index.md) | Widgets, estado, navegación, formularios | RA2 b, c | 2 sesiones |
+| [Tema 4 · Funcionalidades nativas](../tema4/index.md) | Plugins, permisos, GPS, cámara, sensores | RA2 d | 1 sesión |
+| [Tema 5 · Datos locales y remotos](../tema5/index.md) | APIs REST, persistencia local, Firebase | RA2 e, f | 2 sesiones |
+| [Tema 6 · Rendimiento, pruebas y errores](../tema6/index.md) | DevTools, tests, gestión de errores | RA3 a, b, c | 2 sesiones |
+| [Tema 7 · Despliegue y distribución](../tema7/index.md) | Builds, firma, publicación, CI, documentación | RA3 d, e | 2 sesiones |
 
 !!! note "Temas siguientes"
-    Los temas de RA2 y RA3 se publicarán en esta misma web conforme avance el curso. La reserva de sesiones está en la [planificación](planificacion.md).
+    La visión completa está en la [hoja de ruta](hoja-de-ruta.md) y el detalle por sesiones en la [planificación](planificacion.md).

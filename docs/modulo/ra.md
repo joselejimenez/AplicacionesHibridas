@@ -43,12 +43,18 @@ El centro fijó los RA pero **no los criterios de evaluación**. Para poder eval
 | d | Se ha generado la versión de producción firmada para distintas plataformas. |
 | e | Se ha documentado la aplicación y se han identificado los canales de distribución. |
 
-## Mapa de temas publicados
+## Mapa de temas
 
 | Tema | RA1 | RA2 | RA3 |
 |---|---|---|---|
 | Tema 1 · Entorno, Dart y primera app | **e** | **a** | — |
 | Tema 2 · Arquitectura | **a, b, c, d** (cierra RA1) | — | — |
+| Tema 3 · Interfaces y navegación | — | **b, c** | — |
+| Tema 4 · Funcionalidades nativas | — | **d** | — |
+| Tema 5 · Datos locales y remotos | — | **e, f** | — |
+| Tema 6 · Rendimiento, pruebas y errores | — | — | **a, b, c** |
+| Tema 7 · Despliegue y distribución | — | — | **d, e** |
+| Proyecto final | — | b-f (repaso) | **a, b, c, d, e** |
 
 ## Ponderación
 

@@ -3,7 +3,7 @@
 !!! abstract "Ficha del tema"
     - **Duración:** 3 sesiones (≈ 9 horas)
     - **RA:** RA1 (CE e: instala y verifica el entorno) · RA2 (CE a: usa el lenguaje del framework, incluida la asincronía)
-    - **Actividades:** [Boletín de 6 ejercicios](#4-boletin-de-ejercicios) · [Práctica «Hola, plataformas»](#5-practica-hola-plataformas)
+    - **Actividades:** 22 ejercicios rápidos de clase ([sesión 1](#ejercicios-rapidos-sesion-1), [sesión 2](#ejercicios-rapidos-sesion-2), [sesión 3](#ejercicios-rapidos-sesion-3)) · [Boletín de 6 ejercicios](#4-boletin-de-ejercicios) · [Práctica «Hola, plataformas»](#5-practica-hola-plataformas)
     - **Al terminar tendrás:** el entorno instalado, soltura con Dart y **la misma app funcionando en Android, en el navegador y en tu escritorio**
 
 ```mermaid
@@ -550,6 +550,51 @@ tacita de plata''';
 }
 ```
 
+### Ejercicios rápidos de clase (sesión 1) { #ejercicios-rapidos-sesion-1 }
+
+Cortos (5-10 minutos cada uno) para ir cogiendo soltura. Cada uno en su fichero (`r1.dart`, `r3.dart`…) dentro de `dart_tema1`. No se entregan: se corrigen en clase.
+
+!!! example "R1 · Hola, Dart"
+    Escribe un programa que muestre tu nombre, tu ciclo y tu ciudad en tres líneas. Después, guarda esos datos en variables y muéstralos en **una sola línea** con interpolación:
+    `Soy Lucía, estudio 2º DAM en Cádiz.`
+
+!!! example "R2 · Hola, mundo en varias plataformas"
+    1. Crea un proyecto Flutter: `flutter create --org es.iesrafaelalberti hola_mundo`.
+    2. En `lib/main.dart`, busca el texto `'Flutter Demo Home Page'` y cámbialo por `'Hola, <tu nombre>'`.
+    3. Ejecútalo en **Chrome** (`flutter run -d chrome`) y en **al menos otra plataforma** (emulador Android o escritorio). Haz una captura de cada una.
+    4. Con la app abierta, cambia el texto otra vez y pulsa ++r++. ¿Qué ha pasado con el contador?
+
+!!! example "R3 · Ticket del bar"
+    Con las variables `producto` (`String`), `precio` (`double`), `unidades` (`int`) y `terraza` (`bool`), calcula el total (la terraza suma un 10 %) y muestra:
+    `3 x Café con leche a 1.40 € = 4.62 € (terraza)`
+    Usa `toStringAsFixed(2)`. Prueba con `terraza = false` para que no aparezca el paréntesis.
+
+!!! example "R4 · Conversor"
+    1. Pasa 25 °C, 0 °C y 40 °C a Fahrenheit (`F = C × 9 / 5 + 32`).
+    2. Declara `const tasaDolar = 1.08;` y convierte 50 € a dólares.
+    3. ¿Por qué `tasaDolar` puede ser `const` y la hora actual (`DateTime.now()`) no?
+
+!!! example "R5 · Segundos a horas"
+    Dado `final segundos = 7384;`, muestra `2 h 3 min 4 s` usando `~/` y `%`.
+    **Extra:** muéstralo como `02:03:04` con `toString().padLeft(2, '0')`.
+
+!!! example "R6 · ¿Tienes apodo?"
+    Declara `final nombre = 'Francisco';` y `String? apodo;`.
+    1. Saluda con el apodo si lo tiene y, si no, con el nombre, en **una sola línea** con `??`.
+    2. Muestra la longitud del apodo con `?.` sin que aparezca `null` (pista: `?? 0`).
+    3. Dale valor al apodo (`'Curro'`) y vuelve a ejecutar. ¿Qué cambia?
+
+!!! example "R7 · Iniciales"
+    Con `nombre = 'maría'`, `apellido1 = 'ruiz'` y `apellido2 = 'pérez'`:
+    1. Muestra las iniciales en mayúsculas: `M.R.P.` (pista: `nombre[0]`).
+    2. Muestra el nombre completo con la primera letra de cada parte en mayúscula: `María Ruiz Pérez`.
+    3. Muestra cuántas letras tiene en total, sin contar espacios.
+
+!!! example "R8 · Reto: ¿mayor de edad? (solo en local)"
+    Pide la edad por teclado con `stdin.readLineSync()` e `int.tryParse`.
+    - Si no es un número: `"hola" no es una edad válida`.
+    - Si es un número: indica si es mayor de edad y cuántos años faltan para los 18 (o cuántos han pasado).
+
 ### 2.6 Control de flujo
 
 **`if` / `else`** funciona como siempre.
@@ -846,6 +891,21 @@ void main() {
 
 !!! info "Sin excepciones comprobadas"
     En Dart **ninguna** excepción obliga a capturarla ni a declararla con `throws` (como en Kotlin).
+
+### Ejercicios rápidos de clase (sesión 2) { #ejercicios-rapidos-sesion-2 }
+
+Tras los apartados 2.6 a 2.10. Cada uno en su fichero dentro de `dart_tema1`. Se corrigen en clase.
+
+| # | Ejercicio | Apartado |
+|---|---|---|
+| R9 | **Par, impar y signo.** Recorre del -3 al 10 e imprime `-3 es impar y negativo`, `0 es par y cero`… El signo, con un `switch` como expresión | 2.6 |
+| R10 | **FizzBuzz gaditano.** Del 1 al 30: múltiplos de 3 → `Chirigota`, de 5 → `Comparsa`, de ambos → `¡Carnaval!`, el resto, el número | 2.6 |
+| R11 | **Tabla de multiplicar.** `String tabla(int n, {int hasta = 10})` que devuelva la tabla en un texto de varias líneas. Llámala con y sin `hasta` | 2.7 |
+| R12 | **¿Bisiesto?** `bool esBisiesto(int anio) => ...;` en una sola línea. Pruébalo con 2024, 2023, 1900 y 2000 | 2.7 |
+| R13 | **Estadísticas de notas.** Con `[6.5, 4.2, 9.1, 7.0, 3.8, 5.0]`: media con `fold`, máxima con `reduce`, cuántas aprobadas con `where` y la lista ordenada de mayor a menor | 2.8 |
+| R14 | **Contador de palabras.** Dado un texto, construye un `Map<String, int>` con cuántas veces aparece cada palabra (en minúsculas, sin comas ni puntos) | 2.5, 2.8 |
+| R15 | **Cuenta bancaria.** Clase `CuentaBancaria` con titular, `_saldo` privado, getter `saldo`, `ingresar` y `retirar`. Retirar más de lo que hay lanza una excepción propia que capturas en `main` | 2.9, 2.10 |
+| R16 | **Figuras.** Clase abstracta `Figura` con getter `area`; subclases `Circulo` y `Rectangulo`. Una `List<Figura>` y el área total | 2.9 |
 
 ### 2.11 Asincronía: `Future`, `async` y `await`
 
@@ -1206,6 +1266,19 @@ En Android Studio, el hot reload se lanza **al guardar** (++ctrl+s++ / ++cmd+s++
     1. Pulsa `+` hasta llegar a 5.
     2. Cambia `Colors.indigo` por `Colors.teal` y guarda (o pulsa ++r++).
     3. El color cambia **y el contador sigue en 5**.
+
+### Ejercicios rápidos de clase (sesión 3) { #ejercicios-rapidos-sesion-3 }
+
+Tras el apartado 2.11 y la primera app. Se corrigen en clase.
+
+| # | Ejercicio | Apartado |
+|---|---|---|
+| R17 | **La cafetera.** `Future<String> prepararCafe()` que tarda 3 s. En `main`: «Enciendo la cafetera», espera el café con `await` y «¡Café listo!» | 2.11 |
+| R18 | **Adivina el orden.** Sin ejecutarlo, escribe qué imprime: `print('A'); Future.delayed(Duration.zero, () => print('B')); print('C'); await Future.delayed(const Duration(milliseconds: 10)); print('D');`. Compruébalo y explícalo | 2.11 |
+| R19 | **Tres descargas.** Tres `Future` que tardan 1, 2 y 3 s. Mide el tiempo pidiéndolos uno detrás de otro y con `Future.wait` | 2.11 |
+| R20 | **División peligrosa.** `Future<double> dividir(int a, int b)` que tarda 1 s y lanza una excepción si `b` es 0. Captúrala con `try`/`catch` | 2.10, 2.11 |
+| R21 | **Cuenta atrás.** Un `Stream<int>` con `async*` que cuente de 10 a 0 cada medio segundo. Consúmelo con `await for` mostrando solo los pares | 2.11 |
+| R22 | **Contador que resta.** En `hola_mundo`, añade un segundo botón que reste y haz que el número se ponga en rojo cuando sea negativo. Usa solo hot reload | 3.3, 3.5 |
 
 ### 3.6 Adelanto: compilar para distribuir
 

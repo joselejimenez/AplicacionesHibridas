@@ -81,6 +81,7 @@ nav:
   - Inicio: index.md
   - El módulo:
       - modulo/index.md
+      - Hoja de ruta: modulo/hoja-de-ruta.md
       - Resultados de aprendizaje: modulo/ra.md
       - Decisión tecnológica: modulo/decision-tecnologica.md
       - Coordinación con PMDM y DI: modulo/coordinacion.md
@@ -93,4 +94,9 @@ nav:
       - "Kotlin Multiplatform: la tercera vía": tema2/03-kmp.md
       - Elegir con criterio: tema2/04-comparativa.md
       - Práctica: tema2/practica.md
-      
+  - "Tema 3 · Interfaces": tema3/index.md
+  - "Tema 4 · Nativas": tema4/index.md
+  - "Tema 5 · Datos": tema5/index.md
+  - "Tema 6 · Calidad": tema6/index.md
+  - "Tema 7 · Despliegue": tema7/index.md
+  - Proyecto final: proyecto/index.md

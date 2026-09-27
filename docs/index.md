@@ -27,6 +27,22 @@ Este curso vamos a construir apps que funcionan en Android, iOS, web y escritori
 
     [:octicons-arrow-right-24: Empezar el Tema 2](tema2/index.md)
 
+-   :material-cellphone-cog:{ .lg .middle } **Temas 3 a 5 · Desarrollo**
+
+    ---
+
+    Pantallas y navegación, GPS, cámara y sensores, APIs REST, persistencia local y Firebase.
+
+    [:octicons-arrow-right-24: Tema 3](tema3/index.md) · [Tema 4](tema4/index.md) · [Tema 5](tema5/index.md)
+
+-   :material-rocket-launch:{ .lg .middle } **Temas 6 y 7 · Calidad y despliegue**
+
+    ---
+
+    Rendimiento, pruebas, gestión de errores, builds firmados, publicación e integración continua.
+
+    [:octicons-arrow-right-24: Tema 6](tema6/index.md) · [Tema 7](tema7/index.md) · [Proyecto final](proyecto/index.md)
+
 -   :material-school:{ .lg .middle } **El módulo**
 
     ---
