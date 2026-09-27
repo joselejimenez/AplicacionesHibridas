@@ -30,7 +30,7 @@ gantt
 
 ```mermaid
 flowchart LR
-    T1["T1<br/>Dart + entorno"] --> T2["T2<br/>Arquitectura<br/>(cierra RA1)"]
+    T1["T1<br/>Dart + entorno"] --> T2["T2<br/>Arquitectura<br/>y diseño (RA1)"]
     T2 --> T3["T3<br/>Pantallas"]
     T3 --> T4["T4<br/>Hardware"]
     T4 --> T5["T5<br/>Datos"]
@@ -48,11 +48,11 @@ flowchart LR
 
 | Tema | Sesiones | RA · CE | Contenido esencial | Prácticas |
 |---|---|---|---|---|
-| [**T1 · Entorno, Dart y primera app**](../tema1/index.md) | 1-3 · 28 sep, 5 oct, 19 oct | RA1 e · RA2 a | Instalación y `flutter doctor`. Dart desde cero (con puentes Java/Kotlin) hasta `Future`/`Stream`. La misma app en Android, web y escritorio | «Hola, plataformas» |
-| [**T2 · Arquitectura**](../tema2/index.md) | 4 · 26 oct | RA1 a, b, c, d | Nativo, WebView, compilado, interpretado, KMP. Flutter por dentro. Elegir con criterio | Informe de arquitectura (parejas) |
-| [**T3 · Interfaces y navegación**](../tema3/index.md) | 5-6 · 9 y 16 nov | RA2 b, c | Widgets y layout (desde Compose), listas, estado con `setState` y `provider`, navegación, formularios, tema y diseño adaptable | 3.1 Cádiz Market · 3.2 Alta de clientes |
-| [**T4 · Funcionalidades nativas**](../tema4/index.md) | 7 · 23 nov | RA2 d | Plugins, permisos, GPS, cámara, sensores, linterna, audio, ciclo de vida | 4.1 GPS con IA · 4.2 **Eureka** |
-| [**T5 · Datos locales y remotos**](../tema5/index.md) | 8-9 · 30 nov, 14 dic | RA2 e, f | `http` + JSON, `FutureBuilder`, errores de red, CRUD contra la API de PMDM. `shared_preferences`, SQLite. Firebase Auth y Firestore | 5.1 Terremotos y mi API · 5.2 Mis lugares |
+| [**T1 · Entorno, Dart y primera app**](../tema1/index.md) | 1-3 · 28 sep, 5 oct, 19 oct | RA2 a, c (base) | Instalación y `flutter doctor`. Dart desde cero (con puentes Java/Kotlin) hasta `Future`/`Stream`. La misma app en Android, web y escritorio | «Hola, plataformas» |
+| [**T2 · Arquitectura y diseño**](../tema2/index.md) | 4 · 26 oct | RA1 a-e | Nativo, WebView, compilado, interpretado, KMP. Flutter por dentro. Elegir con criterio. Patrones, estructura y mobile-first | Informe de arquitectura y diseño (parejas) |
+| [**T3 · Interfaces y navegación**](../tema3/index.md) | 5-6 · 9 y 16 nov | RA2 a, c, e · RA1 e | Widgets y layout (desde Compose), listas, estado con `setState` y `provider`, navegación, formularios, tema y diseño adaptable | 3.1 Cádiz Market · 3.2 Alta de clientes |
+| [**T4 · Funcionalidades nativas**](../tema4/index.md) | 7 · 23 nov | RA2 b, c | Plugins, permisos, GPS, cámara, sensores, linterna, audio, ciclo de vida | 4.1 GPS con IA · 4.2 **Eureka** |
+| [**T5 · Datos locales y remotos**](../tema5/index.md) | 8-9 · 30 nov, 14 dic | RA2 d | `http` + JSON, `FutureBuilder`, errores de red, CRUD contra la API de PMDM. `shared_preferences`, SQLite. Firebase Auth y Firestore | 5.1 Terremotos y mi API · 5.2 Mis lugares |
 | **1ª parcial** | 10 · 21 dic | RA1 + RA2 | Prueba teórico-práctica. **Arranque del [proyecto final](../proyecto/index.md)** | Panel SCRUM |
 | [**T6 · Rendimiento, pruebas y errores**](../tema6/index.md) | 11-12 · 11 y 18 ene | RA3 a, b, c | DevTools, las 10 reglas de rendimiento, tests unitarios, de widget y de integración, *mocks*, errores centralizados | 6.1 De malas a buenas prácticas · 6.2 Tests para Cádiz Market |
 | [**T7 · Despliegue y distribución**](../tema7/index.md) | 13-14 · 25 ene, 1 feb | RA3 d, e | Identidad, firma, `flutter build` para cada plataforma, web en GitHub Pages / Firebase Hosting, tiendas, CI, documentación | 7.1 Cádiz Market en producción |
@@ -72,7 +72,7 @@ Cada tema tiene cuatro niveles de práctica, de más guiado a más autónomo:
 | Tema | Rápidos | Guiados | Boletín | Prácticas |
 |---|---|---|---|---|
 | T1 | 22 | — | 6 | 1 |
-| T2 | 3 | — | 5 casos | 1 |
+| T2 | 4 | — | 5 casos | 1 |
 | T3 | 16 | 4 | 10 | 2 |
 | T4 | 9 | 1 | 9 | 2 |
 | T5 | 12 | 4 | 10 | 2 |
@@ -129,14 +129,16 @@ flowchart LR
 
 ## Evaluación
 
-| RA | Peso | Instrumentos |
-|---|---|---|
-| **RA1** | 20 % | Informe de arquitectura T2 (50 %) · Parte RA1 de la 1ª parcial (40 %) · Evidencias del entorno, E1 del boletín T1 (10 %) |
-| **RA2** | 40 % | Boletín y práctica T1 (20 %) · Boletín y prácticas T3 (20 %) · Boletín y prácticas T4 (15 %) · Boletín y prácticas T5 (20 %) · Parte práctica de la 1ª parcial (25 %) |
-| **RA3** | 40 % | **En el aula, 70 %:** Práctica 6.1 (15 %) · Práctica 6.2 (5 %) · Práctica 7.1 (5 %) · Boletines T6 y T7 (5 %) · Proyecto final con defensa (40 %). **En la FFEOE, 30 %:** actividad de validación |
+Los 15 criterios de evaluación oficiales, con su peso y sus instrumentos, están en [Resultados de aprendizaje](ra.md#ponderacion-e-instrumentos). Resumen:
 
-!!! note "Propuesta"
-    Los pesos de los RA (20/40/40) y el reparto 70/30 del RA3 son los de la programación. Los porcentajes internos son una propuesta: ajústalos en el departamento.
+| RA | Peso | Cada CE | Instrumentos principales |
+|---|---|---|---|
+| **RA1** | 20 % | 4 % | Informe de arquitectura y diseño (T2) · 1ª parcial · diseño inicial del proyecto · Práctica 3.1 (responsive) |
+| **RA2** | 40 % | 8 % | Boletines y prácticas de T1, T3, T4 y T5 · 1ª parcial |
+| **RA3** | 40 % | 8 % | **En el aula, 70 %:** prácticas 6.1, 6.2 y 7.1 y proyecto final con defensa. **En la FFEOE, 30 %:** actividad de validación |
+
+!!! warning "Comprobar con el departamento"
+    En la programación, los criterios del RA3 figuran con la actividad de la FFEOE como instrumento. Aquí se propone evaluarlos en el aula y validarlos en la FFEOE (70/30).
 
 La actividad de la FFEOE está descrita en la página del [proyecto final](../proyecto/index.md#actividad-ffeoe).
 

@@ -1,8 +1,8 @@
-# Tema 2 · Arquitectura de apps multiplataforma
+# Tema 2 · Arquitectura y diseño de apps multiplataforma
 
 !!! abstract "Ficha del tema"
-    - **Duración:** 1 sesión
-    - **RA:** **cierra el RA1** (CE a, b, c, d; el CE e se trabajó en el Tema 1)
+    - **Duración:** 1 sesión (+ trabajo en casa)
+    - **RA:** **RA1 completo** (CE a, b, c, d, e). El CE e se refuerza en el Tema 3
     - **Entrega:** [Práctica · Informe de arquitectura](practica.md)
 
 !!! info "Ya lo conoces (PMDM)"
@@ -30,6 +30,7 @@ flowchart TD
 | [Flutter por dentro](02-flutter-por-dentro.md) | Capas de Flutter, Impeller, AOT/JIT. **Nativo en ejecución, no en widgets** |
 | [Kotlin Multiplatform: la tercera vía](03-kmp.md) | Compartir lógica y dejar la UI nativa (o no) |
 | [Elegir con criterio](04-comparativa.md) | Tabla comparativa y casos prácticos |
+| [Diseñar la app](05-diseno.md) | Patrones (MVVM, repositorio), estructura del proyecto, usabilidad, mobile-first y responsive |
 | [Práctica](practica.md) | Entregable |
 
 ## Objetivos
@@ -38,3 +39,4 @@ flowchart TD
 - [x] Explicar por qué Flutter es nativo en ejecución pero no en widgets.
 - [x] Situar Kotlin Multiplatform frente al resto.
 - [x] Elegir y justificar una tecnología para un caso concreto.
+- [x] Diseñar la estructura de una app (capas, carpetas, patrones) y sus bocetos mobile-first.

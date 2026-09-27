@@ -8,18 +8,18 @@ Clase **los lunes de 15:30 a 18:30**. La parte presencial termina el **15 de feb
 
 | # | Fecha | Tema | Contenido | RA · CE |
 |---|---|---|---|---|
-| 1 | Lun 28 sep | Tema 1 | Presentación del módulo. Evaluación inicial. **Instalación del entorno** y `flutter doctor`. Dart: variables, tipos, null safety, operadores, cadenas | RA1 e · RA2 a |
-| 2 | Lun 5 oct | Tema 1 | Dart: control de flujo, funciones, colecciones, clases, excepciones. Boletín E2-E5 | RA2 a |
+| 1 | Lun 28 sep | Tema 1 | Presentación del módulo. **Instalación del entorno**. Hola mundo en varias plataformas. Dart: variables, tipos, null safety, operadores, cadenas | RA2 a |
+| 2 | Lun 5 oct | Tema 1 | Dart: control de flujo, funciones, colecciones, clases, excepciones. Boletín E2-E5 | RA2 (base) |
 | — | Lun 12 oct | — | **Festivo** (Fiesta Nacional) | — |
-| 3 | Lun 19 oct | Tema 1 | **Future, async/await**, Stream. Primera app Flutter en Android, web y escritorio. Práctica «Hola, plataformas» | RA1 e · RA2 a |
-| 4 | Lun 26 oct | Tema 2 | Los cuatro enfoques + KMP. Flutter por dentro. Comparativa y elección con criterio. Práctica del Tema 2 | RA1 a, b, c, d |
+| 3 | Lun 19 oct | Tema 1 | **Future, async/await**, Stream. Primera app Flutter en Android, web y escritorio. Práctica «Hola, plataformas» | RA2 a, c |
+| 4 | Lun 26 oct | Tema 2 | Los cuatro enfoques + KMP. Flutter por dentro. Elegir con criterio. Diseñar la app: patrones, estructura y mobile-first | RA1 a, b, c, d, e |
 | — | Lun 2 nov | — | **Festivo** | — |
-| 5 | Lun 9 nov | T3 | Widgets y layout desde Compose, listas, estado con `setState` y `provider` | RA2 b, c |
-| 6 | Lun 16 nov | T3 | Navegación, formularios y validación, diseño adaptable | RA2 b, c |
-| 7 | Lun 23 nov | T4 | Plugins, permisos, GPS, cámara, sensores, notificaciones. Eureka | RA2 d |
-| 8 | Lun 30 nov | T5 | `http`, JSON, `FutureBuilder`, errores de red. Terremotos + API de PMDM | RA2 f |
+| 5 | Lun 9 nov | T3 | Widgets y layout desde Compose, listas, estado con `setState` y `provider` | RA2 a, c |
+| 6 | Lun 16 nov | T3 | Navegación, formularios y validación, diseño adaptable | RA2 a, e · RA1 e |
+| 7 | Lun 23 nov | T4 | Plugins, permisos, GPS, cámara, sensores, ciclo de vida. Eureka | RA2 b, c |
+| 8 | Lun 30 nov | T5 | `http`, JSON, `FutureBuilder`, errores de red. Terremotos + API de PMDM | RA2 d |
 | — | Lun 7 dic | — | **Festivo** | — |
-| 9 | Lun 14 dic | T5 | `shared_preferences`, SQLite, Firebase Auth y Firestore. Mis lugares | RA2 e, f |
+| 9 | Lun 14 dic | T5 | `shared_preferences`, SQLite, Firebase Auth y Firestore. Mis lugares | RA2 d |
 | 10 | Lun 21 dic | 1ª parcial | Prueba teórico-práctica RA1 + RA2 · Arranque del proyecto final y panel SCRUM | RA1, RA2 |
 | — | 28 dic – 7 ene | — | **Vacaciones de Navidad** | — |
 | 11 | Lun 11 ene | T6 | DevTools y optimización. De malas a buenas prácticas | RA3 a |

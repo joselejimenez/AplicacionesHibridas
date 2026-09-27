@@ -2,7 +2,7 @@
 
 !!! abstract "Ficha del tema"
     - **Duración:** 3 sesiones (≈ 9 horas)
-    - **RA:** RA1 (CE e: instala y verifica el entorno) · RA2 (CE a: usa el lenguaje del framework, incluida la asincronía)
+    - **RA:** RA2 · CE a (primera interfaz) y c (asincronía y estados). Es la **base** de todo el RA2: el lenguaje y el entorno con los que se desarrollan el resto de criterios
     - **Actividades:** 22 ejercicios rápidos de clase ([sesión 1](#ejercicios-rapidos-sesion-1), [sesión 2](#ejercicios-rapidos-sesion-2), [sesión 3](#ejercicios-rapidos-sesion-3)) · [Boletín de 6 ejercicios](#4-boletin-de-ejercicios) · [Práctica «Hola, plataformas»](#5-practica-hola-plataformas)
     - **Al terminar tendrás:** el entorno instalado, soltura con Dart y **la misma app funcionando en Android, en el navegador y en tu escritorio**
 
@@ -1367,7 +1367,7 @@ final precios = {
     - **Individual**
     - **Entrega:** enlace a un repositorio de GitHub con el proyecto + un PDF con las capturas y las respuestas, en la plataforma del módulo
     - **Duración orientativa:** 4-5 horas
-    - **RA1 · CE e** (entorno) · **RA2 · CE a** (lenguaje y asincronía)
+    - **RA2 · CE a** (interfaz de la app) · **CE c** (estados de carga, error y datos con asincronía)
 
 ### Enunciado
 

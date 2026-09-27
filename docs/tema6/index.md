@@ -2,7 +2,7 @@
 
 !!! abstract "Ficha del tema"
     - **Duración:** 2 sesiones (11 y 18 de enero)
-    - **RA:** RA3 · CE a (rendimiento y perfilado) · CE b (pruebas) · CE c (errores y registro)
+    - **RA:** RA3 · CE a (optimizar recursos y rendimiento) · CE b (pruebas de funcionamiento en diferentes dispositivos y condiciones) · CE c (gestión de errores y excepciones)
     - **Actividades:** [10 ejercicios rápidos de clase](#ejercicios-rapidos) · 2 guiados · [Boletín de 8 ejercicios](#boletin-de-ejercicios) · [Práctica 6.1 · De malas a buenas prácticas](#practica-61-de-malas-a-buenas-practicas) · [Práctica 6.2 · Tests para Cádiz Market](#practica-62-tests-para-cadiz-market)
 
 | Sesión | Contenido | En clase |

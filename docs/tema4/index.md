@@ -2,7 +2,7 @@
 
 !!! abstract "Ficha del tema"
     - **Duración:** 1 sesión (23 de noviembre) + trabajo en casa
-    - **RA:** RA2 · CE d (acceso a funcionalidades nativas con gestión de permisos)
+    - **RA:** RA2 · CE b (acceso a características nativas: cámara, geolocalización, sensores…) · CE c (ciclo de vida de la app)
     - **Actividades:** [9 ejercicios rápidos de clase](#ejercicios-rapidos) · 1 guiado · [Boletín de 9 ejercicios](#boletin-de-ejercicios) · [Práctica 4.1 · GPS con IA](#practica-41-gps-con-ia) · [Práctica 4.2 · Eureka](#practica-42-eureka)
 
 !!! warning "Trae tu móvil Android"
@@ -467,7 +467,7 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 ## Práctica 4.1 · GPS con IA { #practica-41-gps-con-ia }
 
 !!! abstract "Datos de la entrega"
-    - **Individual** · **RA2 · CE d**
+    - **Individual** · **RA2 · CE b**
     - **Entrega:** repositorio `gps_ia` + documento con los *prompts* usados · **Fecha:** domingo 6 de diciembre
 
 Adaptación de la actividad del curso pasado. Vas a usar un asistente de IA para escribir la capa de servicio, y **tu trabajo es dirigirla, revisarla y entenderla**.
@@ -490,7 +490,7 @@ Adaptación de la actividad del curso pasado. Vas a usar un asistente de IA para
 ## Práctica 4.2 · Eureka { #practica-42-eureka }
 
 !!! abstract "Datos de la entrega"
-    - **Individual** · **RA2 · CE d** · Actividad evaluable del T4
+    - **Individual** · **RA2 · CE b, c** · Actividad evaluable del T4
     - **Entrega:** repositorio `eureka` + vídeo grabado **con otro móvil** mostrando el efecto · **Fecha:** domingo 13 de diciembre
 
 La actividad estrella del curso pasado, en Flutter. Una app con una pantalla principal y **tres widgets hijos**:

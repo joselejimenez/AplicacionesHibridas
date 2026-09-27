@@ -2,7 +2,7 @@
 
 !!! abstract "Ficha del tema"
     - **Duración:** 2 sesiones (9 y 16 de noviembre)
-    - **RA:** RA2 · CE b (interfaces, navegación, adaptación a pantallas) · CE c (estado)
+    - **RA:** RA2 · CE a (interfaces interactivas y adaptables) · CE c (estado) · CE e (navegación) · también RA1 · CE e (diseño responsive, apartado 9)
     - **Actividades:** [16 ejercicios rápidos de clase](#ejercicios-rapidos) · 4 guiados · [Boletín de 10 ejercicios](#boletin-de-ejercicios) · [Práctica 3.1 · Cádiz Market](#practica-31-cadiz-market) · [Práctica 3.2 · Alta de clientes](#practica-32-alta-de-clientes)
 
 !!! info "Ya lo conoces (DI)"
@@ -636,6 +636,8 @@ Container(color: Theme.of(context).colorScheme.primaryContainer)
 
 ### Diseño adaptable
 
+Los criterios de diseño (puntos de corte, mobile-first, responsive frente a adaptativo) están en [Tema 2 · Diseñar la app](../tema2/05-diseno.md). Aquí los aplicamos.
+
 Una app multiplataforma se verá en un móvil, en una tablet y en un monitor. `LayoutBuilder` te dice cuánto espacio hay:
 
 ```dart
@@ -714,7 +716,7 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 ## Práctica 3.1 · Cádiz Market { #practica-31-cadiz-market }
 
 !!! abstract "Datos de la entrega"
-    - **Individual** · **RA2 · CE b, c**
+    - **Individual** · **RA2 · CE a, c, e** · **RA1 · CE e**
     - **Entrega:** repositorio de GitHub `cadiz_market` + vídeo corto (1-2 min) mostrándola en funcionamiento
     - **Fecha:** domingo 22 de noviembre
     - **Duración orientativa:** 5-6 horas
@@ -747,7 +749,7 @@ Una tienda de productos de Cádiz. Es la versión Flutter de la actividad del cu
 ## Práctica 3.2 · Alta de clientes { #practica-32-alta-de-clientes }
 
 !!! abstract "Datos de la entrega"
-    - **Individual** · **RA2 · CE b, c**
+    - **Individual** · **RA2 · CE a, c**
     - Se añade al proyecto `cadiz_market` como cuarta pestaña «Clientes»
     - **Fecha:** domingo 29 de noviembre
 

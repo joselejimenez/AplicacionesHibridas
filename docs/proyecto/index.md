@@ -11,11 +11,12 @@ Una app multiplataforma **de verdad**, pensada por vosotros, que junte todo lo a
 
 | # | Requisito | Tema | CE |
 |---|---|---|---|
-| 1 | Al menos **3 pantallas** con navegación y un **formulario validado** | T3 | RA2 b |
+| 0 | **Documento de diseño** al arrancar: capas, estructura de carpetas y bocetos mobile-first (móvil y escritorio) | T2 | RA1 d, e |
+| 1 | Al menos **3 pantallas** con navegación y un **formulario validado**, adaptables a móvil y escritorio | T3 | RA2 a, e |
 | 2 | **Estado compartido** con `provider` (u otra solución justificada) | T3 | RA2 c |
-| 3 | Al menos **una funcionalidad nativa** (GPS, cámara, sensores o notificaciones) con gestión de permisos | T4 | RA2 d |
-| 4 | **Persistencia local** (`shared_preferences` o SQLite) | T5 | RA2 e |
-| 5 | **Datos remotos**: una API REST o Firebase, con errores de red controlados | T5 | RA2 f |
+| 3 | Al menos **una funcionalidad nativa** (GPS, cámara, sensores o notificaciones) con gestión de permisos | T4 | RA2 b, c |
+| 4 | **Persistencia local** (`shared_preferences` o SQLite) | T5 | RA2 d |
+| 5 | **Datos remotos**: una API REST o Firebase, con errores de red controlados | T5 | RA2 d |
 | 6 | **Análisis de rendimiento** con DevTools documentado (antes y después de al menos una mejora) | T6 | RA3 a |
 | 7 | **Tests**: mínimo 10 unitarios, 3 de widget y 1 de integración | T6 | RA3 b |
 | 8 | **Gestión centralizada de errores** y registro | T6 | RA3 c |
@@ -41,7 +42,7 @@ Una app multiplataforma **de verdad**, pensada por vosotros, que junte todo lo a
 
 | Fecha | Hito | Qué se entrega | Se revisa en clase |
 |---|---|---|---|
-| **21 dic** | Arranque | Equipo, idea, 10 historias de usuario y panel en **GitHub Projects** | Sí, al final de la 1ª parcial |
+| **21 dic** | Arranque | Equipo, idea, 10 historias de usuario, panel en **GitHub Projects** y documento de diseño (requisito 0) | Sí, al final de la 1ª parcial |
 | **11 ene** | Prototipo | Pantallas navegables con datos de prueba | Sí, 20 min |
 | **25 ene** | Funcional | Funcionalidades completas, tests y análisis de rendimiento | Sí, 20 min |
 | **1 feb** | Producción | Builds firmados, web publicada, CI | Sí, 20 min |
@@ -60,7 +61,7 @@ Una app multiplataforma **de verdad**, pensada por vosotros, que junte todo lo a
 
 | Criterio | CE | Peso | Excelente | Adecuado | Insuficiente |
 |---|---|---|---|---|---|
-| Funcionalidad y requisitos 1-5 | RA2 | 20 % | Todos los requisitos, integrados con sentido | Todos pero alguno forzado o incompleto | Faltan requisitos |
+| Diseño y funcionalidad (requisitos 0-5) | RA1 d, e · RA2 | 20 % | Todos los requisitos, integrados con sentido | Todos pero alguno forzado o incompleto | Faltan requisitos |
 | Rendimiento | RA3 a | 10 % | Análisis con medidas y mejora demostrada | Análisis sin medidas antes/después | Sin análisis |
 | Pruebas | RA3 b | 15 % | Supera los mínimos, casos límite, CI en verde | Cumple los mínimos | Por debajo de los mínimos |
 | Errores y registro | RA3 c | 10 % | Centralizados, mensajes útiles al usuario | Parcial | Sin gestión |

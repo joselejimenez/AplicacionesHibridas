@@ -107,12 +107,13 @@ nav:
       - Coordinación con PMDM y DI: modulo/coordinacion.md
       - Planificación: modulo/planificacion.md
   - "Tema 1 · Entorno y Dart": tema1/index.md
-  - "Tema 2 · Arquitectura":
+  - "Tema 2 · Arquitectura y diseño":
       - tema2/index.md
       - Cuatro formas de hacer una app: tema2/01-enfoques.md
       - Flutter por dentro: tema2/02-flutter-por-dentro.md
       - "Kotlin Multiplatform: la tercera vía": tema2/03-kmp.md
       - Elegir con criterio: tema2/04-comparativa.md
+      - Diseñar la app: tema2/05-diseno.md
       - Práctica: tema2/practica.md
   - "Tema 3 · Interfaces": tema3/index.md
   - "Tema 4 · Nativas": tema4/index.md

@@ -2,7 +2,7 @@
 
 !!! abstract "Ficha del tema"
     - **Duración:** 2 sesiones (30 de noviembre y 14 de diciembre)
-    - **RA:** RA2 · CE e (datos locales persistentes) · CE f (servicios remotos y nube, con errores de red)
+    - **RA:** RA2 · CE d (almacenamiento persistente de datos, local y remoto)
     - **Actividades:** [12 ejercicios rápidos de clase](#ejercicios-rapidos) · 4 guiados · [Boletín de 10 ejercicios](#boletin-de-ejercicios) · [Práctica 5.1 · Terremotos y mi API](#practica-51-terremotos-y-mi-api) · [Práctica 5.2 · Mis lugares](#practica-52-mis-lugares)
 
 | Sesión | Contenido | En clase |
@@ -601,7 +601,7 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 ## Práctica 5.1 · Terremotos y mi API { #practica-51-terremotos-y-mi-api }
 
 !!! abstract "Datos de la entrega"
-    - **Individual** · **RA2 · CE f**
+    - **Individual** · **RA2 · CE d**
     - **Entrega:** repositorio `terremotos` + vídeo de 1-2 minutos · **Fecha:** domingo 13 de diciembre
 
 Adaptación de la actividad del curso pasado. Una app con **dos pestañas** (`NavigationBar`):
@@ -631,7 +631,7 @@ Adaptación de la actividad del curso pasado. Una app con **dos pestañas** (`Na
 ## Práctica 5.2 · Mis lugares { #practica-52-mis-lugares }
 
 !!! abstract "Datos de la entrega"
-    - **Individual** · **RA2 · CE d, e, f** · Práctica de síntesis del RA2
+    - **Individual** · **RA2 · CE a, b, d, e** · Práctica de síntesis del RA2
     - **Entrega:** repositorio `mis_lugares` + vídeo con la app en el móvil **y** en Chrome a la vez · **Fecha:** domingo 20 de diciembre
 
 Una app para guardar tus sitios favoritos de Cádiz. Junta los temas 3, 4 y 5:

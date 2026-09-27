@@ -2,7 +2,7 @@
 
 !!! abstract "Ficha del tema"
     - **Duración:** 2 sesiones (25 de enero y 1 de febrero)
-    - **RA:** RA3 · CE d (versión de producción firmada para varias plataformas) · CE e (documentación y canales de distribución)
+    - **RA:** RA3 · CE d (preparar y empaquetar para diferentes plataformas y tiendas) · CE e (documentar desarrollo, pruebas y despliegue)
     - **Actividades:** [9 ejercicios rápidos de clase](#ejercicios-rapidos) · 2 guiados · [Boletín de 8 ejercicios](#boletin-de-ejercicios) · [Práctica 7.1 · Cádiz Market en producción](#practica-71-cadiz-market-en-produccion)
 
 | Sesión | Contenido | En clase |
