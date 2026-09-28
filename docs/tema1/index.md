@@ -338,8 +338,8 @@ flutter doctor -v
 ??? failure "El emulador no aparece en `flutter devices`"
     Comprueba que está **arrancado** y que `adb devices` lo ve (PMDM). Si `adb` no lo ve, el problema es del emulador, no de Flutter.
 
-??? failure "En el aula: errores de red o de proxy"
-    Avisa al profesor: puede que haga falta configurar el proxy del centro o usar un SDK ya descargado en una unidad compartida.
+# ??? failure "En el aula: errores de red o de proxy"
+#    Avisa al profesor: puede que haga falta configurar el proxy del centro o usar un SDK ya descargado en una unidad compartida.
 
 ---
 
