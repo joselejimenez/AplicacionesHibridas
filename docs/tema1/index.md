@@ -552,7 +552,7 @@ tacita de plata''';
 
 ### Ejercicios rápidos de clase (sesión 1) { #ejercicios-rapidos-sesion-1 }
 
-Cortos (5-10 minutos cada uno) para ir cogiendo soltura. Cada uno en su fichero (`r1.dart`, `r3.dart`…) dentro de `dart_tema1`. No se entregan: se corrigen en clase.
+Cortos (5-10 minutos cada uno) para ir cogiendo soltura. Cada uno en su fichero (`r1.dart`, `r3.dart`…) dentro de `dart_tema1`. No se entregan.
 
 !!! example "R1 · Hola, Dart"
     Escribe un programa que muestre tu nombre, tu ciclo y tu ciudad en tres líneas. Después, guarda esos datos en variables y muéstralos en **una sola línea** con interpolación:
@@ -894,7 +894,7 @@ void main() {
 
 ### Ejercicios rápidos de clase (sesión 2) { #ejercicios-rapidos-sesion-2 }
 
-Tras los apartados 2.6 a 2.10. Cada uno en su fichero dentro de `dart_tema1`. Se corrigen en clase.
+Tras los apartados 2.6 a 2.10. Cada uno en su fichero dentro de `dart_tema1`. .
 
 | # | Ejercicio | Apartado |
 |---|---|---|
@@ -1269,7 +1269,7 @@ En Android Studio, el hot reload se lanza **al guardar** (++ctrl+s++ / ++cmd+s++
 
 ### Ejercicios rápidos de clase (sesión 3) { #ejercicios-rapidos-sesion-3 }
 
-Tras el apartado 2.11 y la primera app. Se corrigen en clase.
+Tras el apartado 2.11 y la primera app.
 
 | # | Ejercicio | Apartado |
 |---|---|---|
