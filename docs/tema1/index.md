@@ -1360,7 +1360,7 @@ final precios = {
 4. Responde en un comentario: ¿cuánto tardaría si descargaras las letras una detrás de otra? ¿Por qué?
 
 ---
-
+<!-- 
 ## 5. Práctica · «Hola, plataformas»
 
 !!! abstract "Datos de la entrega"
@@ -1454,4 +1454,4 @@ Modifica `lib/main.dart` para que:
 | Entorno | Un SDK (Flutter, con Dart dentro) + las herramientas nativas de cada plataforma de destino. `flutter doctor` dice qué falta. Solo hay que tener en verde lo que vayas a usar |
 | Dart | Tipado estático, `var`/`final`/`const`, null safety (`?`, `??`, `?.`), parámetros con nombre, colecciones con `where`/`map`/`fold`, clases sin `new` y privacidad con `_` |
 | Asincronía | `Future` + `async`/`await` + `try`/`catch`. `Future.wait` para paralelo. `Stream` para varios valores en el tiempo |
-| Flutter | El código vive en `lib/`. `flutter run -d <dispositivo>` para cada plataforma. Hot reload con ++r++ |
+| Flutter | El código vive en `lib/`. `flutter run -d <dispositivo>` para cada plataforma. Hot reload con ++r++ | -->
