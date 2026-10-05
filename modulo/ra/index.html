@@ -1,0 +1,1364 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Material didáctico del módulo propio de centro "Aplicaciones Híbridas" (2º DAM, IES Rafael Alberti, Cádiz) con Flutter y Dart.">
+      
+      
+        <meta name="author" content="Departamento de Informática · IES Rafael Alberti">
+      
+      
+        <link rel="canonical" href="https://joselejimenez.github.io/AplicacionesHibridas/modulo/ra/">
+      
+      
+        <link rel="prev" href="../hoja-de-ruta/">
+      
+      
+        <link rel="next" href="../decision-tecnologica/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Resultados de aprendizaje - Aplicaciones Híbridas · 2º DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#resultados-de-aprendizaje-y-criterios-de-evaluacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Aplicaciones Híbridas · 2º DAM" class="md-header__button md-logo" aria-label="Aplicaciones Híbridas · 2º DAM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 17h-4v-7h4m1-2h-6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1M4 6h18V4H4a2 2 0 0 0-2 2v11H0v3h14v-3H4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aplicaciones Híbridas · 2º DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Resultados de aprendizaje
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/joselejimenez/AplicacionesHibridas" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joselejimenez/AplicacionesHibridas
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  El módulo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 1 · Entorno y Dart
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aplicaciones Híbridas · 2º DAM" class="md-nav__button md-logo" aria-label="Aplicaciones Híbridas · 2º DAM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 17h-4v-7h4m1-2h-6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1M4 6h18V4H4a2 2 0 0 0-2 2v11H0v3h14v-3H4z"/></svg>
+
+    </a>
+    Aplicaciones Híbridas · 2º DAM
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/joselejimenez/AplicacionesHibridas" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joselejimenez/AplicacionesHibridas
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    El módulo
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    El módulo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hoja-de-ruta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hoja de ruta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resultados de aprendizaje
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resultados de aprendizaje
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ra1-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA1 · 20 %
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ra2-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA2 · 40 %
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ra3-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA3 · 40 %
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapa-de-temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapa de temas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correspondencia-con-las-unidades-didacticas-de-la-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correspondencia con las unidades didácticas de la programación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ponderacion-e-instrumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación e instrumentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../decision-tecnologica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisión tecnológica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinación con PMDM y DI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1 · Entorno y Dart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ra1-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA1 · 20 %
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ra2-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA2 · 40 %
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ra3-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RA3 · 40 %
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapa-de-temas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mapa de temas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correspondencia-con-las-unidades-didacticas-de-la-programacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correspondencia con las unidades didácticas de la programación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ponderacion-e-instrumentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ponderación e instrumentos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="resultados-de-aprendizaje-y-criterios-de-evaluacion">Resultados de aprendizaje y criterios de evaluación<a class="headerlink" href="#resultados-de-aprendizaje-y-criterios-de-evaluacion" title="Permanent link">&para;</a></h1>
+<p>Módulo de <strong>horas de libre configuración</strong> del ciclo. Los resultados de aprendizaje y los criterios de evaluación son los de la <strong>programación del departamento</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>RA</th>
+<th>Logro</th>
+<th>Objeto</th>
+<th>Acciones en el contexto de aprendizaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA1</strong></td>
+<td>Diseña</td>
+<td>Aplicaciones híbridas</td>
+<td>Identificando su arquitectura y valorando las ventajas y limitaciones de las diferentes soluciones disponibles</td>
+</tr>
+<tr>
+<td><strong>RA2</strong></td>
+<td>Desarrolla</td>
+<td>Aplicaciones híbridas</td>
+<td>Implementando interfaces de usuario, accediendo a funcionalidades nativas de los dispositivos y gestionando datos locales y remotos</td>
+</tr>
+<tr>
+<td><strong>RA3</strong></td>
+<td>Optimiza, prueba y despliega</td>
+<td>Aplicaciones híbridas</td>
+<td>Empleando herramientas específicas y aplicando técnicas para garantizar la calidad y el rendimiento en diferentes plataformas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ra1-20">RA1 · 20 %<a class="headerlink" href="#ra1-20" title="Permanent link">&para;</a></h2>
+<p><strong>Analiza y diseña aplicaciones híbridas, identificando su arquitectura y valorando las ventajas y limitaciones de las diferentes soluciones disponibles.</strong></p>
+<table>
+<thead>
+<tr>
+<th>CE</th>
+<th>Criterio</th>
+<th>Peso</th>
+<th>Dónde se trabaja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Se han identificado los fundamentos y características principales de las aplicaciones híbridas y su diferenciación con otros tipos de aplicaciones.</td>
+<td>4 %</td>
+<td>T2 · Cuatro formas de hacer una app <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>b</td>
+<td>Se han evaluado las diferentes arquitecturas y patrones de diseño aplicables al desarrollo de aplicaciones híbridas atendiendo a requisitos específicos.</td>
+<td>4 %</td>
+<td>T2 · Flutter por dentro <em>(próximamente)</em>, KMP <em>(próximamente)</em>, Diseñar la app <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>c</td>
+<td>Se han seleccionado las tecnologías más adecuadas para el desarrollo de una aplicación híbrida según las especificaciones técnicas del proyecto.</td>
+<td>4 %</td>
+<td>T2 · Elegir con criterio <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>d</td>
+<td>Se ha diseñado la estructura de una aplicación híbrida atendiendo a criterios de usabilidad, rendimiento y adaptabilidad a diferentes dispositivos.</td>
+<td>4 %</td>
+<td>T2 · Diseñar la app <em>(próximamente)</em> · arranque del proyecto final</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Se han aplicado técnicas de diseño responsive y mobile-first para garantizar la correcta visualización en diferentes tamaños de pantalla y dispositivos.</td>
+<td>4 %</td>
+<td>T2 · Diseñar la app <em>(próximamente)</em> · T3 · Diseño adaptable <em>(próximamente)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ra2-40">RA2 · 40 %<a class="headerlink" href="#ra2-40" title="Permanent link">&para;</a></h2>
+<p><strong>Desarrolla aplicaciones híbridas implementando interfaces de usuario, accediendo a funcionalidades nativas de los dispositivos y gestionando datos locales y remotos.</strong></p>
+<table>
+<thead>
+<tr>
+<th>CE</th>
+<th>Criterio</th>
+<th>Peso</th>
+<th>Dónde se trabaja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Se han creado interfaces de usuario interactivas y adaptables utilizando los componentes y estructuras adecuadas para aplicaciones híbridas.</td>
+<td>8 %</td>
+<td>T1 (primera app) · T3 <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>b</td>
+<td>Se han implementado funcionalidades de acceso a características nativas de los dispositivos como cámara, geolocalización, sensores, almacenamiento, entre otros.</td>
+<td>8 %</td>
+<td>T4 <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>c</td>
+<td>Se han desarrollado mecanismos para la gestión del ciclo de vida de la aplicación, gestionando correctamente los estados y transiciones.</td>
+<td>8 %</td>
+<td>T1 (asincronía y estados de carga) · T3 <em>(próximamente)</em> (estado) · T4 <em>(próximamente)</em> (ciclo de vida)</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Se han aplicado soluciones para el almacenamiento persistente de datos tanto a nivel local como remoto.</td>
+<td>8 %</td>
+<td>T5 <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>e</td>
+<td>Se han implementado sistemas de navegación intuitivos y eficientes entre las diferentes secciones de la aplicación.</td>
+<td>8 %</td>
+<td>T3 <em>(próximamente)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ra3-40">RA3 · 40 %<a class="headerlink" href="#ra3-40" title="Permanent link">&para;</a></h2>
+<p><strong>Optimiza, prueba y despliega aplicaciones híbridas, empleando herramientas específicas y aplicando técnicas para garantizar la calidad y el rendimiento en diferentes plataformas.</strong></p>
+<table>
+<thead>
+<tr>
+<th>CE</th>
+<th>Criterio</th>
+<th>Peso</th>
+<th>Dónde se trabaja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Se han optimizado los recursos y el rendimiento de la aplicación mediante técnicas específicas para entornos híbridos.</td>
+<td>8 %</td>
+<td>T6 <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>b</td>
+<td>Se han realizado pruebas de funcionamiento en diferentes dispositivos y condiciones para garantizar la compatibilidad y calidad de la aplicación.</td>
+<td>8 %</td>
+<td>T6 <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>c</td>
+<td>Se han implementado estrategias para la gestión de errores y excepciones adaptadas a las características de las aplicaciones híbridas.</td>
+<td>8 %</td>
+<td>T6 <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>d</td>
+<td>Se ha preparado y empaquetado la aplicación para su distribución en diferentes plataformas y tiendas de aplicaciones.</td>
+<td>8 %</td>
+<td>T7 <em>(próximamente)</em></td>
+</tr>
+<tr>
+<td>e</td>
+<td>Se han documentado los procesos de desarrollo, prueba y despliegue de la aplicación híbrida siguiendo estándares del sector.</td>
+<td>8 %</td>
+<td>T7 <em>(próximamente)</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="mapa-de-temas">Mapa de temas<a class="headerlink" href="#mapa-de-temas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>RA1</th>
+<th>RA2</th>
+<th>RA3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tema 1 · Entorno, Dart y primera app</td>
+<td>—</td>
+<td><strong>a, c</strong> (base de todo el RA2)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tema 2 · Arquitectura y diseño</td>
+<td><strong>a, b, c, d, e</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tema 3 · Interfaces y navegación</td>
+<td>e (práctica)</td>
+<td><strong>a, c, e</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tema 4 · Funcionalidades nativas</td>
+<td>—</td>
+<td><strong>b, c</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tema 5 · Datos locales y remotos</td>
+<td>—</td>
+<td><strong>d</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Tema 6 · Rendimiento, pruebas y errores</td>
+<td>—</td>
+<td>—</td>
+<td><strong>a, b, c</strong></td>
+</tr>
+<tr>
+<td>Tema 7 · Despliegue y distribución</td>
+<td>—</td>
+<td>—</td>
+<td><strong>d, e</strong></td>
+</tr>
+<tr>
+<td>Proyecto final</td>
+<td>d, e (diseño inicial)</td>
+<td>a-e (repaso)</td>
+<td><strong>a, b, c, d, e</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="correspondencia-con-las-unidades-didacticas-de-la-programacion">Correspondencia con las unidades didácticas de la programación<a class="headerlink" href="#correspondencia-con-las-unidades-didacticas-de-la-programacion" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>UD de la programación</th>
+<th>Temas de este curso</th>
+<th>Sesiones (3 h)</th>
+<th>Horas</th>
+<th>RA</th>
+<th>Criterios</th>
+<th>Trimestre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UD1 · Arquitectura y fundamentos de las aplicaciones híbridas</td>
+<td>T2 · Arquitectura y diseño</td>
+<td>1</td>
+<td>3</td>
+<td>RA1</td>
+<td>a)..e)</td>
+<td>1º</td>
+</tr>
+<tr>
+<td>UD2 · Tecnologías y entornos de desarrollo para aplicaciones híbridas</td>
+<td>T1 · Entorno, Dart y primera app</td>
+<td>3</td>
+<td>9</td>
+<td>RA2</td>
+<td>a), c)</td>
+<td>1º</td>
+</tr>
+<tr>
+<td>UD3 · Componentes y funcionalidades específicas</td>
+<td>T3 · Interfaces y navegación · T4 · Funcionalidades nativas</td>
+<td>3</td>
+<td>9</td>
+<td>RA2</td>
+<td>a), b), c), e)</td>
+<td>1º</td>
+</tr>
+<tr>
+<td>UD4 · Consumo de servicios y APIs externas</td>
+<td>T5 · Datos locales y remotos</td>
+<td>2</td>
+<td>6</td>
+<td>RA2</td>
+<td>d)</td>
+<td>1º</td>
+</tr>
+<tr>
+<td>—</td>
+<td>1ª parcial y arranque del proyecto final</td>
+<td>1</td>
+<td>3</td>
+<td>RA1, RA2</td>
+<td>a)..e)</td>
+<td>1º</td>
+</tr>
+<tr>
+<td>UD5 · Optimización, pruebas y despliegue</td>
+<td>T6 · Rendimiento, pruebas y errores · T7 · Despliegue · Defensa</td>
+<td>5</td>
+<td>15</td>
+<td>RA3</td>
+<td>a)..e)</td>
+<td>2º</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>15</strong></td>
+<td><strong>45</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Orden de impartición</p>
+<p>Este curso la UD2 (entorno y lenguaje) se imparte <strong>antes</strong> que la UD1 (arquitectura): primero se instala el entorno y se aprende Dart, y con esa base se estudia cómo funciona cada enfoque por dentro.</p>
+</div>
+<h2 id="ponderacion-e-instrumentos">Ponderación e instrumentos<a class="headerlink" href="#ponderacion-e-instrumentos" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>RA</th>
+<th>CE</th>
+<th>Peso</th>
+<th>Instrumentos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RA1</td>
+<td>a</td>
+<td>4 %</td>
+<td>Informe de arquitectura (parte 1) · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>b</td>
+<td>4 %</td>
+<td>Informe de arquitectura (parte 2) · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>c</td>
+<td>4 %</td>
+<td>Informe de arquitectura (parte 3) · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>d</td>
+<td>4 %</td>
+<td>Informe de arquitectura (parte 4) · diseño inicial del proyecto</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>e</td>
+<td>4 %</td>
+<td>Informe de arquitectura (parte 4) · Práctica 3.1 (versión adaptable)</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>a</td>
+<td>8 %</td>
+<td>Práctica «Hola, plataformas» · Boletín T3 · Prácticas 3.1 y 3.2 · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>b</td>
+<td>8 %</td>
+<td>Boletín T4 · Prácticas 4.1 y 4.2 (Eureka) · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>c</td>
+<td>8 %</td>
+<td>Boletín T1 · Práctica «Hola, plataformas» · Práctica 3.1 (estado) · Práctica 4.2 (ciclo de vida) · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>d</td>
+<td>8 %</td>
+<td>Boletín T5 · Prácticas 5.1 y 5.2 · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>e</td>
+<td>8 %</td>
+<td>Práctica 3.1 (navegación) · Boletín T3 · 1ª parcial</td>
+</tr>
+<tr>
+<td>RA3</td>
+<td>a</td>
+<td>8 %</td>
+<td>Práctica 6.1 · proyecto final · actividad FFEOE</td>
+</tr>
+<tr>
+<td>RA3</td>
+<td>b</td>
+<td>8 %</td>
+<td>Práctica 6.2 · proyecto final · actividad FFEOE</td>
+</tr>
+<tr>
+<td>RA3</td>
+<td>c</td>
+<td>8 %</td>
+<td>Práctica 6.2 · proyecto final · actividad FFEOE</td>
+</tr>
+<tr>
+<td>RA3</td>
+<td>d</td>
+<td>8 %</td>
+<td>Práctica 7.1 · proyecto final · actividad FFEOE</td>
+</tr>
+<tr>
+<td>RA3</td>
+<td>e</td>
+<td>8 %</td>
+<td>Práctica 7.1 · proyecto final · actividad FFEOE</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">RA3 y la FFEOE</p>
+<p>En la programación, los criterios del RA3 figuran con la <strong>actividad de la FFEOE</strong> como instrumento. En esta web el RA3 se evalúa en el aula (prácticas y proyecto final, 70 %) y se <strong>valida</strong> con la actividad de la FFEOE (30 %). Si el departamento mantiene que el RA3 se evalúa solo en la FFEOE, el proyecto final pasa a ser la preparación de esa actividad.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../hoja-de-ruta/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Hoja de ruta">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Hoja de ruta
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../decision-tecnologica/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Decisión tecnológica">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Decisión tecnológica
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      IES Rafael Alberti (Cádiz) · 2º DAM · Curso 2026-2027
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
