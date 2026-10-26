@@ -338,8 +338,10 @@ flutter doctor -v
 ??? failure "El emulador no aparece en `flutter devices`"
     Comprueba que está **arrancado** y que `adb devices` lo ve (PMDM). Si `adb` no lo ve, el problema es del emulador, no de Flutter.
 
-# ??? failure "En el aula: errores de red o de proxy"
-#    Avisa al profesor: puede que haga falta configurar el proxy del centro o usar un SDK ya descargado en una unidad compartida.
+<!--
+??? failure "En el aula: errores de red o de proxy"
+    Avisa al profesor: puede que haga falta configurar el proxy del centro o usar un SDK ya descargado en una unidad compartida.
+-->
 
 ---
 
@@ -1024,6 +1026,30 @@ Future<void> main() async {
 | Valor futuro | `CompletableFuture<T>` | `Deferred<T>` / `suspend` | `Future<T>` |
 | Esperar | `.get()` (**bloquea**) | dentro de una corrutina | `await` (no bloquea) |
 | Varios valores en el tiempo | — | `Flow<T>` | `Stream<T>` |
+
+#### Ejercicios de asincronía
+
+!!! example "Ejercicio A · ¿Cabe alguien más en la playa? (Future y errores)"
+    1. Crea un `Map` con el aforo de tres playas de Cádiz (La Victoria, La Caleta y Santa María del Mar).
+    2. Escribe `Future<int> consultarAforo(String playa)` que tarde 1 segundo y devuelva el aforo. Si la playa no está en el mapa, lanza una excepción.
+    3. En `main`, consulta `'La Victoria'` y `'Bolonia'` con `await`. Captura el error con `try`/`catch` y usa `finally` para escribir «Consulta de … terminada» en los dos casos.
+
+!!! example "Ejercicio B · El taxi que no llega (timeout)"
+    1. Escribe `Future<String> pedirTaxi()` que tarde entre 1 y 5 segundos al azar (usa `Random`) y devuelva «Taxi en la puerta tras N s».
+    2. En `main`, espera el taxi **como mucho 3 segundos** con `.timeout(...)`. Si tarda más, captura la `TimeoutException` (de `dart:async`) y escribe «Me voy andando».
+    3. Ejecútalo varias veces. ¿Por qué el programa a veces tarda más en terminar aunque ya hayas dicho que te vas andando?
+
+!!! example "Ejercicio C · El marcador del Carranza (Stream y await for)"
+    1. Escribe `Stream<String> partido()` con `async*` que emita una jugada cada segundo a partir de una lista: `'Gol del Cádiz'`, `'Falta'`, `'Gol del rival'`, `'Gol del Cádiz'`, `'Córner'`.
+    2. En `main`, recorre el stream con `await for` y lleva el marcador: después de cada jugada escribe la jugada y el resultado (`Cádiz 1 - 0 Rival`).
+    3. Al terminar el stream, escribe el resultado final.
+
+!!! example "Ejercicio D · El sensor de la playa (map, listen y onDone)"
+    1. Escribe `Stream<double> temperaturas()` con `async*` que emita 10 temperaturas al azar entre 18 y 35 ºC, una cada medio segundo.
+    2. En `main` (sin `async`), transforma el stream con `.map` para redondear a un decimal y escúchalo con `.listen`. Cada lectura se muestra; si pasa de 30 ºC, con «¡Alerta!» delante.
+    3. Con `onDone`, cuando el sensor termine, muestra la temperatura media.
+    4. Justo después del `listen` pon `print('Escuchando el sensor…')`. ¿Por qué sale antes que la primera lectura?
+    5. **Ampliación:** otro programa que, con `.where`, muestre **solo** las alertas.
 
 ---
 
