@@ -1,0 +1,1385 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Material didáctico del módulo propio de centro "Aplicaciones Híbridas" (2º DAM, IES Rafael Alberti, Cádiz) con Flutter y Dart.">
+      
+      
+        <meta name="author" content="Departamento de Informática · IES Rafael Alberti">
+      
+      
+        <link rel="canonical" href="https://joselejimenez.github.io/AplicacionesHibridas/tema2/01-enfoques/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-flutter-por-dentro/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Cuatro formas de hacer una app - Aplicaciones Híbridas · 2º DAM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cuatro-formas-de-hacer-una-app" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Aplicaciones Híbridas · 2º DAM" class="md-header__button md-logo" aria-label="Aplicaciones Híbridas · 2º DAM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 17h-4v-7h4m1-2h-6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1M4 6h18V4H4a2 2 0 0 0-2 2v11H0v3h14v-3H4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aplicaciones Híbridas · 2º DAM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cuatro formas de hacer una app
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/joselejimenez/AplicacionesHibridas" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joselejimenez/AplicacionesHibridas
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  El módulo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tema1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tema 1 · Entorno y Dart
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tema 2 · Arquitectura y diseño
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aplicaciones Híbridas · 2º DAM" class="md-nav__button md-logo" aria-label="Aplicaciones Híbridas · 2º DAM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 17h-4v-7h4m1-2h-6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1M4 6h18V4H4a2 2 0 0 0-2 2v11H0v3h14v-3H4z"/></svg>
+
+    </a>
+    Aplicaciones Híbridas · 2º DAM
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/joselejimenez/AplicacionesHibridas" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joselejimenez/AplicacionesHibridas
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../modulo/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    El módulo
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    El módulo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo/hoja-de-ruta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hoja de ruta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo/ra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resultados de aprendizaje
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo/decision-tecnologica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decisión tecnológica
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo/coordinacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinación con PMDM y DI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo/planificacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planificación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tema1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 1 · Entorno y Dart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tema 2 · Arquitectura y diseño
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tema 2 · Arquitectura y diseño
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cuatro formas de hacer una app
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cuatro formas de hacer una app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-nativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Nativo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hibrido-clasico-webview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Híbrido clásico (WebView)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-multiplataforma-compilado-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Multiplataforma compilado (Flutter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-multiplataforma-interpretado-react-native" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Multiplataforma interpretado (React Native)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#las-tres-preguntas-resumidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Las tres preguntas, resumidas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y-la-pwa-que-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Y la PWA, ¿qué es?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-flutter-por-dentro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flutter por dentro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-kmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kotlin Multiplatform: la tercera vía
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-comparativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elegir con criterio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-diseno/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseñar la app
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boletin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boletín
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-nativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Nativo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hibrido-clasico-webview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Híbrido clásico (WebView)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-multiplataforma-compilado-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Multiplataforma compilado (Flutter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-multiplataforma-interpretado-react-native" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Multiplataforma interpretado (React Native)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#las-tres-preguntas-resumidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Las tres preguntas, resumidas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#y-la-pwa-que-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Y la PWA, ¿qué es?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cuatro-formas-de-hacer-una-app">Cuatro formas de hacer una app<a class="headerlink" href="#cuatro-formas-de-hacer-una-app" title="Permanent link">&para;</a></h1>
+<p>Para comparar enfoques vamos a hacernos siempre <strong>las mismas tres preguntas</strong>:</p>
+<ol>
+<li><strong>¿En qué se ejecuta mi código?</strong> (código máquina, un navegador, un motor de JavaScript…)</li>
+<li><strong>¿Quién dibuja los botones?</strong> (el sistema operativo, un navegador, el propio framework)</li>
+<li><strong>¿Cómo llego a la cámara, el GPS…?</strong> (directamente, a través de un puente, con plugins)</li>
+</ol>
+<h2 id="1-nativo">1. Nativo<a class="headerlink" href="#1-nativo" title="Permanent link">&para;</a></h2>
+<p>Una app por plataforma, cada una con el lenguaje y el SDK oficiales.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Android</th>
+<th>iOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lenguaje</td>
+<td>Kotlin (o Java)</td>
+<td>Swift (u Objective-C)</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>Jetpack Compose / Views</td>
+<td>SwiftUI / UIKit</td>
+</tr>
+<tr>
+<td>IDE</td>
+<td>Android Studio</td>
+<td>Xcode (solo en macOS)</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Android
+      KA["Código Kotlin"] --&gt; CA["Componentes Android&lt;br/&gt;(Button, Switch…)"] --&gt; SA["SO Android"]
+    end
+    subgraph iOS
+      SI["Código Swift"] --&gt; CI["Componentes iOS&lt;br/&gt;(UIButton, UISwitch…)"] --&gt; SO["SO iOS"]
+    end</code></pre>
+<ul>
+<li><strong>Código:</strong> compilado para la plataforma (bytecode ART en Android; código máquina en iOS).</li>
+<li><strong>Botones:</strong> los del sistema operativo.</li>
+<li><strong>Hardware:</strong> acceso directo a todas las APIs, desde el primer día que salen.</li>
+</ul>
+<p><strong>Ventajas:</strong> máximo rendimiento, aspecto 100 % de la plataforma, acceso inmediato a cualquier novedad del SO.
+<strong>Inconvenientes:</strong> <strong>dos equipos, dos códigos, dos veces los errores</strong>. Coste de desarrollo y mantenimiento casi doble.</p>
+<div class="admonition info">
+<p class="admonition-title">Ya lo conoces (DI y PMDM)</p>
+<p>Es lo que hacéis con Kotlin + Compose. No entramos más.</p>
+</div>
+<h2 id="2-hibrido-clasico-webview">2. Híbrido clásico (WebView)<a class="headerlink" href="#2-hibrido-clasico-webview" title="Permanent link">&para;</a></h2>
+<p>Se hace una <strong>aplicación web</strong> (HTML, CSS, JavaScript) y se mete dentro de una app nativa "cascarón" que solo contiene un <strong>WebView</strong>: un navegador sin barra de direcciones que ocupa toda la pantalla.</p>
+<p><strong>Tecnologías:</strong> Apache Cordova (el pionero; PhoneGap, su distribución comercial, se abandonó en 2020), <strong>Capacitor</strong> (su sucesor moderno) e <strong>Ionic</strong> (biblioteca de componentes web con aspecto móvil que se usa con Angular, React o Vue, normalmente sobre Capacitor).</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph App["App nativa (cascarón)"]
+      direction TB
+      subgraph WV["WebView (navegador embebido)"]
+        H["HTML + CSS + JS&lt;br/&gt;(Ionic / Angular…)"]
+      end
+      B["Puente JS ↔ nativo&lt;br/&gt;(plugins Capacitor/Cordova)"]
+      H &lt;--&gt; B
+    end
+    B &lt;--&gt; HW["APIs nativas&lt;br/&gt;cámara, GPS, ficheros"]</code></pre>
+<ul>
+<li><strong>Código:</strong> JavaScript ejecutado por el motor del navegador del sistema.</li>
+<li><strong>Botones:</strong> son <strong>HTML con CSS</strong> que imitan a los nativos.</li>
+<li><strong>Hardware:</strong> a través de un <strong>puente</strong>: el JavaScript llama a un plugin, el plugin ejecuta código nativo y devuelve el resultado al JavaScript.</li>
+</ul>
+<p><strong>Ventajas:</strong> reutiliza conocimientos y código web; una sola base de código para Android, iOS y web; curva de aprendizaje baja para quien ya sabe web.
+<strong>Inconvenientes:</strong> rendimiento limitado por el WebView (listas largas, animaciones complejas); la interfaz "se nota" web; depende de la versión del WebView del dispositivo; cada acceso nativo cruza un puente.</p>
+<div class="admonition note">
+<p class="admonition-title">Por qué este módulo cambió de Ionic a Flutter</p>
+<p>Hasta el curso pasado este módulo usaba Ionic + Angular. El enfoque WebView sigue siendo válido (y muy usado en apps internas de empresa), pero el mercado multiplataforma se ha desplazado hacia frameworks que no dependen de un navegador.</p>
+</div>
+<h2 id="3-multiplataforma-compilado-flutter">3. Multiplataforma compilado (Flutter)<a class="headerlink" href="#3-multiplataforma-compilado-flutter" title="Permanent link">&para;</a></h2>
+<p>Un único código en <strong>Dart</strong> que se <strong>compila a código máquina nativo</strong> (ARM en móviles). Pero, y aquí está el matiz, <strong>no usa los componentes del sistema</strong>: Flutter trae su propio motor gráfico y <strong>dibuja cada píxel él mismo</strong>.</p>
+<pre class="mermaid"><code>flowchart TB
+    D["Código Dart&lt;br/&gt;(tus widgets)"] --&gt; FW["Framework Flutter&lt;br/&gt;(Material, Cupertino, Widgets)"]
+    FW --&gt; E["Motor Flutter (C++)&lt;br/&gt;Impeller dibuja los píxeles"]
+    E --&gt; CV["Lienzo (canvas) del SO&lt;br/&gt;GPU: Vulkan / OpenGL / Metal"]
+    D -.-&gt;|platform channels · plugins| HW["APIs nativas"]</code></pre>
+<ul>
+<li><strong>Código:</strong> código máquina nativo (compilación AOT en la versión final).</li>
+<li><strong>Botones:</strong> <strong>los dibuja Flutter</strong>. El sistema operativo solo le presta un lienzo en blanco.</li>
+<li><strong>Hardware:</strong> mediante <strong>plugins</strong> que usan <em>platform channels</em> (mensajes Dart ↔ Kotlin/Swift) o FFI (llamadas directas a C).</li>
+</ul>
+<p><strong>Ventajas:</strong> rendimiento cercano al nativo (60-120 fps); <strong>aspecto idéntico</strong> en todas las plataformas; un código para móvil, web y escritorio; hot reload.
+<strong>Inconvenientes:</strong> el aspecto no es el nativo "de verdad" salvo que lo imites; apps algo más grandes (llevan el motor dentro); las novedades del SO llegan cuando alguien escribe el plugin; hay que aprender Dart.</p>
+<p>Lo vemos a fondo en <a href="../02-flutter-por-dentro/">Flutter por dentro</a>.</p>
+<h2 id="4-multiplataforma-interpretado-react-native">4. Multiplataforma interpretado (React Native)<a class="headerlink" href="#4-multiplataforma-interpretado-react-native" title="Permanent link">&para;</a></h2>
+<p>Un único código en <strong>JavaScript/TypeScript</strong> con React. La diferencia con Flutter es de fondo: el código <strong>no se compila a código máquina</strong> sino que lo ejecuta un <strong>motor de JavaScript</strong> (Hermes) dentro de la app, y <strong>sí usa los componentes nativos</strong>: un <code>&lt;Button&gt;</code> de React Native acaba siendo un botón real de Android o de iOS.</p>
+<pre class="mermaid"><code>flowchart TB
+    JS["Código JS/TS (React)"] --&gt; H["Motor JavaScript Hermes&lt;br/&gt;(dentro de la app)"]
+    H &lt;--&gt; JSI["JSI: interfaz JS ↔ C++&lt;br/&gt;(Nueva Arquitectura)"]
+    JSI --&gt; N["Componentes NATIVOS&lt;br/&gt;Android View · iOS UIView"]
+    JSI --&gt; HW["Módulos nativos&lt;br/&gt;cámara, GPS…"]</code></pre>
+<ul>
+<li><strong>Código:</strong> JavaScript ejecutado por Hermes (que lo precompila a <em>bytecode</em>, no a código máquina).</li>
+<li><strong>Botones:</strong> <strong>los del sistema operativo</strong>. React Native los crea y los gestiona desde JS.</li>
+<li><strong>Hardware:</strong> módulos nativos accesibles desde JS. En la <strong>Nueva Arquitectura</strong> (por defecto desde 2024) la comunicación es directa mediante JSI; antes pasaba por un "puente" asíncrono que serializaba mensajes en JSON y era el gran cuello de botella.</li>
+</ul>
+<p><strong>Ventajas:</strong> aspecto nativo real; enorme ecosistema JavaScript/npm; comparte conocimientos (y parte del código) con React web; mucha demanda de empleo.
+<strong>Inconvenientes:</strong> la lógica corre en un motor de JS, no en código máquina; el aspecto puede <strong>diferir</strong> entre Android e iOS (porque usa los componentes de cada uno); dependencias nativas que se rompen entre versiones.</p>
+<h2 id="las-tres-preguntas-resumidas">Las tres preguntas, resumidas<a class="headerlink" href="#las-tres-preguntas-resumidas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>¿En qué se ejecuta el código?</th>
+<th>¿Quién dibuja los botones?</th>
+<th>¿Cómo llega al hardware?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nativo</strong></td>
+<td>Bytecode ART / código máquina</td>
+<td>El SO</td>
+<td>Directo</td>
+</tr>
+<tr>
+<td><strong>WebView</strong> (Ionic)</td>
+<td>Motor JS del navegador</td>
+<td>HTML + CSS en el WebView</td>
+<td>Puente + plugins</td>
+</tr>
+<tr>
+<td><strong>Compilado</strong> (Flutter)</td>
+<td><strong>Código máquina</strong></td>
+<td><strong>El propio Flutter</strong></td>
+<td>Platform channels / FFI</td>
+</tr>
+<tr>
+<td><strong>Interpretado</strong> (React Native)</td>
+<td>Motor JS (Hermes)</td>
+<td><strong>El SO</strong></td>
+<td>JSI / módulos nativos</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">La frase para el examen</p>
+<p><strong>Flutter</strong> es nativo en <em>ejecución</em> pero no en <em>widgets</em>. <strong>React Native</strong> es nativo en <em>widgets</em> pero no en <em>ejecución</em>. <strong>Ionic</strong> no es nativo en ninguna de las dos.</p>
+</div>
+<h2 id="y-la-pwa-que-es">Y la PWA, ¿qué es?<a class="headerlink" href="#y-la-pwa-que-es" title="Permanent link">&para;</a></h2>
+<p>Una <strong>Progressive Web App</strong> es una web que se puede "instalar" desde el navegador, funciona sin conexión y puede enviar notificaciones. <strong>No es una app de tienda</strong> (aunque hay formas de empaquetarla) y su acceso al hardware depende de lo que permita el navegador (muy limitado en iOS). Es la opción de coste mínimo cuando la app es básicamente contenido.</p>
+<div class="admonition example">
+<p class="admonition-title">Ejercicio 1.1 · ¿Quién dibuja el botón?</p>
+<p>Para cada frase, di a qué enfoque se refiere (puede haber más de uno):</p>
+<ol>
+<li>"Un cambio en el aspecto del <code>Switch</code> en la nueva versión de Android se ve automáticamente en mi app sin recompilar."</li>
+<li>"Mi app se ve igual en un Samsung que en un iPhone, píxel a píxel."</li>
+<li>"Si el móvil tiene un WebView antiguo, mi app va lenta."</li>
+<li>"Cada vez que leo el GPS, mi código cruza de un lenguaje a otro."</li>
+<li>"Necesito un Mac para compilar la versión de iOS."</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Tema 2 · Arquitectura y diseño de apps multiplataforma">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Tema 2 · Arquitectura y diseño de apps multiplataforma
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-flutter-por-dentro/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Flutter por dentro">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Flutter por dentro
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      IES Rafael Alberti (Cádiz) · 2º DAM · Curso 2026-2027
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+    
+  </body>
+</html>
