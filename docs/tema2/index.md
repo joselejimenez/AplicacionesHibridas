@@ -1,9 +1,10 @@
 # Tema 2 · Arquitectura y diseño de apps multiplataforma
 
 !!! abstract "Ficha del tema"
-    - **Duración:** 1 sesión (+ trabajo en casa)
+    - **Duración:** 1 sesión. La práctica se hace en clase el lunes 9 de noviembre
     - **RA:** **RA1 completo** (CE a, b, c, d, e). El CE e se refuerza en el Tema 3
-    - **Entrega:** [Práctica · Informe de arquitectura](practica.md)
+    - **Ejercicios:** [Boletín](boletin.md) (no evaluable)
+    - **Entrega:** [Práctica · Informe de arquitectura](practica.md), en clase
 
 !!! info "Ya lo conoces (PMDM)"
     Sistemas operativos móviles, capas del SO, arquitectura Android, emuladores, ADB y una visión general de cómo elegir tecnología. **No lo repetimos.** Aquí bajamos al detalle: *qué pasa por dentro* de cada tipo de app multiplataforma.
@@ -31,7 +32,8 @@ flowchart TD
 | [Kotlin Multiplatform: la tercera vía](03-kmp.md) | Compartir lógica y dejar la UI nativa (o no) |
 | [Elegir con criterio](04-comparativa.md) | Tabla comparativa y casos prácticos |
 | [Diseñar la app](05-diseno.md) | Patrones (MVVM, repositorio), estructura del proyecto, usabilidad, mobile-first y responsive |
-| [Práctica](practica.md) | Entregable |
+| [Boletín](boletin.md) | Seis ejercicios de repaso, de menos a más |
+| [Práctica](practica.md) | Entregable, en clase |
 
 ## Objetivos
 

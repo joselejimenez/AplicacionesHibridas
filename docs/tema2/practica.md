@@ -2,7 +2,7 @@
 
 !!! abstract "Datos de la entrega"
     - **En parejas** (a ser posible, una persona que venga de Java y otra de Kotlin)
-    - **Se hace en clase:** la última hora de la sesión (≈ 50 minutos)
+    - **Se hace en clase:** el lunes 9 de noviembre, en la primera hora (≈ 50 minutos)
     - **Entrega:** al terminar la clase, un PDF en la plataforma del módulo. Vale hacerlo en papel y subir las fotos
     - **RA1 · CE a, b, c, d, e**
 
