@@ -55,6 +55,7 @@ hooks:
 # ─────────────────────────────────────────────────────────────
 extra:
   ocultos:
+    - tema2/practica.md        # se publica el 9 de noviembre
     - tema3
     - tema4
     - tema5
@@ -113,6 +114,7 @@ nav:
       - "Kotlin Multiplatform: la tercera vía": tema2/03-kmp.md
       - Elegir con criterio: tema2/04-comparativa.md
       - Diseñar la app: tema2/05-diseno.md
+      - Boletín: tema2/boletin.md
       - Práctica: tema2/practica.md
   - "Tema 3 · Interfaces": tema3/index.md
   - "Tema 4 · Nativas": tema4/index.md
