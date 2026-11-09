@@ -41,6 +41,12 @@ Todo lo que se ve en pantalla es un **widget**, y los widgets se anidan con `chi
 
 Vamos a construir **una sola pantalla que crece**. En cada paso añades una pieza, **guardas** (hot reload) y la ves aparecer. Trabaja en el `lib/main.dart` del proyecto `t3_clase` que acabas de crear.
 
+!!! info "Es acumulativo: no se borra lo anterior"
+    A partir del paso 1 solo se toca lo que va dentro de `body:`. Cada paso dice si **sustituyes** el `body` o **añades** algo a la lista `children`:
+
+    - **Sustituyes el `body`** solo en los pasos 2 y 3 (y en el 7 solo cambias una palabra).
+    - **Añades** en los pasos 4, 5, 6 y 8: escribe la línea nueva al final de `children`, antes del `]`.
+
 ### Paso 0 · Empezar de cero: `MaterialApp`
 
 Abre `lib/main.dart`. Trae una app de ejemplo de unas 120 líneas (el contador con el botón «+»). Selecciónalo todo (Cmd+A en Mac, Ctrl+A en Windows), bórralo y **escribe** solo esto:
@@ -83,7 +89,7 @@ class Basicos extends StatelessWidget {
 
 ### Paso 2 · Texto con estilo y centrado
 
-Cambia el `body`:
+**Sustituye** el `body: const Text('Hola'),` por esto:
 
 ```dart
 body: const Center(
@@ -99,43 +105,50 @@ body: const Center(
 
 ### Paso 3 · Varias cosas: `Column` y `children`
 
+`Center` solo admite **un** hijo. Para poner varias cosas, **sustituye** el `body` entero por una `Column`. El texto del paso 2 pasa a ser el primero de la lista:
+
 ```dart
-body: const Column(
+body: Column(
   children: [
-    Text('Hola, Cádiz', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
-    SizedBox(height: 16),
-    Text('Segundo texto'),
+    const Text(
+      'Hola, Cádiz',
+      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.teal),
+    ),
+    const SizedBox(height: 16),
+    const Text('Segundo texto'),
   ],
 ),
 ```
 
-- `children:` = **varios** hijos, en una lista.
+- `children:` = **varios** hijos, en una lista `[ ... ]`. Ya no hay `Center`: lo quitamos.
 - `SizedBox(height: 16)` es un hueco. En Flutter no hay `margin`: se separa con widgets.
 
 ### Paso 4 · Iconos
 
-Añade dentro de `children`:
+**Añade** al final de `children`, debajo de `const Text('Segundo texto'),`:
 
 ```dart
-Icon(Icons.beach_access, size: 64, color: Colors.orange),
+const Icon(Icons.beach_access, size: 64, color: Colors.orange),
 ```
 
 Escribe `Icons.` y deja que el editor te sugiera: hay cientos. Cambia el icono por otro.
 
 ### Paso 5 · Imágenes de internet
 
+**Añade** debajo del icono:
+
 ```dart
 Image.network('https://picsum.photos/400/200', height: 150, fit: BoxFit.cover),
 ```
 
-El editor se queja: la `Column` ya no puede ser `const`, porque la imagen no lo es. Quita el `const` de la `Column` y ponlo delante de cada hijo que sí lo sea (`const Text(...)`, `const SizedBox(...)`, `const Icon(...)`).
+Fíjate en que la imagen **no** lleva `const` y los textos sí. Una imagen que se descarga de internet no es constante.
 
 !!! tip "`const` delante de todo lo que no cambie"
     Un widget `const` se crea una vez y Flutter no lo reconstruye. El analizador te lo sugiere con una línea azul: acéptalo siempre.
 
 ### Paso 6 · Botones
 
-Primero uno, y púlsalo mirando la consola:
+**Añade** debajo de la imagen. Primero uno, y púlsalo mirando la consola:
 
 ```dart
 ElevatedButton(onPressed: () => print('Pulsado'), child: const Text('ElevatedButton')),
@@ -157,7 +170,7 @@ IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
 
 Añade dos o tres botones más o gira el emulador. Aparece una **franja amarilla y negra**: *"A RenderFlex overflowed by … pixels"*. `Column` **no hace scroll**.
 
-Cambia `Column` por `ListView` y dale un margen interior:
+Cambia **solo la palabra** `Column` por `ListView` y añade la línea del `padding`. Todo lo que hay dentro de `children` se queda igual:
 
 ```dart
 body: ListView(
@@ -171,6 +184,8 @@ body: ListView(
 `ListView` es como `Column`, pero con scroll (en Compose, `Column` + `verticalScroll` o `LazyColumn`).
 
 ### Paso 8 · Tarjetas con `Card` y `ListTile`
+
+**Añade** al final de `children`:
 
 ```dart
 const Card(
@@ -205,9 +220,12 @@ Si has seguido todos los pasos, tienes esto:
           body: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              const Text('Hola, Cádiz',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+              const Text(
+                'Hola, Cádiz',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.teal),
+              ),
               const SizedBox(height: 16),
+              const Text('Segundo texto'),
               const Icon(Icons.beach_access, size: 64, color: Colors.orange),
               const SizedBox(height: 16),
               Image.network('https://picsum.photos/400/200', height: 150, fit: BoxFit.cover),
