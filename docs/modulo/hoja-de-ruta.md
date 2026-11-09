@@ -55,8 +55,8 @@ flowchart LR
 | [**T5 · Datos locales y remotos**](../tema5/index.md) | 8 y 10 · 30 nov, 21 dic | RA2 d | 30 nov: `http` + JSON, `FutureBuilder`, errores de red, CRUD contra la API de PMDM, `shared_preferences` y SQLite. 21 dic: Firebase Auth y Firestore | 5.1 Terremotos y mi API (en clase, 30 nov) · 5.2 Mis lugares (en clase, 21 dic) |
 | **1ª parcial** | 9 · 14 dic | RA1 + RA2 | Prueba teórico-práctica (sin Firebase) | — |
 | **Arranque del [proyecto final](../proyecto/index.md)** | 10 · 21 dic | — | Equipos, idea, historias de usuario | Panel SCRUM |
-| [**T6 · Rendimiento, pruebas y errores**](../tema6/index.md) | 11-12 · 11 y 18 ene | RA3 a, b, c | DevTools, las 10 reglas de rendimiento, tests unitarios, de widget y de integración, *mocks*, errores centralizados | 6.1 De malas a buenas prácticas · 6.2 Tests para Cádiz Market |
-| [**T7 · Despliegue y distribución**](../tema7/index.md) | 13-14 · 25 ene, 1 feb | RA3 d, e | Identidad, firma, `flutter build` para cada plataforma, web en GitHub Pages / Firebase Hosting, tiendas, CI, documentación | 7.1 Cádiz Market en producción |
+| [**T6 · Rendimiento, pruebas y errores**](../tema6/index.md) | 11-12 · 11 y 18 ene | RA3 a, b, c | DevTools, las 10 reglas de rendimiento, tests unitarios, de widget y de integración, *mocks*, errores centralizados | 6.1 De malas a buenas prácticas (en clase, 11 ene) · 6.2 Tests para Cádiz Market (en clase, 18 ene) |
+| [**T7 · Despliegue y distribución**](../tema7/index.md) | 13-14 · 25 ene, 1 feb | RA3 d, e | Identidad, firma, `flutter build` para cada plataforma, web en GitHub Pages / Firebase Hosting, tiendas, CI, documentación | 7.1 Cádiz Market en producción (en clase, 1 feb) |
 | **Cierre** | 15 · 15 feb | RA3 | Defensa del proyecto final · 2ª parcial · Presentación de la actividad FFEOE | Defensa |
 
 ## Cuánta práctica hay
@@ -121,9 +121,11 @@ flowchart LR
 | Dom 13 dic | Boletín T5 (B1-B8) |
 | Lun 14 dic | **1ª parcial** |
 | Lun 21 dic (en clase) | Práctica 5.2 Mis lugares · Arranque del proyecto |
-| Dom 17 ene | Práctica 6.1 De malas a buenas prácticas |
-| Dom 24 ene | Boletín T6 · Práctica 6.2 Tests para Cádiz Market |
-| Dom 7 feb | Boletín T7 · Práctica 7.1 Cádiz Market en producción |
+| Lun 11 ene (en clase) | Práctica 6.1 De malas a buenas prácticas |
+| Lun 18 ene (en clase) | Práctica 6.2 Tests para Cádiz Market |
+| Dom 24 ene | Boletín T6 |
+| Lun 1 feb (en clase) | Práctica 7.1 Cádiz Market en producción |
+| Dom 7 feb | Boletín T7 |
 | Dom 14 feb | Proyecto final (defensa el lunes 15) |
 | Jue 14 may | Actividad de validación de la FFEOE |
 
