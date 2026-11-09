@@ -35,9 +35,27 @@
 
 ---
 
-## 2. Widgets básicos
+## 2. Widgets básicos, paso a paso
 
 Todo lo que se ve en pantalla es un **widget**, y los widgets se anidan con `child:` (un hijo) o `children:` (varios).
+
+Vamos a construir **una sola pantalla que crece**. En cada paso añades una pieza, **guardas** (hot reload) y la ves aparecer. Trabaja en el `lib/main.dart` del proyecto `t3_clase` que acabas de crear.
+
+### Paso 0 · Empezar de cero: `MaterialApp`
+
+Borra **todo** el contador de ejemplo y deja solo esto:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(home: Text('Hola')));
+```
+
+Sale un texto feo sobre fondo negro. `MaterialApp` es **la app** (tema, idioma, navegación), pero aún no hay una **página** que lo dibuje bien.
+
+### Paso 1 · Una pantalla de verdad: `Scaffold` y `AppBar`
+
+En VS Code escribe `stless` y pulsa Tab: te crea la plantilla de un widget.
 
 ```dart
 import 'package:flutter/material.dart';
@@ -51,37 +69,171 @@ class Basicos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Widgets básicos')),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          const Text('Texto con estilo',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 12),
-          const Icon(Icons.beach_access, size: 48, color: Colors.orange),
-          const SizedBox(height: 12),
-          Image.network('https://picsum.photos/400/200', height: 150, fit: BoxFit.cover),
-          const SizedBox(height: 12),
-          ElevatedButton(onPressed: () {}, child: const Text('ElevatedButton')),
-          FilledButton(onPressed: () {}, child: const Text('FilledButton')),
-          OutlinedButton(onPressed: () {}, child: const Text('OutlinedButton')),
-          TextButton(onPressed: null, child: const Text('Desactivado (onPressed: null)')),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
-          const Card(
-            child: ListTile(
-              leading: Icon(Icons.place),
-              title: Text('La Caleta'),
-              subtitle: Text('Playa urbana · Cádiz'),
-              trailing: Icon(Icons.chevron_right),
-            ),
-          ),
-        ],
-      ),
+      body: const Text('Hola'),
     );
   }
 }
 ```
 
-### Imágenes propias (assets)
+- En Flutter un widget es una **clase** con un método `build` que devuelve lo que se ve. En Compose era una función `@Composable`.
+- `Scaffold` es la estructura de la página, igual que en Compose: barra superior, cuerpo, botón flotante…
+
+### Paso 2 · Texto con estilo y centrado
+
+Cambia el `body`:
+
+```dart
+body: const Center(
+  child: Text(
+    'Hola, Cádiz',
+    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.teal),
+  ),
+),
+```
+
+- `child:` = **un** hijo.
+- Centrar **también es un widget** (`Center`). En Compose sería un `Modifier`; en Flutter, el espaciado, el tamaño y la alineación son widgets que envuelven a otros.
+
+### Paso 3 · Varias cosas: `Column` y `children`
+
+```dart
+body: const Column(
+  children: [
+    Text('Hola, Cádiz', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+    SizedBox(height: 16),
+    Text('Segundo texto'),
+  ],
+),
+```
+
+- `children:` = **varios** hijos, en una lista.
+- `SizedBox(height: 16)` es un hueco. En Flutter no hay `margin`: se separa con widgets.
+
+### Paso 4 · Iconos
+
+Añade dentro de `children`:
+
+```dart
+Icon(Icons.beach_access, size: 64, color: Colors.orange),
+```
+
+Escribe `Icons.` y deja que el editor te sugiera: hay cientos. Cambia el icono por otro.
+
+### Paso 5 · Imágenes de internet
+
+```dart
+Image.network('https://picsum.photos/400/200', height: 150, fit: BoxFit.cover),
+```
+
+El editor se queja: la `Column` ya no puede ser `const`, porque la imagen no lo es. Quita el `const` de la `Column` y ponlo delante de cada hijo que sí lo sea (`const Text(...)`, `const SizedBox(...)`, `const Icon(...)`).
+
+!!! tip "`const` delante de todo lo que no cambie"
+    Un widget `const` se crea una vez y Flutter no lo reconstruye. El analizador te lo sugiere con una línea azul: acéptalo siempre.
+
+### Paso 6 · Botones
+
+Primero uno, y púlsalo mirando la consola:
+
+```dart
+ElevatedButton(onPressed: () => print('Pulsado'), child: const Text('ElevatedButton')),
+```
+
+Después, los demás tipos:
+
+```dart
+FilledButton(onPressed: () {}, child: const Text('FilledButton')),
+OutlinedButton(onPressed: () {}, child: const Text('OutlinedButton')),
+const TextButton(onPressed: null, child: Text('Desactivado')),
+IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
+```
+
+- `onPressed` recibe **la función** que se ejecuta al pulsar.
+- **`onPressed: null` desactiva el botón.** No hay propiedad `enabled`: lo usaréis mucho en formularios.
+
+### Paso 7 · ¡No cabe! De `Column` a `ListView`
+
+Añade dos o tres botones más o gira el emulador. Aparece una **franja amarilla y negra**: *"A RenderFlex overflowed by … pixels"*. `Column` **no hace scroll**.
+
+Cambia `Column` por `ListView` y dale un margen interior:
+
+```dart
+body: ListView(
+  padding: const EdgeInsets.all(16),
+  children: [
+    // ... lo mismo que tenías
+  ],
+),
+```
+
+`ListView` es como `Column`, pero con scroll (en Compose, `Column` + `verticalScroll` o `LazyColumn`).
+
+### Paso 8 · Tarjetas con `Card` y `ListTile`
+
+```dart
+const Card(
+  child: ListTile(
+    leading: Icon(Icons.place),
+    title: Text('La Caleta'),
+    subtitle: Text('Playa urbana · Cádiz'),
+    trailing: Icon(Icons.chevron_right),
+  ),
+),
+```
+
+`ListTile` es la fila típica de una lista, ya hecha: icono a la izquierda, título, subtítulo y algo a la derecha. Copia la tarjeta dos veces más con otras playas.
+
+### El resultado
+
+Si has seguido todos los pasos, tienes esto:
+
+??? example "Código completo de la pantalla"
+    ```dart
+    import 'package:flutter/material.dart';
+
+    void main() => runApp(const MaterialApp(home: Basicos()));
+
+    class Basicos extends StatelessWidget {
+      const Basicos({super.key});
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: const Text('Widgets básicos')),
+          body: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              const Text('Hola, Cádiz',
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 16),
+              const Icon(Icons.beach_access, size: 64, color: Colors.orange),
+              const SizedBox(height: 16),
+              Image.network('https://picsum.photos/400/200', height: 150, fit: BoxFit.cover),
+              const SizedBox(height: 16),
+              ElevatedButton(onPressed: () => print('Pulsado'), child: const Text('ElevatedButton')),
+              FilledButton(onPressed: () {}, child: const Text('FilledButton')),
+              OutlinedButton(onPressed: () {}, child: const Text('OutlinedButton')),
+              const TextButton(onPressed: null, child: Text('Desactivado')),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
+              const Card(
+                child: ListTile(
+                  leading: Icon(Icons.place),
+                  title: Text('La Caleta'),
+                  subtitle: Text('Playa urbana · Cádiz'),
+                  trailing: Icon(Icons.chevron_right),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+    }
+    ```
+
+Ahora haz el ejercicio rápido **R1** (tres estilos de texto) en un fichero nuevo, `lib/r1.dart`, y ejecútalo con `flutter run -d chrome -t lib/r1.dart`.
+
+### Para más adelante: imágenes propias (assets)
+
+No hace falta hoy; lo usarás en el boletín (B1).
 
 1. Crea la carpeta `assets/img/` en la raíz del proyecto y copia tus imágenes.
 2. Declárala en `pubspec.yaml` (ojo con la indentación: dos espacios):
@@ -98,9 +250,6 @@ class Basicos extends StatelessWidget {
     ```dart
     Image.asset('assets/img/escudo.png', width: 80)
     ```
-
-!!! tip "`const` delante de todo lo que no cambie"
-    Un widget `const` se crea una vez y Flutter no lo reconstruye. El analizador te lo sugiere con una línea azul: acéptalo siempre.
 
 ---
 
