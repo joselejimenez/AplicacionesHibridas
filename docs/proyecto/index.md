@@ -42,7 +42,7 @@ Una app multiplataforma **de verdad**, pensada por vosotros, que junte todo lo a
 
 | Fecha | Hito | Qué se entrega | Se revisa en clase |
 |---|---|---|---|
-| **21 dic** | Arranque | Equipo, idea, 10 historias de usuario, panel en **GitHub Projects** y documento de diseño (requisito 0) | Sí, al final de la 1ª parcial |
+| **21 dic** | Arranque | Equipo, idea, 10 historias de usuario, panel en **GitHub Projects** y documento de diseño (requisito 0) | Sí, después de la Práctica 5.2 |
 | **11 ene** | Prototipo | Pantallas navegables con datos de prueba | Sí, 20 min |
 | **25 ene** | Funcional | Funcionalidades completas, tests y análisis de rendimiento | Sí, 20 min |
 | **1 feb** | Producción | Builds firmados, web publicada, CI | Sí, 20 min |

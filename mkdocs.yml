@@ -55,8 +55,7 @@ hooks:
 # ─────────────────────────────────────────────────────────────
 extra:
   ocultos:
-    - tema2/practica.md        # se publica el 9 de noviembre
-    - tema3
+    - tema3/practica-31.md     # se publica el 16 de noviembre
     - tema4
     - tema5
     - tema6
@@ -116,7 +115,9 @@ nav:
       - Diseñar la app: tema2/05-diseno.md
       - Boletín: tema2/boletin.md
       - Práctica: tema2/practica.md
-  - "Tema 3 · Interfaces": tema3/index.md
+  - "Tema 3 · Interfaces":
+      - tema3/index.md
+      - Práctica 3.1: tema3/practica-31.md
   - "Tema 4 · Nativas": tema4/index.md
   - "Tema 5 · Datos": tema5/index.md
   - "Tema 6 · Calidad": tema6/index.md

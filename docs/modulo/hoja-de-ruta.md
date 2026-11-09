@@ -15,8 +15,8 @@ gantt
     section RA2 · Desarrollo (40 %)
     T3 Interfaces y navegación          :t3, 2026-11-09, 2026-11-22
     T4 Funcionalidades nativas          :t4, 2026-11-23, 2026-11-29
-    T5 Datos locales y remotos          :t5, 2026-11-30, 2026-12-20
-    1ª parcial RA1 + RA2                :milestone, 2026-12-21, 0d
+    T5 Datos locales y remotos          :t5, 2026-11-30, 2026-12-21
+    1ª parcial RA1 + RA2                :milestone, 2026-12-14, 0d
     section RA3 · Calidad y despliegue (40 %)
     T6 Rendimiento, pruebas y errores   :t6, 2027-01-11, 2027-01-24
     T7 Despliegue y distribución        :t7, 2027-01-25, 2027-02-07
@@ -50,10 +50,11 @@ flowchart LR
 |---|---|---|---|---|
 | [**T1 · Entorno, Dart y primera app**](../tema1/index.md) | 1-3 · 28 sep, 5 oct, 19 oct | RA2 a, c (base) | Instalación y `flutter doctor`. Dart desde cero (con puentes Java/Kotlin) hasta `Future`/`Stream`. La misma app en Android, web y escritorio | «Hola, plataformas» |
 | [**T2 · Arquitectura y diseño**](../tema2/index.md) | 4 · 26 oct | RA1 a-e | Nativo, WebView, compilado, interpretado, KMP. Flutter por dentro. Elegir con criterio. Patrones, estructura y mobile-first | Informe de arquitectura y diseño (parejas) |
-| [**T3 · Interfaces y navegación**](../tema3/index.md) | 5-6 · 9 y 16 nov | RA2 a, c, e · RA1 e | Widgets y layout (desde Compose), listas, estado con `setState` y `provider`, navegación, formularios, tema y diseño adaptable | 3.1 Cádiz Market · 3.2 Alta de clientes |
-| [**T4 · Funcionalidades nativas**](../tema4/index.md) | 7 · 23 nov | RA2 b, c | Plugins, permisos, GPS, cámara, sensores, linterna, audio, ciclo de vida | 4.1 GPS con IA · 4.2 **Eureka** |
-| [**T5 · Datos locales y remotos**](../tema5/index.md) | 8-9 · 30 nov, 14 dic | RA2 d | `http` + JSON, `FutureBuilder`, errores de red, CRUD contra la API de PMDM. `shared_preferences`, SQLite. Firebase Auth y Firestore | 5.1 Terremotos y mi API · 5.2 Mis lugares |
-| **1ª parcial** | 10 · 21 dic | RA1 + RA2 | Prueba teórico-práctica. **Arranque del [proyecto final](../proyecto/index.md)** | Panel SCRUM |
+| [**T3 · Interfaces y navegación**](../tema3/index.md) | 5-6 · 9 y 16 nov | RA2 a, c, e · RA1 e | Widgets y layout (desde Compose), listas, estado con `setState` y `provider`, navegación, formularios, tema y diseño adaptable | 3.1 Cádiz Market (en clase, 16 nov) · Alta de clientes como guiado |
+| [**T4 · Funcionalidades nativas**](../tema4/index.md) | 7 · 23 nov | RA2 b, c | Plugins, permisos, GPS, cámara, sensores, linterna, audio, ciclo de vida | 4.2 **Eureka** (en clase, 23 nov) · GPS con IA como guiado |
+| [**T5 · Datos locales y remotos**](../tema5/index.md) | 8 y 10 · 30 nov, 21 dic | RA2 d | 30 nov: `http` + JSON, `FutureBuilder`, errores de red, CRUD contra la API de PMDM, `shared_preferences` y SQLite. 21 dic: Firebase Auth y Firestore | 5.1 Terremotos y mi API (en clase, 30 nov) · 5.2 Mis lugares (en clase, 21 dic) |
+| **1ª parcial** | 9 · 14 dic | RA1 + RA2 | Prueba teórico-práctica (sin Firebase) | — |
+| **Arranque del [proyecto final](../proyecto/index.md)** | 10 · 21 dic | — | Equipos, idea, historias de usuario | Panel SCRUM |
 | [**T6 · Rendimiento, pruebas y errores**](../tema6/index.md) | 11-12 · 11 y 18 ene | RA3 a, b, c | DevTools, las 10 reglas de rendimiento, tests unitarios, de widget y de integración, *mocks*, errores centralizados | 6.1 De malas a buenas prácticas · 6.2 Tests para Cádiz Market |
 | [**T7 · Despliegue y distribución**](../tema7/index.md) | 13-14 · 25 ene, 1 feb | RA3 d, e | Identidad, firma, `flutter build` para cada plataforma, web en GitHub Pages / Firebase Hosting, tiendas, CI, documentación | 7.1 Cádiz Market en producción |
 | **Cierre** | 15 · 15 feb | RA3 | Defensa del proyecto final · 2ª parcial · Presentación de la actividad FFEOE | Defensa |
@@ -67,18 +68,18 @@ Cada tema tiene cuatro niveles de práctica, de más guiado a más autónomo:
 | **Ejercicios rápidos (R)** | 5-15 min, justo después de explicar cada apartado | En clase | No: se corrigen en voz alta |
 | **Guiados (G)** | 20-30 min, el profesor y la clase construyen algo entre todos | En clase | No |
 | **Boletín (B)** | 20-30 min cada uno, individuales | Clase y casa | Sí, uno por tema |
-| **Prácticas** | Varias horas, una app completa con rúbrica | Casa | Sí |
+| **Prácticas** | Una app completa con rúbrica | **En clase** | Sí, al terminar la sesión |
 
 | Tema | Rápidos | Guiados | Boletín | Prácticas |
 |---|---|---|---|---|
 | T1 | 22 | — | 6 | 1 |
 | T2 | 4 | — | 5 casos | 1 |
-| T3 | 16 | 4 | 10 | 2 |
-| T4 | 9 | 1 | 9 | 2 |
+| T3 | 16 | 5 | 10 | 1 |
+| T4 | 9 | 2 | 9 | 1 |
 | T5 | 12 | 4 | 10 | 2 |
 | T6 | 10 | 2 | 8 | 2 |
 | T7 | 9 | 2 | 8 | 1 |
-| **Total** | **81** | **13** | **56** | **11 + proyecto** |
+| **Total** | **81** | **15** | **56** | **9 + proyecto** |
 
 ### Cádiz Market, el hilo conductor
 
@@ -96,8 +97,8 @@ flowchart LR
 | Actividad del curso pasado (Ionic) | Versión Flutter | Tema |
 |---|---|---|
 | A2.4 Cádiz Market | Práctica 3.1: catálogo con filtros, stock y carrito con `provider` | T3 |
-| A3.2 Calculadora y clientes | Práctica 3.2: alta y edición de clientes con validación | T3 |
-| A3.3 GPS con IA | Práctica 4.1: servicio de ubicación escrito con IA y revisado | T4 |
+| A3.2 Calculadora y clientes | Guiado: alta y edición de clientes con validación | T3 |
+| A3.3 GPS con IA | Guiado: servicio de ubicación escrito con IA y revisado | T4 |
 | A3.4 **Eureka** | Práctica 4.2: GPS, sensores y cámara; linterna, texto y canción al tapar el sensor de luz | T4 |
 | A4.1 Terremotos + API de PMDM | Práctica 5.1: USGS y CRUD contra la API Spring Boot de PMDM | T5 |
 | A4.2 Mis lugares | Práctica 5.2: Firebase + GPS + foto + persistencia local | T5 |
@@ -111,21 +112,23 @@ flowchart LR
 |---|---|
 | Dom 18 oct | Boletín T1 |
 | Dom 25 oct | Práctica «Hola, plataformas» |
-| Dom 8 nov | Informe de arquitectura (T2) |
-| Dom 22 nov | Boletín T3 · Práctica 3.1 Cádiz Market |
-| Dom 29 nov | Práctica 3.2 Alta de clientes |
-| Dom 6 dic | Boletín T4 · Práctica 4.1 GPS con IA |
-| Dom 13 dic | Práctica 4.2 Eureka · Práctica 5.1 Terremotos y mi API |
-| Dom 20 dic | Boletín T5 · Práctica 5.2 Mis lugares |
-| Lun 21 dic | 1ª parcial · Arranque del proyecto |
+| Lun 9 nov (en clase) | Informe de arquitectura (T2) |
+| Lun 16 nov (en clase) | Práctica 3.1 Cádiz Market |
+| Dom 22 nov | Boletín T3 |
+| Lun 23 nov (en clase) | Práctica 4.2 Eureka |
+| Lun 30 nov (en clase) | Práctica 5.1 Terremotos y mi API |
+| Dom 6 dic | Boletín T4 |
+| Dom 13 dic | Boletín T5 (B1-B8) |
+| Lun 14 dic | **1ª parcial** |
+| Lun 21 dic (en clase) | Práctica 5.2 Mis lugares · Arranque del proyecto |
 | Dom 17 ene | Práctica 6.1 De malas a buenas prácticas |
 | Dom 24 ene | Boletín T6 · Práctica 6.2 Tests para Cádiz Market |
 | Dom 7 feb | Boletín T7 · Práctica 7.1 Cádiz Market en producción |
 | Dom 14 feb | Proyecto final (defensa el lunes 15) |
 | Jue 14 may | Actividad de validación de la FFEOE |
 
-!!! warning "Diciembre va cargado"
-    Entre el 6 y el 20 de diciembre se juntan cinco entregas antes de la parcial. Si ves al grupo ahogado, las dos primeras palancas son: hacer los boletines T4 y T5 **en clase** (los rápidos y guiados ya cubren parte) o pasar la Práctica 5.2 al 10 de enero.
+!!! warning "Noviembre va justo"
+    Cada sesión de noviembre explica contenido **y** termina con su práctica evaluable en clase. Las prácticas tienen que caber en el tiempo de clase: recórtalas como la del T2 (menos pantallas, sin vídeo) antes de cada sesión. Si no da tiempo, el diseño adaptable (T3) y SQLite (T5) pasan a opcionales.
 
 ## Evaluación
 
@@ -153,7 +156,8 @@ Todos los temas están escritos. Lo que queda es **probarlos en tu equipo** una 
 | **Lun 2 nov** | Probar los ejemplos del T3 en tu Flutter. Tener tu propio Cádiz Market hecho (lo vas a enseñar) |
 | **Lun 16 nov** | Probar Eureka en un móvil Android real (el emulador no tiene sensor de luz). Móviles de préstamo |
 | **Lun 23 nov** | Proyecto Firebase de demostración creado. Comprobar si las cuentas del centro permiten Firebase |
-| Lun 14 dic | 1ª parcial redactada. JSON del ejercicio B2 del T5 |
+| Lun 30 nov | JSON del ejercicio B2 del T5 |
+| **Lun 14 dic** | 1ª parcial redactada (RA1 + RA2, sin Firebase) |
 | **Lun 4 ene** | Probar la app lenta de la Práctica 6.1 en modo profile |
 | **Lun 18 ene** | Tu propia clave de firma y un workflow de CI funcionando para enseñarlo |
 | Lun 1 feb | Rúbrica de defensa impresa y enunciado de la FFEOE comunicado |
@@ -178,4 +182,5 @@ Todos los temas están escritos. Lo que queda es **probarlos en tu equipo** una 
 | Versiones de paquetes que cambian a mitad de curso | Fijar la versión de Flutter del curso (la del 28 sep) y no actualizar hasta febrero |
 | T4 sin móviles con sensores | Pedir que traigan su Android o reservar móviles del departamento |
 | El proyecto final se come enero | Hitos quincenales revisados en clase y requisitos claros desde el 21 de diciembre |
-| RA2 muy cargado | T3 y T5 tienen dos sesiones. Si hay retraso, diseño adaptable y SQLite pasan a opcionales |
+| Las prácticas no caben en clase | Recortarlas antes de cada sesión y avisar a los 30 minutos del final |
+| RA2 muy cargado | Una práctica evaluable por tema. Si hay retraso, diseño adaptable y SQLite pasan a opcionales |

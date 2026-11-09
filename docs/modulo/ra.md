@@ -65,7 +65,7 @@ Módulo de **horas de libre configuración** del ciclo. Los resultados de aprend
 | UD2 · Tecnologías y entornos de desarrollo para aplicaciones híbridas | T1 · Entorno, Dart y primera app | 3 | 9 | RA2 | a), c) | 1º |
 | UD3 · Componentes y funcionalidades específicas | T3 · Interfaces y navegación · T4 · Funcionalidades nativas | 3 | 9 | RA2 | a), b), c), e) | 1º |
 | UD4 · Consumo de servicios y APIs externas | T5 · Datos locales y remotos | 2 | 6 | RA2 | d) | 1º |
-| — | 1ª parcial y arranque del proyecto final | 1 | 3 | RA1, RA2 | a)..e) | 1º |
+| — | 1ª parcial (14 dic) | 1 | 3 | RA1, RA2 | a)..e) | 1º |
 | UD5 · Optimización, pruebas y despliegue | T6 · Rendimiento, pruebas y errores · T7 · Despliegue · Defensa | 5 | 15 | RA3 | a)..e) | 2º |
 | **Total** | | **15** | **45** | | | |
 
@@ -81,10 +81,10 @@ Módulo de **horas de libre configuración** del ciclo. Los resultados de aprend
 | RA1 | c | 4 % | Informe de arquitectura (parte 3) · 1ª parcial |
 | RA1 | d | 4 % | Informe de arquitectura (parte 4) · diseño inicial del proyecto |
 | RA1 | e | 4 % | Informe de arquitectura (parte 4) · Práctica 3.1 (versión adaptable) |
-| RA2 | a | 8 % | Práctica «Hola, plataformas» · Boletín T3 · Prácticas 3.1 y 3.2 · 1ª parcial |
-| RA2 | b | 8 % | Boletín T4 · Prácticas 4.1 y 4.2 (Eureka) · 1ª parcial |
+| RA2 | a | 8 % | Práctica «Hola, plataformas» · Boletín T3 · Práctica 3.1 · Práctica 5.2 · 1ª parcial |
+| RA2 | b | 8 % | Boletín T4 · Práctica 4.2 (Eureka) · Práctica 5.2 · 1ª parcial |
 | RA2 | c | 8 % | Boletín T1 · Práctica «Hola, plataformas» · Práctica 3.1 (estado) · Práctica 4.2 (ciclo de vida) · 1ª parcial |
-| RA2 | d | 8 % | Boletín T5 · Prácticas 5.1 y 5.2 · 1ª parcial |
+| RA2 | d | 8 % | Boletín T5 · Prácticas 5.1 y 5.2 · 1ª parcial (sin Firebase) |
 | RA2 | e | 8 % | Práctica 3.1 (navegación) · Boletín T3 · 1ª parcial |
 | RA3 | a | 8 % | Práctica 6.1 · proyecto final · actividad FFEOE |
 | RA3 | b | 8 % | Práctica 6.2 · proyecto final · actividad FFEOE |

@@ -1,9 +1,9 @@
 # Tema 4 · Funcionalidades nativas del dispositivo
 
 !!! abstract "Ficha del tema"
-    - **Duración:** 1 sesión (23 de noviembre) + trabajo en casa
+    - **Duración:** 1 sesión (23 de noviembre). Eureka se hace en clase
     - **RA:** RA2 · CE b (acceso a características nativas: cámara, geolocalización, sensores…) · CE c (ciclo de vida de la app)
-    - **Actividades:** [9 ejercicios rápidos de clase](#ejercicios-rapidos) · 1 guiado · [Boletín de 9 ejercicios](#boletin-de-ejercicios) · [Práctica 4.1 · GPS con IA](#practica-41-gps-con-ia) · [Práctica 4.2 · Eureka](#practica-42-eureka)
+    - **Actividades:** [9 ejercicios rápidos de clase](#ejercicios-rapidos) · 1 guiado · [Boletín de 9 ejercicios](#boletin-de-ejercicios) · [GPS con IA (guiado)](#practica-41-gps-con-ia) · [Práctica 4.2 · Eureka](#practica-42-eureka)
 
 !!! warning "Trae tu móvil Android"
     El emulador simula GPS y algo de acelerómetro, pero **no tiene cámara real, sensor de luz ni linterna**. Para este tema necesitas un móvil Android con la depuración USB activada (PMDM) o compartir el de un compañero.
@@ -464,11 +464,10 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 
 ---
 
-## Práctica 4.1 · GPS con IA { #practica-41-gps-con-ia }
+## GPS con IA (guiado) { #practica-41-gps-con-ia }
 
-!!! abstract "Datos de la entrega"
-    - **Individual** · **RA2 · CE b**
-    - **Entrega:** repositorio `gps_ia` + documento con los *prompts* usados · **Fecha:** domingo 6 de diciembre
+!!! abstract "Cómo se trabaja"
+    - **Ejercicio guiado en clase, no evaluable** · RA2 · CE b
 
 Adaptación de la actividad del curso pasado. Vas a usar un asistente de IA para escribir la capa de servicio, y **tu trabajo es dirigirla, revisarla y entenderla**.
 
@@ -491,7 +490,7 @@ Adaptación de la actividad del curso pasado. Vas a usar un asistente de IA para
 
 !!! abstract "Datos de la entrega"
     - **Individual** · **RA2 · CE b, c** · Actividad evaluable del T4
-    - **Entrega:** repositorio `eureka` + vídeo grabado **con otro móvil** mostrando el efecto · **Fecha:** domingo 13 de diciembre
+    - **Se hace en clase:** lunes 23 de noviembre · **Entrega:** repositorio `eureka` al terminar la clase (se enseña funcionando al profesor)
 
 La actividad estrella del curso pasado, en Flutter. Una app con una pantalla principal y **tres widgets hijos**:
 

@@ -1,14 +1,14 @@
 # Tema 5 · Datos locales y remotos
 
 !!! abstract "Ficha del tema"
-    - **Duración:** 2 sesiones (30 de noviembre y 14 de diciembre)
+    - **Duración:** 2 sesiones (30 de noviembre y 21 de diciembre). La 1ª parcial (14 de diciembre) entra hasta SQLite; Firebase no
     - **RA:** RA2 · CE d (almacenamiento persistente de datos, local y remoto)
     - **Actividades:** [12 ejercicios rápidos de clase](#ejercicios-rapidos) · 4 guiados · [Boletín de 10 ejercicios](#boletin-de-ejercicios) · [Práctica 5.1 · Terremotos y mi API](#practica-51-terremotos-y-mi-api) · [Práctica 5.2 · Mis lugares](#practica-52-mis-lugares)
 
 | Sesión | Contenido | En clase |
 |---|---|---|
-| **1 · 30 nov** | APIs REST con `http`, JSON y modelos, `FutureBuilder`, errores de red, POST/PUT/DELETE contra vuestra API de PMDM | Rápidos R1-R6 · Guiados G1-G2 · Boletín B1-B5 · Práctica 5.1 |
-| **2 · 14 dic** | `shared_preferences`, SQLite con `sqflite`, Firebase (Auth y Firestore) | Rápidos R7-R12 · Guiados G3-G4 · Boletín B6-B10 · Práctica 5.2 |
+| **1 · 30 nov** | APIs REST con `http`, JSON y modelos, `FutureBuilder`, errores de red, POST/PUT/DELETE contra vuestra API de PMDM. `shared_preferences` y SQLite | Rápidos R1-R10 · Guiados G1-G2 · Boletín B1-B8 · **Práctica 5.1 en clase** |
+| **2 · 21 dic** | Firebase (Auth y Firestore) | Rápidos R11-R12 · Guiados G3-G4 · Boletín B9-B10 · **Práctica 5.2 en clase** |
 
 !!! info "Lo que ya sabéis y vamos a usar"
     - **Asincronía** (Tema 1): todo este tema son `Future` y `Stream`.
@@ -553,7 +553,7 @@ Cada usuario solo puede leer y escribir **sus** datos.
 
 Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada apartado, y se corrigen en voz alta. No se entregan: son el entrenamiento para el boletín y las prácticas.
 
-### Sesión 1 · 30 nov
+### Sesión 1 · 30 nov (R1-R10)
 
 | # | Ejercicio | Apartado |
 |---|---|---|
@@ -564,7 +564,7 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 | R5 | **Provoca un timeout.** Pon `timeout` de 1 milisegundo a la petición anterior y muestra un mensaje amable al usuario | 1 · Errores de red |
 | R6 | **Mi primer POST.** Envía un post a `https://jsonplaceholder.typicode.com/posts` y muestra el `id` que devuelve el servidor | 1 · Enviar datos |
 
-### Sesión 2 · 14 dic
+### Sesión 2 · 21 dic (R11-R12; R7-R10 son de la sesión 1)
 
 | # | Ejercicio | Apartado |
 |---|---|---|
@@ -581,7 +581,7 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 
 !!! abstract "Instrucciones"
     - **Individual.** Proyecto `boletin_t5` con una pantalla de inicio que lleve a cada ejercicio.
-    - **Entrega:** repositorio de GitHub · **Fecha:** domingo 20 de diciembre.
+    - **Entrega:** repositorio de GitHub · **Fecha:** domingo 13 de diciembre (B1-B8). B9 y B10 son de ampliación.
 
 | # | Ejercicio | Practica |
 |---|---|---|
@@ -602,7 +602,7 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 
 !!! abstract "Datos de la entrega"
     - **Individual** · **RA2 · CE d**
-    - **Entrega:** repositorio `terremotos` + vídeo de 1-2 minutos · **Fecha:** domingo 13 de diciembre
+    - **Se hace en clase** el lunes 30 de noviembre · **Entrega:** repositorio `terremotos` al terminar la clase
 
 Adaptación de la actividad del curso pasado. Una app con **dos pestañas** (`NavigationBar`):
 
@@ -632,7 +632,7 @@ Adaptación de la actividad del curso pasado. Una app con **dos pestañas** (`Na
 
 !!! abstract "Datos de la entrega"
     - **Individual** · **RA2 · CE a, b, d, e** · Práctica de síntesis del RA2
-    - **Entrega:** repositorio `mis_lugares` + vídeo con la app en el móvil **y** en Chrome a la vez · **Fecha:** domingo 20 de diciembre
+    - **Se hace en clase** el lunes 21 de diciembre · **Entrega:** repositorio `mis_lugares` al terminar la clase
 
 Una app para guardar tus sitios favoritos de Cádiz. Junta los temas 3, 4 y 5:
 
