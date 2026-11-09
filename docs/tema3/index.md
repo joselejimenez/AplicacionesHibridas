@@ -43,7 +43,7 @@ Vamos a construir **una sola pantalla que crece**. En cada paso añades una piez
 
 ### Paso 0 · Empezar de cero: `MaterialApp`
 
-Borra **todo** el contador de ejemplo y deja solo esto:
+Abre `lib/main.dart`. Trae una app de ejemplo de unas 120 líneas (el contador con el botón «+»). Selecciónalo todo (Cmd+A en Mac, Ctrl+A en Windows), bórralo y **escribe** solo esto:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -52,6 +52,9 @@ void main() => runApp(const MaterialApp(home: Text('Hola')));
 ```
 
 Sale un texto feo sobre fondo negro. `MaterialApp` es **la app** (tema, idioma, navegación), pero aún no hay una **página** que lo dibuje bien.
+
+!!! warning "Error en rojo en `test/widget_test.dart`"
+    Ese test de ejemplo busca la clase `MyApp`, que acabas de borrar. No afecta a la app, pero lo más limpio es **borrar el archivo `test/widget_test.dart`**. Los tests se ven en el Tema 6.
 
 ### Paso 1 · Una pantalla de verdad: `Scaffold` y `AppBar`
 
