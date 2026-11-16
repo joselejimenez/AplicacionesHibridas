@@ -1,7 +1,7 @@
 # Tema 3 · Interfaces y navegación
 
 !!! abstract "Ficha del tema"
-    - **Duración:** 2 sesiones (9 y 16 de noviembre)
+    - **Duración:** 2 sesiones (9 y 16 de noviembre). Los apartados 8 y 9 se trabajan en casa con el boletín
     - **RA:** RA2 · CE a (interfaces interactivas y adaptables) · CE c (estado) · CE e (navegación) · también RA1 · CE e (diseño responsive, apartado 9)
     - **Actividades:** [16 ejercicios rápidos de clase](#ejercicios-rapidos) · 4 guiados · [Boletín de 10 ejercicios](#boletin-de-ejercicios) · [Práctica 3.1 · Cádiz Market](practica-31.md) · [Alta de clientes (guiado)](#practica-32-alta-de-clientes)
 
@@ -10,8 +10,9 @@
 
 | Sesión | Contenido | En clase |
 |---|---|---|
-| **1 · 9 nov** | Widgets básicos, layout, listas, estado local, comunicación entre widgets | Rápidos R1-R8 · Guiados G1-G2 · Boletín B1-B6 |
-| **2 · 16 nov** | Estado compartido con `provider`, navegación, formularios, tema y diseño adaptable | Rápidos R9-R16 · Guiados G3-G4 · Boletín B7-B10 · Prácticas |
+| **1 · 9 nov** | Widgets básicos, paso a paso | Rápido R1 |
+| **2 · 16 nov** | Layout, listas, estado local, comunicación entre widgets, `provider` y navegación, todo paso a paso | Rápidos R2-R13 · Guiados G1-G4 · Práctica 3.1 |
+| **En casa** | Formularios, tema y diseño adaptable (apartados 8 y 9) | Rápidos R14-R16 · Boletín B1-B10 |
 
 ---
 
@@ -274,191 +275,626 @@ No hace falta hoy; lo usarás en el boletín (B1).
 
 ---
 
-## 3. Layout: colocar cosas
+## 3. Layout, paso a paso
 
-### `Row` y `Column`
+Vamos a aprender a **colocar** widgets: en fila, en columna, repartiendo el espacio y unos encima de otros. Igual que en el apartado 2, la pantalla **crece paso a paso**: después del paso 1 todo lo nuevo se **añade al final de `children`**, antes del `]`.
 
-```dart
-Column(
-  mainAxisAlignment: MainAxisAlignment.center,   // eje principal (vertical en Column)
-  crossAxisAlignment: CrossAxisAlignment.start,  // eje cruzado (horizontal en Column)
-  children: [ ... ],
-)
-```
+### Paso 1 · Un fichero nuevo para practicar
 
-| | `Row` | `Column` |
-|---|---|---|
-| Eje principal (`mainAxisAlignment`) | Horizontal | Vertical |
-| Eje cruzado (`crossAxisAlignment`) | Vertical | Horizontal |
-
-Valores de `mainAxisAlignment`: `start`, `center`, `end`, `spaceBetween`, `spaceAround`, `spaceEvenly`.
-
-### `Expanded` y `Flexible`: repartir el espacio
+Crea `lib/layout.dart` con esto y ejecútalo con **Run** (el enlace gris encima del `main`):
 
 ```dart
-Row(
-  children: [
-    Expanded(flex: 2, child: Container(height: 50, color: Colors.red)),   // 2/3
-    Expanded(flex: 1, child: Container(height: 50, color: Colors.blue)),  // 1/3
-  ],
-)
-```
+import 'package:flutter/material.dart';
 
-### Los demás contenedores
+void main() => runApp(const MaterialApp(home: Layout()));
 
-| Widget | Para qué |
-|---|---|
-| `Container` | Tamaño, color, bordes, márgenes y relleno en uno |
-| `Padding` | Solo relleno |
-| `SizedBox` | Tamaño fijo o separador (`SizedBox(height: 16)`) |
-| `Center` / `Align` | Centrar o alinear un hijo |
-| `Stack` + `Positioned` | Superponer widgets (un texto sobre una imagen) |
-| `Wrap` | Como `Row`, pero salta de línea si no cabe (etiquetas, chips) |
-| `SafeArea` | Evita la muesca y la barra de estado |
-
-```dart
-Container(
-  margin: const EdgeInsets.all(8),
-  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-  decoration: BoxDecoration(
-    color: Colors.amber.shade100,
-    borderRadius: BorderRadius.circular(12),
-    border: Border.all(color: Colors.amber),
-  ),
-  child: const Text('Oferta del día'),
-)
-```
-
-!!! warning "Las franjas amarillas y negras"
-    Si ves una franja amarilla y negra con *"A RenderFlex overflowed by 42 pixels"*, el contenido **no cabe**. Soluciones típicas: envolver en `Expanded`, usar `Wrap`, o meter la columna en un `SingleChildScrollView` / `ListView`.
-
-!!! example "G1 · Guiado en clase: tarjeta de agrupación"
-    Construye entre todos esta tarjeta con `Card`, `Row`, `Column`, `Expanded` y `Wrap`:
-
-    ```text
-    ┌─────────────────────────────────────────────┐
-    │ [icono]  Los Yesterday            ⭐ 342 pts │
-    │          Chirigota · Autor: Anónimo           │
-    │  [Humor] [Final] [2026]                       │
-    └─────────────────────────────────────────────┘
-    ```
-
----
-
-## 4. Listas
-
-Para listas largas **siempre** `ListView.builder`: solo construye los elementos que se ven en pantalla (como `LazyColumn`).
-
-```dart
-class ListaPlayas extends StatelessWidget {
-  const ListaPlayas({super.key});
-
-  static const playas = ['La Caleta', 'Santa María del Mar', 'La Victoria', 'Cortadura'];
+class Layout extends StatelessWidget {
+  const Layout({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: playas.length,
-      itemBuilder: (context, i) => ListTile(
-        leading: CircleAvatar(child: Text('${i + 1}')),
-        title: Text(playas[i]),
-        onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Has elegido ${playas[i]}')),
-        ),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Layout')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          // aquí iremos añadiendo
+        ],
       ),
     );
   }
 }
 ```
 
-| Variante | Cuándo |
+Usamos `ListView` desde el principio para que no se salga por abajo cuando añadamos muchas cosas.
+
+### Paso 2 · En fila: `Row`
+
+**Añade** tres cajas de colores en fila:
+
+```dart
+Row(
+  children: [
+    Container(width: 80, height: 80, color: Colors.red),
+    Container(width: 80, height: 80, color: Colors.green),
+    Container(width: 80, height: 80, color: Colors.blue),
+  ],
+),
+```
+
+- `Row` pone sus hijos **en horizontal**; `Column`, **en vertical**. Igual que en Compose.
+- `Container` con `width`, `height` y `color` es una caja de color: perfecta para ver cómo se colocan las cosas. Recuerda: `Container` **nunca** lleva `const`.
+
+### Paso 3 · Repartir el hueco: `mainAxisAlignment`
+
+Dentro del `Row`, **antes** de `children`, añade esta línea:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [ ... ],      // las tres cajas, igual
+),
+```
+
+Guarda y prueba a cambiar `spaceEvenly` por cada uno de estos valores:
+
+| Valor | Qué hace |
 |---|---|
-| `ListView(children: [...])` | Pocos elementos fijos |
-| `ListView.builder` | Muchos elementos o datos que vienen de una lista |
-| `ListView.separated` | Con separador entre elementos (`separatorBuilder`) |
-| `GridView.builder` | Cuadrícula. `gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2)` |
+| `start` | Todo al principio (es el valor por defecto) |
+| `center` | Todo en el centro |
+| `end` | Todo al final |
+| `spaceBetween` | El primero al principio, el último al final y el hueco repartido entre medias |
+| `spaceAround` | Mismo hueco alrededor de cada uno |
+| `spaceEvenly` | Mismo hueco entre todos, también en los bordes |
+
+### Paso 4 · El otro eje: `crossAxisAlignment`
+
+Haz la caja verde más alta (`height: 120`) y añade al `Row` la línea `crossAxisAlignment`:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  crossAxisAlignment: CrossAxisAlignment.end,
+  children: [
+    Container(width: 80, height: 80, color: Colors.red),
+    Container(width: 80, height: 120, color: Colors.green),
+    Container(width: 80, height: 80, color: Colors.blue),
+  ],
+),
+```
+
+Prueba `start`, `center` y `end`. La regla:
+
+| | `Row` | `Column` |
+|---|---|---|
+| Eje principal (`mainAxisAlignment`) | Horizontal | Vertical |
+| Eje cruzado (`crossAxisAlignment`) | Vertical | Horizontal |
+
+### Paso 5 · Repartir el ancho: `Expanded`
+
+**Añade** otra fila debajo:
+
+```dart
+const SizedBox(height: 24),
+Row(
+  children: [
+    Expanded(flex: 2, child: Container(height: 50, color: Colors.orange)),
+    Expanded(child: Container(height: 50, color: Colors.purple)),
+  ],
+),
+```
+
+- `Expanded` hace que el hijo **ocupe el espacio que sobra**. Fíjate en que las cajas ya no tienen `width`.
+- `flex` dice **en qué proporción**: aquí la naranja ocupa 2 partes y la morada 1 (2/3 y 1/3). Es el `Modifier.weight()` de Compose.
+
+### Paso 6 · ¡No cabe! La franja amarilla
+
+**Añade** una fila con un texto muy largo:
+
+```dart
+const SizedBox(height: 24),
+const Row(
+  children: [
+    Icon(Icons.info),
+    Text('Este texto es tan largo que no cabe en una sola línea de la pantalla del móvil'),
+  ],
+),
+```
+
+Sale la **franja amarilla y negra**: un `Row` no corta ni baja de línea, así que el texto se sale. **Arréglalo** envolviendo el texto en `Expanded`, que le dice «usa solo el ancho que queda»:
+
+```dart
+const Row(
+  children: [
+    Icon(Icons.info),
+    SizedBox(width: 8),
+    Expanded(
+      child: Text('Este texto es tan largo que no cabe en una sola línea de la pantalla del móvil'),
+    ),
+  ],
+),
+```
+
+!!! warning "Las franjas amarillas y negras"
+    *"A RenderFlex overflowed by 42 pixels"* significa que el contenido **no cabe**. Soluciones típicas: envolver en `Expanded`, usar `Wrap` (paso 8) o meterlo en un `ListView`.
+
+### Paso 7 · Una caja con estilo: `Container` decorado
+
+**Añade**:
+
+```dart
+const SizedBox(height: 24),
+Container(
+  padding: const EdgeInsets.all(16),
+  decoration: BoxDecoration(
+    color: Colors.amber.shade100,
+    borderRadius: BorderRadius.circular(12),
+    border: Border.all(color: Colors.amber),
+  ),
+  child: const Text('Oferta del día: tortillitas a 5 €'),
+),
+```
+
+- `padding` = relleno **por dentro** de la caja.
+- `decoration` = cómo se ve: color, esquinas redondeadas, borde, sombra…
+
+### Paso 8 · Que baje de línea: `Wrap`
+
+**Añade** unas etiquetas:
+
+```dart
+const SizedBox(height: 24),
+const Wrap(
+  spacing: 8,
+  children: [
+    Chip(label: Text('Humor')),
+    Chip(label: Text('Final')),
+    Chip(label: Text('2026')),
+    Chip(label: Text('Chirigota')),
+    Chip(label: Text('Teatro Falla')),
+    Chip(label: Text('Cádiz')),
+  ],
+),
+```
+
+Estrecha la ventana de Chrome: las etiquetas **bajan a la línea siguiente**. Cambia `Wrap` por `Row` y vuelve a estrechar: franja amarilla. `Wrap` es un `Row` que salta de línea.
+
+### Paso 9 · Todo junto: la tarjeta de una agrupación (G1)
+
+**Añade** esta tarjeta. Usa todo lo de los pasos anteriores:
+
+```dart
+const SizedBox(height: 24),
+Card(
+  child: Padding(
+    padding: const EdgeInsets.all(16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Row(
+          children: [
+            CircleAvatar(child: Icon(Icons.theater_comedy)),
+            SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Los Yesterday',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  Text('Chirigota · Autor: Anónimo'),
+                ],
+              ),
+            ),
+            Icon(Icons.star, color: Colors.amber),
+            Text(' 342 pts'),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Wrap(
+          spacing: 8,
+          children: [for (final e in const ['Humor', 'Final', '2026']) Chip(label: Text(e))],
+        ),
+      ],
+    ),
+  ),
+),
+```
+
+Quita el `Expanded` de alrededor del nombre y guarda: los puntos ya no se van a la derecha. `Expanded` empuja lo de después hasta el final.
+
+Ahora haz los ejercicios rápidos **R2** y **R3**.
+
+??? info "Para consultar: los demás contenedores"
+    | Widget | Para qué |
+    |---|---|
+    | `Container` | Tamaño, color, bordes, márgenes y relleno en uno |
+    | `Padding` | Solo relleno |
+    | `SizedBox` | Tamaño fijo o separador (`SizedBox(height: 16)`) |
+    | `Center` / `Align` | Centrar o alinear un hijo |
+    | `Stack` + `Positioned` | Superponer widgets (un texto sobre una imagen). Lo usa el R4 |
+    | `Wrap` | Como `Row`, pero salta de línea si no cabe |
+    | `SafeArea` | Evita la muesca y la barra de estado |
 
 ---
 
-## 5. Estado local: `StatefulWidget` y `setState`
+## 4. Listas, paso a paso
+
+Vamos a hacer la lista de playas de Cádiz, de la más sencilla a la que se usa de verdad.
+
+### Paso 1 · Una lista fija
+
+Crea `lib/listas.dart`:
 
 ```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(home: ListaPlayas()));
+
+class ListaPlayas extends StatelessWidget {
+  const ListaPlayas({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Playas de Cádiz')),
+      body: ListView(
+        children: const [
+          ListTile(title: Text('La Caleta')),
+          ListTile(title: Text('Santa María del Mar')),
+          ListTile(title: Text('La Victoria')),
+        ],
+      ),
+    );
+  }
+}
+```
+
+Funciona, pero hay que escribir cada fila a mano. ¿Y si fueran 100 playas, o vinieran de internet?
+
+### Paso 2 · Los datos en una lista: `ListView.builder`
+
+Primero **añade** los datos dentro de la clase, justo debajo del constructor:
+
+```dart
+static const playas = ['La Caleta', 'Santa María del Mar', 'La Victoria', 'Cortadura', 'Camposoto'];
+```
+
+Después **sustituye** el `body` entero:
+
+```dart
+body: ListView.builder(
+  itemCount: playas.length,
+  itemBuilder: (context, i) => ListTile(title: Text(playas[i])),
+),
+```
+
+- `itemCount` = cuántas filas hay.
+- `itemBuilder` = una función que Flutter llama **para cada fila**, con su posición `i` (0, 1, 2…). Devuelve el widget de esa fila.
+- Solo construye las filas que se **ven** en pantalla, como `LazyColumn`. Por eso es la que se usa siempre que hay datos.
+
+### Paso 3 · Filas más completas
+
+**Sustituye** el `ListTile` del `itemBuilder` por uno con más cosas:
+
+```dart
+itemBuilder: (context, i) => ListTile(
+  leading: CircleAvatar(child: Text('${i + 1}')),
+  title: Text(playas[i]),
+  subtitle: const Text('Cádiz'),
+  trailing: const Icon(Icons.chevron_right),
+),
+```
+
+### Paso 4 · Hacer algo al tocar: `onTap` y `SnackBar`
+
+**Añade** al `ListTile`, debajo de `trailing`:
+
+```dart
+onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(content: Text('Has elegido ${playas[i]}')),
+),
+```
+
+Toca una fila: abajo aparece un mensaje que desaparece solo. Es el `Snackbar` de Compose.
+
+### Paso 5 · Con separadores: `ListView.separated`
+
+Cambia `ListView.builder` por `ListView.separated` y **añade** debajo de `itemCount` esta línea:
+
+```dart
+separatorBuilder: (context, i) => const Divider(),
+```
+
+Ahora hay una línea entre fila y fila.
+
+### Paso 6 (opcional) · En cuadrícula: `GridView.builder`
+
+**Sustituye** el `body`:
+
+```dart
+body: GridView.builder(
+  padding: const EdgeInsets.all(8),
+  itemCount: playas.length,
+  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+  itemBuilder: (context, i) => Card(child: Center(child: Text(playas[i]))),
+),
+```
+
+`crossAxisCount: 2` = dos columnas. Cambia a 3 y guarda.
+
+Ahora haz el ejercicio rápido **R5**.
+
+??? info "Para consultar: qué lista usar"
+    | Variante | Cuándo |
+    |---|---|
+    | `ListView(children: [...])` | Pocos elementos fijos |
+    | `ListView.builder` | Muchos elementos o datos que vienen de una lista |
+    | `ListView.separated` | Con separador entre elementos |
+    | `GridView.builder` | Cuadrícula |
+
+---
+
+## 5. Estado local, paso a paso
+
+Hasta ahora todo era fijo. Vamos a hacer un **contador**: un número que cambia al pulsar un botón.
+
+### Paso 1 · Lo que NO funciona
+
+Crea `lib/contador.dart` e intenta hacerlo con lo que ya sabes:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: Contador()));
+
+class Contador extends StatelessWidget {
+  Contador({super.key});
+
+  int valor = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Contador')),
+      body: Center(child: Text('$valor', style: const TextStyle(fontSize: 48))),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          valor++;
+          print(valor);
+        },
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+Pulsa el botón y mira la **consola**: el número sube (1, 2, 3…), pero la **pantalla sigue en 0**. Nadie le ha dicho a Flutter que vuelva a dibujar. Además, el editor subraya la clase: un `StatelessWidget` no puede tener datos que cambien.
+
+### Paso 2 · Con estado: `StatefulWidget` y `setState`
+
+Pon el cursor sobre `StatelessWidget`, pulsa la **bombilla** 💡 (o Ctrl+.) y elige **Convert to StatefulWidget**. Después déjalo así:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(home: Contador()));
+
 class Contador extends StatefulWidget {
-  const Contador({super.key, this.maximo = 10});
-  final int maximo;                           // parámetro que llega de fuera
+  const Contador({super.key});
 
   @override
   State<Contador> createState() => _ContadorState();
 }
 
 class _ContadorState extends State<Contador> {
-  int _valor = 0;                             // estado que cambia
+  int _valor = 0;
 
-  void _sumar() {
-    if (_valor < widget.maximo) {             // "widget." accede a los parámetros
-      setState(() => _valor++);
-    }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Contador')),
+      body: Center(child: Text('$_valor', style: const TextStyle(fontSize: 48))),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() => _valor++),
+        child: const Icon(Icons.add),
+      ),
+    );
   }
+}
+```
+
+Ahora sí cambia. Lo nuevo:
+
+- Son **dos clases**: `Contador` (el widget, que no cambia) y `_ContadorState` (la **memoria**, donde viven los datos que cambian).
+- **`setState(() => ...)`** = «cambio este dato **y** vuelve a dibujar». Es lo que en Compose hacía `mutableStateOf` por ti.
+- El `_` delante de `_valor` y `_ContadorState` significa **privado** (solo se ve en este fichero).
+
+### Paso 3 · Sumar y restar, sin bajar de 0
+
+**Quita** el `floatingActionButton` y **sustituye** el `body`:
+
+```dart
+body: Center(
+  child: Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Text('$_valor', style: const TextStyle(fontSize: 48)),
+      Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          IconButton(
+            onPressed: _valor > 0 ? () => setState(() => _valor--) : null,
+            icon: const Icon(Icons.remove),
+          ),
+          IconButton(
+            onPressed: () => setState(() => _valor++),
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
+    ],
+  ),
+),
+```
+
+El botón de restar se **desactiva** en 0: `onPressed: null`, lo vimos en el apartado 2. Se decide en cada `build`.
+
+### Paso 4 · Que cambie el aspecto
+
+Sustituye el `Text` del número por este, que se pone rojo a partir de 10:
+
+```dart
+Text(
+  '$_valor',
+  style: TextStyle(fontSize: 48, color: _valor >= 10 ? Colors.red : Colors.black),
+),
+```
+
+El `TextStyle` ya no es `const`: depende de `_valor`.
+
+### Paso 5 · Un dato que llega de fuera: `widget.`
+
+Queremos decidir el máximo desde fuera, al crear el contador. **Cambia** la clase `Contador`:
+
+```dart
+class Contador extends StatefulWidget {
+  const Contador({super.key, this.maximo = 10});
+  final int maximo;
+
+  @override
+  State<Contador> createState() => _ContadorState();
+}
+```
+
+En el botón de sumar, **usa** `widget.maximo` para no pasarse:
+
+```dart
+onPressed: _valor < widget.maximo ? () => setState(() => _valor++) : null,
+```
+
+Y en el `main` crea el contador con otro máximo: `home: Contador(maximo: 5)`.
+
+- Los **parámetros** (lo que llega de fuera) van en la clase del widget, `Contador`.
+- Desde el `State` se leen con **`widget.`** delante: `widget.maximo`.
+
+Ahora haz los ejercicios rápidos **R6** y **R7**.
+
+??? info "Para consultar: el ciclo de vida del `State`"
+    Lo necesitaréis en los temas 4 y 5.
+
+    | Método | Cuándo se llama | Para qué |
+    |---|---|---|
+    | `initState()` | Una vez, al crearse | Arrancar cosas: suscribirse a un stream, pedir datos |
+    | `build()` | Cada vez que hay que dibujar | Solo describir la interfaz. **Nada pesado aquí** |
+    | `dispose()` | Una vez, al destruirse | Liberar: cancelar suscripciones, `controller.dispose()` |
+
+    Si una operación asíncrona termina cuando el usuario ya ha salido de la pantalla, `setState` da error. Comprueba antes `if (!mounted) return;`.
+
+---
+
+## 6. Comunicación entre widgets, paso a paso
+
+Cuando la pantalla crece, se trocea en widgets pequeños. Entonces hay que **pasar datos** entre ellos. Lo vamos a ver con una pantalla para **valorar playas con estrellas** (G2).
+
+### Paso 1 · De padre a hijo: parámetros
+
+Crea `lib/valoracion.dart`. La pantalla (`Valoracion`, el **padre**) crea tres fichas (`FichaPlaya`, los **hijos**) y le pasa a cada una su nombre:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(home: Valoracion()));
+
+class FichaPlaya extends StatelessWidget {
+  const FichaPlaya({super.key, required this.nombre});
+  final String nombre;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(Icons.beach_access),
+      title: Text(nombre),
+    );
+  }
+}
+
+class Valoracion extends StatelessWidget {
+  const Valoracion({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Valoración de playas')),
+      body: ListView(
+        children: const [
+          FichaPlaya(nombre: 'La Caleta'),
+          FichaPlaya(nombre: 'La Victoria'),
+          FichaPlaya(nombre: 'Cortadura'),
+        ],
+      ),
+    );
+  }
+}
+```
+
+Los datos **bajan** por el constructor, como los parámetros de una función composable. `required` = es obligatorio pasarlo.
+
+### Paso 2 · Un widget que muestra estrellas
+
+**Añade** esta clase al fichero. Pinta 5 estrellas, rellenas hasta `valor`:
+
+```dart
+class Estrellas extends StatelessWidget {
+  const Estrellas({super.key, required this.valor});
+  final int valor;
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
       children: [
-        IconButton(
-          onPressed: _valor > 0 ? () => setState(() => _valor--) : null,
-          icon: const Icon(Icons.remove),
-        ),
-        Text('$_valor', style: const TextStyle(fontSize: 24)),
-        IconButton(
-          onPressed: _valor < widget.maximo ? _sumar : null,
-          icon: const Icon(Icons.add),
-        ),
+        for (var i = 1; i <= 5; i++)
+          Icon(i <= valor ? Icons.star : Icons.star_border, color: Colors.amber),
       ],
     );
   }
 }
 ```
 
-**Ciclo de vida** del `State` (lo necesitaréis en los temas 4 y 5):
+El `for` dentro de la lista es el *collection for* de Dart del Tema 1: crea un hijo por vuelta.
 
-| Método | Cuándo se llama | Para qué |
-|---|---|---|
-| `initState()` | Una vez, al crearse | Arrancar cosas: suscribirse a un stream, pedir datos |
-| `build()` | Cada vez que hay que dibujar | Solo describir la interfaz. **Nada pesado aquí** |
-| `dispose()` | Una vez, al destruirse | Liberar: cancelar suscripciones, `controller.dispose()` |
-
-!!! warning "Nunca llames a `setState` fuera de un `State` montado"
-    Si una operación asíncrona termina cuando el usuario ya ha salido de la pantalla, `setState` da error. Comprueba antes `if (!mounted) return;`.
-
----
-
-## 6. Comunicación entre widgets
-
-### De padre a hijo: parámetros del constructor
-
-Como los parámetros de una función composable en Compose:
+Ahora `FichaPlaya` tiene que recibir la nota y mostrar las estrellas. **Añade** el parámetro `nota` y el `subtitle`:
 
 ```dart
-class Etiqueta extends StatelessWidget {
-  const Etiqueta({super.key, required this.texto, this.color = Colors.blue});
-  final String texto;
-  final Color color;
+class FichaPlaya extends StatelessWidget {
+  const FichaPlaya({super.key, required this.nombre, required this.nota});
+  final String nombre;
+  final int nota;
 
   @override
-  Widget build(BuildContext context) => Chip(label: Text(texto), backgroundColor: color);
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(Icons.beach_access),
+      title: Text(nombre),
+      subtitle: Estrellas(valor: nota),
+    );
+  }
 }
 ```
 
-### De hijo a padre: *callbacks*
+Y en `Valoracion`, pasa una nota a cada ficha: `FichaPlaya(nombre: 'La Caleta', nota: 3)`, etc. Los datos bajan dos niveles: pantalla → ficha → estrellas.
 
-El hijo recibe una **función** y la llama cuando pasa algo. El estado vive en el padre (*lifting state up*, igual que en Compose):
+### Paso 3 · De hijo a padre: *callbacks*
+
+Queremos **pulsar** una estrella para cambiar la nota. Pero el hijo no puede cambiar un dato que le ha dado el padre: tiene que **avisar** al padre. Para eso recibe una **función** y la llama.
+
+**Cambia** `Estrellas`: los `Icon` pasan a ser `IconButton`, y añade el parámetro `alCambiar`:
 
 ```dart
 class Estrellas extends StatelessWidget {
   const Estrellas({super.key, required this.valor, required this.alCambiar});
   final int valor;
-  final ValueChanged<int> alCambiar;         // equivale a void Function(int)
+  final ValueChanged<int> alCambiar;   // una función que recibe un int
 
   @override
   Widget build(BuildContext context) {
@@ -467,34 +903,119 @@ class Estrellas extends StatelessWidget {
       children: [
         for (var i = 1; i <= 5; i++)
           IconButton(
+            onPressed: () => alCambiar(i),   // avisa: «han pulsado la estrella i»
             icon: Icon(i <= valor ? Icons.star : Icons.star_border, color: Colors.amber),
-            onPressed: () => alCambiar(i),
           ),
       ],
     );
   }
 }
-
-// En el padre (StatefulWidget):
-// Estrellas(valor: _nota, alCambiar: (n) => setState(() => _nota = n))
 ```
 
-!!! example "G2 · Guiado en clase: valoración de playas"
-    Una lista de 4 playas. Cada fila tiene el widget `Estrellas`. Arriba, en el `AppBar`, se muestra la **media** de todas las valoraciones. El estado (la lista de notas) vive en la pantalla, no en cada fila.
+`FichaPlaya` solo hace de intermediaria: recibe la función y se la pasa a las estrellas. **Añade** el parámetro:
 
-### Estado compartido entre pantallas: `ChangeNotifier` + `provider`
+```dart
+class FichaPlaya extends StatelessWidget {
+  const FichaPlaya({super.key, required this.nombre, required this.nota, required this.alCambiar});
+  final String nombre;
+  final int nota;
+  final ValueChanged<int> alCambiar;
 
-Cuando varias pantallas necesitan los mismos datos (el carrito de la compra, el usuario conectado), pasar parámetros de una a otra se vuelve inmanejable. La solución oficial más sencilla:
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(Icons.beach_access),
+      title: Text(nombre),
+      subtitle: Estrellas(valor: nota, alCambiar: alCambiar),
+    );
+  }
+}
+```
+
+Para probarlo, en `Valoracion` pasa una función que solo escriba en la consola. **Quita** el `const` de la lista `children` (una función no es constante):
+
+```dart
+FichaPlaya(nombre: 'La Caleta', nota: 3, alCambiar: (n) => print('La Caleta: $n')),
+```
+
+Pulsa estrellas: la consola recibe el aviso, pero las estrellas **no cambian**. Falta que alguien **guarde** la nota.
+
+### Paso 4 · El padre guarda las notas
+
+Las notas tienen que vivir en el **padre**, que pasa a ser un `StatefulWidget` (bombilla 💡 → *Convert to StatefulWidget*). **Sustituye** la clase `Valoracion` entera:
+
+```dart
+class Valoracion extends StatefulWidget {
+  const Valoracion({super.key});
+
+  @override
+  State<Valoracion> createState() => _ValoracionState();
+}
+
+class _ValoracionState extends State<Valoracion> {
+  static const playas = ['La Caleta', 'La Victoria', 'Cortadura', 'Santa María del Mar'];
+  final _notas = [0, 0, 0, 0];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Valoración de playas')),
+      body: ListView.builder(
+        itemCount: playas.length,
+        itemBuilder: (context, i) => FichaPlaya(
+          nombre: playas[i],
+          nota: _notas[i],
+          alCambiar: (n) => setState(() => _notas[i] = n),
+        ),
+      ),
+    );
+  }
+}
+```
+
+El circuito completo:
+
+1. El usuario pulsa la estrella 4 de La Caleta.
+2. `Estrellas` llama a `alCambiar(4)`.
+3. El padre ejecuta `setState(() => _notas[0] = 4)`.
+4. El padre se redibuja y le pasa a la ficha la nota nueva, que **baja** hasta las estrellas.
+
+**Los datos bajan por parámetros; los avisos suben por funciones.** El estado vive en el padre (*lifting state up*, igual que en Compose).
+
+### Paso 5 · Usar el estado del padre: la media
+
+Como las notas están en el padre, puede usarlas para otras cosas. **Añade** en `_ValoracionState`, debajo de `_notas`:
+
+```dart
+double get _media => _notas.reduce((a, b) => a + b) / _notas.length;
+```
+
+Y **cambia** el título del `AppBar`:
+
+```dart
+appBar: AppBar(title: Text('Media: ${_media.toStringAsFixed(1)} ⭐')),
+```
+
+Pulsa estrellas: la media se actualiza sola.
+
+Ahora haz el ejercicio rápido **R8**.
+
+### Paso 6 · Datos para toda la app: `ChangeNotifier` + `provider`
+
+Pasar datos por parámetros funciona entre padre e hijo. Pero cuando **varias pantallas** necesitan los mismos datos (el carrito de la compra, el usuario conectado), se vuelve inmanejable. La solución oficial más sencilla:
 
 1. Una clase que **guarda los datos** y **avisa** cuando cambian (`ChangeNotifier`, como un `ViewModel`).
-2. El paquete `provider` la pone **a disposición de todo el árbol**.
+2. El paquete `provider`, que la pone **a disposición de todas las pantallas**.
+
+**6.1 · Instala el paquete.** En la terminal de VS Code:
 
 ```bash
 flutter pub add provider
 ```
 
+**6.2 · La clase con los datos.** Crea `lib/carrito.dart`:
+
 ```dart
-// lib/carrito.dart
 import 'package:flutter/foundation.dart';
 
 class Producto {
@@ -512,7 +1033,7 @@ class Carrito extends ChangeNotifier {
 
   void anadir(Producto p) {
     _items.add(p);
-    notifyListeners();                        // ← avisa a quien esté escuchando
+    notifyListeners();   // ← avisa a quien esté escuchando
   }
 
   void quitar(Producto p) {
@@ -522,8 +1043,11 @@ class Carrito extends ChangeNotifier {
 }
 ```
 
+`notifyListeners()` es el `setState` de esta clase: «he cambiado, que se redibujen los que me usan».
+
+**6.3 · Ponerla a disposición de la app.** Crea `lib/tienda.dart`. El `ChangeNotifierProvider` envuelve a toda la app:
+
 ```dart
-// lib/main.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'carrito.dart';
@@ -531,7 +1055,7 @@ import 'carrito.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (_) => Carrito(),               // se crea una vez para toda la app
+      create: (_) => Carrito(),   // se crea una vez para toda la app
       child: const MaterialApp(home: Tienda()),
     ),
   );
@@ -548,19 +1072,8 @@ class Tienda extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final carrito = context.watch<Carrito>(); // watch = me redibujo si cambia
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tienda'),
-        actions: [
-          Badge(
-            label: Text('${carrito.cantidad}'),
-            child: const Icon(Icons.shopping_cart),
-          ),
-          const SizedBox(width: 16),
-        ],
-      ),
+      appBar: AppBar(title: const Text('Tienda')),
       body: ListView(
         children: [
           for (final p in catalogo)
@@ -569,80 +1082,211 @@ class Tienda extends StatelessWidget {
               subtitle: Text('${p.precio.toStringAsFixed(2)} €'),
               trailing: IconButton(
                 icon: const Icon(Icons.add_shopping_cart),
-                // read = solo uso el objeto, no me redibujo
                 onPressed: () => context.read<Carrito>().anadir(p),
               ),
             ),
         ],
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Text('Total: ${carrito.total.toStringAsFixed(2)} €',
-            style: Theme.of(context).textTheme.titleLarge),
       ),
     );
   }
 }
 ```
 
-| Llamada | Qué hace | Dónde |
+`context.read<Carrito>()` = «dame el carrito» para usarlo. Pulsa los botones: se añaden productos… pero aún no se ve nada.
+
+**6.4 · Ver el carrito: `watch`.** **Añade** al principio del `build` de `Tienda`:
+
+```dart
+final carrito = context.watch<Carrito>();   // watch = me redibujo si cambia
+```
+
+Y **cambia** el `AppBar` para que muestre cuántos productos hay, y **añade** el total abajo del `Scaffold`:
+
+```dart
+appBar: AppBar(
+  title: const Text('Tienda'),
+  actions: [
+    Badge(
+      label: Text('${carrito.cantidad}'),
+      child: const Icon(Icons.shopping_cart),
+    ),
+    const SizedBox(width: 16),
+  ],
+),
+```
+
+```dart
+bottomNavigationBar: Padding(
+  padding: const EdgeInsets.all(16),
+  child: Text('Total: ${carrito.total.toStringAsFixed(2)} €',
+      style: Theme.of(context).textTheme.titleLarge),
+),
+```
+
+Pulsa los botones: el contador y el total cambian solos.
+
+| Llamada | Qué hace | Dónde se usa |
 |---|---|---|
 | `context.watch<T>()` | Obtiene el objeto **y** redibuja el widget cuando cambia | En `build` |
-| `context.read<T>()` | Obtiene el objeto **sin** suscribirse | En `onPressed`, `initState`… |
-| `Consumer<T>(builder: ...)` | Redibuja **solo** esa parte | Para optimizar |
+| `context.read<T>()` | Obtiene el objeto **sin** redibujar | En `onPressed`, `initState`… |
 
-!!! example "G3 · Guiado en clase: el carrito en otra pantalla"
-    Añade una segunda pantalla `PantallaCarrito` que liste los productos del carrito con un botón para quitar cada uno. Al volver a la tienda, el contador del `Badge` debe estar actualizado. (Lo haremos después del apartado 7.)
+En el paso 6 de la navegación llevaremos el carrito a otra pantalla. Ahora haz el ejercicio rápido **R13**.
 
 ---
 
-## 7. Navegación
+## 7. Navegación, paso a paso
 
-### Ir y volver
+Vamos a pasar de una pantalla a otra: una lista de playas que abre el detalle de cada una (G4).
+
+### Paso 1 · Dos pantallas: ir con `Navigator.push`
+
+Crea `lib/navegacion.dart`:
 
 ```dart
-// Ir a otra pantalla
-Navigator.push(
-  context,
-  MaterialPageRoute(builder: (context) => const PantallaCarrito()),
-);
+import 'package:flutter/material.dart';
 
-// Volver (también lo hace la flecha del AppBar o el botón atrás de Android)
-Navigator.pop(context);
+void main() => runApp(const MaterialApp(home: ListaPlayas()));
+
+class ListaPlayas extends StatelessWidget {
+  const ListaPlayas({super.key});
+
+  static const playas = ['La Caleta', 'Santa María del Mar', 'La Victoria', 'Cortadura'];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Playas de Cádiz')),
+      body: ListView.builder(
+        itemCount: playas.length,
+        itemBuilder: (context, i) => ListTile(
+          title: Text(playas[i]),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DetallePlaya(nombre: playas[i])),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DetallePlaya extends StatelessWidget {
+  const DetallePlaya({super.key, required this.nombre});
+  final String nombre;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(nombre)),
+      body: const Center(
+        child: Icon(Icons.beach_access, size: 96, color: Colors.orange),
+      ),
+    );
+  }
+}
 ```
 
-### Pasar datos a la pantalla nueva
+- `Navigator.push` **abre** una pantalla nueva encima de la actual.
+- `MaterialPageRoute(builder: ...)` dice **qué pantalla** abrir, con la animación de cada plataforma.
+- Los datos se pasan **por el constructor**, como a cualquier widget: `DetallePlaya(nombre: playas[i])`.
+- La **flecha** del `AppBar` y el botón atrás de Android vuelven solos.
 
-Por el constructor, como a cualquier widget:
+### Paso 2 · Volver con un botón: `Navigator.pop`
+
+En `DetallePlaya`, **sustituye** el `body`:
 
 ```dart
-Navigator.push(
-  context,
-  MaterialPageRoute(builder: (_) => DetallePlaya(nombre: playas[i])),
-);
+body: Center(
+  child: Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      const Icon(Icons.beach_access, size: 96, color: Colors.orange),
+      const SizedBox(height: 24),
+      TextButton(
+        onPressed: () => Navigator.pop(context),
+        child: const Text('Volver'),
+      ),
+    ],
+  ),
+),
 ```
 
-### Recibir un resultado al volver
+Las pantallas funcionan como una **pila**: `push` pone una encima y `pop` quita la de arriba.
 
-`push` devuelve un `Future` que se completa con lo que se pase a `pop`:
+### Paso 3 · Volver con un resultado
+
+Queremos marcar playas como **favoritas** desde el detalle. `pop` puede llevar un dato de vuelta. En `DetallePlaya`, **añade** este botón antes del `TextButton`:
 
 ```dart
-// Pantalla A
-final color = await Navigator.push<Color>(
-  context,
-  MaterialPageRoute(builder: (_) => const SelectorColor()),
-);
-if (color != null) setState(() => _color = color);
-
-// Pantalla B (SelectorColor)
-onTap: () => Navigator.pop(context, Colors.green),
+FilledButton.icon(
+  onPressed: () => Navigator.pop(context, true),   // vuelve devolviendo true
+  icon: const Icon(Icons.favorite),
+  label: const Text('Marcar como favorita'),
+),
 ```
 
-### Navegación con pestañas: `NavigationBar`
+La lista tiene que **recordar** cuáles son favoritas, así que pasa a ser `StatefulWidget` (bombilla 💡 → *Convert to StatefulWidget*). **Sustituye** la clase `ListaPlayas` entera:
 
 ```dart
+class ListaPlayas extends StatefulWidget {
+  const ListaPlayas({super.key});
+
+  @override
+  State<ListaPlayas> createState() => _ListaPlayasState();
+}
+
+class _ListaPlayasState extends State<ListaPlayas> {
+  static const playas = ['La Caleta', 'Santa María del Mar', 'La Victoria', 'Cortadura'];
+  final _favoritas = <String>{};
+
+  Future<void> _abrir(String playa) async {
+    final favorita = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(builder: (context) => DetallePlaya(nombre: playa)),
+    );
+    if (favorita == true && mounted) {
+      setState(() => _favoritas.add(playa));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Playas de Cádiz')),
+      body: ListView.builder(
+        itemCount: playas.length,
+        itemBuilder: (context, i) => ListTile(
+          title: Text(playas[i]),
+          trailing: _favoritas.contains(playas[i])
+              ? const Icon(Icons.favorite, color: Colors.red)
+              : const Icon(Icons.chevron_right),
+          onTap: () => _abrir(playas[i]),
+        ),
+      ),
+    );
+  }
+}
+```
+
+- `push` devuelve un **`Future`**: se completa cuando la otra pantalla hace `pop`, con el dato que le pase. Por eso lleva `await`, como en el Tema 1.
+- Si se vuelve con la flecha, el resultado es `null`. Por eso se compara con `== true`.
+- `<String>{}` es un conjunto (`Set`): no admite repetidos.
+
+Ahora haz los ejercicios rápidos **R9**, **R10** y **R11**.
+
+### Paso 4 · Pestañas abajo: `NavigationBar`
+
+Para cambiar entre secciones sin apilar pantallas se usa una barra inferior. Crea `lib/pestanas.dart`:
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(home: Inicio()));
+
 class Inicio extends StatefulWidget {
   const Inicio({super.key});
+
   @override
   State<Inicio> createState() => _InicioState();
 }
@@ -650,16 +1294,10 @@ class Inicio extends StatefulWidget {
 class _InicioState extends State<Inicio> {
   int _indice = 0;
 
-  static const _pantallas = [
-    Center(child: Text('Catálogo')),
-    Center(child: Text('Carrito')),
-    Center(child: Text('Perfil')),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pantallas[_indice],
+      body: Center(child: Text('Pestaña $_indice', style: const TextStyle(fontSize: 32))),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _indice,
         onDestinationSelected: (i) => setState(() => _indice = i),
@@ -674,13 +1312,84 @@ class _InicioState extends State<Inicio> {
 }
 ```
 
-También existen `Drawer` (menú lateral, `Scaffold(drawer: Drawer(...))`) y `TabBar` + `TabBarView` (pestañas arriba).
+La pestaña elegida es **estado local**: un número (`_indice`) y un `setState` al tocar, como el contador.
 
-!!! note "¿Y `go_router`?"
-    Para apps grandes o para web (URLs con rutas) se usa el paquete `go_router`. En este módulo basta con `Navigator`. Si os sobra tiempo en el proyecto final, investigadlo.
+### Paso 5 · Una pantalla distinta en cada pestaña
 
-!!! example "G4 · Guiado en clase: lista → detalle"
-    Con la lista de playas del apartado 4: al tocar una playa se abre `DetallePlaya` con su nombre en el `AppBar`, una imagen y un botón **«Marcar como favorita»** que vuelve a la lista devolviendo `true`. En la lista, las favoritas muestran un corazón.
+**Añade** en `_InicioState`, debajo de `_indice`, la lista de pantallas:
+
+```dart
+static const _pantallas = [
+  Center(child: Text('Catálogo')),
+  Center(child: Text('Carrito')),
+  Center(child: Text('Perfil')),
+];
+```
+
+Y **cambia** el `body` para que muestre la de la pestaña elegida:
+
+```dart
+body: _pantallas[_indice],
+```
+
+En una app real, cada elemento de la lista sería una pantalla completa, por ejemplo `ListaPlayas()`.
+
+Ahora haz el ejercicio rápido **R12**.
+
+### Paso 6 · El carrito en otra pantalla (G3)
+
+Volvemos a `lib/tienda.dart`, la del paso 6 del apartado anterior. **Añade** al final del fichero una pantalla que lista el carrito:
+
+```dart
+class PantallaCarrito extends StatelessWidget {
+  const PantallaCarrito({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final carrito = context.watch<Carrito>();
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Mi carrito')),
+      body: carrito.items.isEmpty
+          ? const Center(child: Text('El carrito está vacío'))
+          : ListView(
+              children: [
+                for (final p in carrito.items)
+                  ListTile(
+                    title: Text(p.nombre),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: () => context.read<Carrito>().quitar(p),
+                    ),
+                  ),
+              ],
+            ),
+    );
+  }
+}
+```
+
+En el `AppBar` de `Tienda`, **sustituye** el `Badge` por un botón que abra esa pantalla:
+
+```dart
+IconButton(
+  onPressed: () => Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const PantallaCarrito()),
+  ),
+  icon: Badge(
+    label: Text('${carrito.cantidad}'),
+    child: const Icon(Icons.shopping_cart),
+  ),
+),
+```
+
+Añade productos, abre el carrito, borra alguno y vuelve: el contador de la tienda está actualizado. **Las dos pantallas comparten el mismo `Carrito`** sin pasarse nada por parámetros: eso es lo que da `provider`.
+
+??? info "Para consultar: otras formas de navegar"
+    - `Drawer`: menú lateral, con `Scaffold(drawer: Drawer(...))`.
+    - `TabBar` + `TabBarView`: pestañas arriba.
+    - `go_router`: para apps grandes o para web (URLs con rutas). En este módulo basta con `Navigator`; si os sobra tiempo en el proyecto final, investigadlo.
 
 ---
 
@@ -833,7 +1542,7 @@ LayoutBuilder(
 
 Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada apartado, y se corrigen en voz alta. No se entregan: son el entrenamiento para el boletín y las prácticas.
 
-### Sesión 1 · 9 nov
+### Widgets, layout, listas, estado y comunicación (apartados 2 a 6)
 
 | # | Ejercicio | Apartado |
 |---|---|---|
@@ -846,7 +1555,7 @@ Cortos (5-15 minutos). Se hacen **en clase**, justo después de explicar cada ap
 | R7 | **Luz de la habitación.** Un `Switch` que cambia el fondo de la pantalla entre amarillo y gris oscuro | 5 |
 | R8 | **Botones que suman.** Un widget `BotonNumero(valor: n, alPulsar: ...)`. El padre pinta cinco (1, 2, 5, 10, 20) y muestra la suma total | 6 |
 
-### Sesión 2 · 16 nov
+### Navegación, `provider`, formularios y diseño (apartados 6 a 9)
 
 | # | Ejercicio | Apartado |
 |---|---|---|
