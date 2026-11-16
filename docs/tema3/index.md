@@ -332,7 +332,11 @@ Dentro del `Row`, **antes** de `children`, añade esta línea:
 ```dart
 Row(
   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  children: [ ... ],      // las tres cajas, igual
+  children: [
+    Container(width: 80, height: 80, color: Colors.red),
+    Container(width: 80, height: 80, color: Colors.green),
+    Container(width: 80, height: 80, color: Colors.blue),
+  ],
 ),
 ```
 
@@ -500,7 +504,127 @@ Card(
 ),
 ```
 
-Quita el `Expanded` de alrededor del nombre y guarda: los puntos ya no se van a la derecha. `Expanded` empuja lo de después hasta el final.
+**Para ver qué hace el `Expanded`:** en la fila de arriba, el `Expanded` envuelve la columna del nombre. Ocupa **todo el ancho que sobra**, y por eso la estrella y los puntos quedan pegados al borde derecho:
+
+```text
+[icono]  Los Yesterday                    ⭐ 342 pts
+         Chirigota · Autor: Anónimo
+```
+
+Borra `Expanded(` y su paréntesis de cierre, deja solo la `Column` y guarda. Ahora la columna mide lo que su texto, y los puntos se quedan **al lado del nombre**:
+
+```text
+[icono]  Los Yesterday        ⭐ 342 pts
+         Chirigota · Autor: Anónimo
+```
+
+Vuelve a ponerlo. Es lo mismo que `Modifier.weight(1f)` en Compose.
+
+??? example "Código completo de `lib/layout.dart`"
+    ```dart
+    import 'package:flutter/material.dart';
+
+    void main() => runApp(const MaterialApp(home: Layout()));
+
+    class Layout extends StatelessWidget {
+      const Layout({super.key});
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: const Text('Layout')),
+          body: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(width: 80, height: 80, color: Colors.red),
+                  Container(width: 80, height: 120, color: Colors.green),
+                  Container(width: 80, height: 80, color: Colors.blue),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  Expanded(flex: 2, child: Container(height: 50, color: Colors.orange)),
+                  Expanded(child: Container(height: 50, color: Colors.purple)),
+                ],
+              ),
+              const SizedBox(height: 24),
+              const Row(
+                children: [
+                  Icon(Icons.info),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text('Este texto es tan largo que no cabe en una sola línea de la pantalla del móvil'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.amber.shade100,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.amber),
+                ),
+                child: const Text('Oferta del día: tortillitas a 5 €'),
+              ),
+              const SizedBox(height: 24),
+              const Wrap(
+                spacing: 8,
+                children: [
+                  Chip(label: Text('Humor')),
+                  Chip(label: Text('Final')),
+                  Chip(label: Text('2026')),
+                  Chip(label: Text('Chirigota')),
+                  Chip(label: Text('Teatro Falla')),
+                  Chip(label: Text('Cádiz')),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        children: [
+                          CircleAvatar(child: Icon(Icons.theater_comedy)),
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Los Yesterday',
+                                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                Text('Chirigota · Autor: Anónimo'),
+                              ],
+                            ),
+                          ),
+                          Icon(Icons.star, color: Colors.amber),
+                          Text(' 342 pts'),
+                        ],
+                      ),
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 8,
+                        children: [for (final e in const ['Humor', 'Final', '2026']) Chip(label: Text(e))],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+    }
+    ```
+
 
 Ahora haz los ejercicios rápidos **R2** y **R3**.
 
@@ -599,10 +723,22 @@ Toca una fila: abajo aparece un mensaje que desaparece solo. Es el `Snackbar` de
 
 ### Paso 5 · Con separadores: `ListView.separated`
 
-Cambia `ListView.builder` por `ListView.separated` y **añade** debajo de `itemCount` esta línea:
+Cambia `ListView.builder` por `ListView.separated` y **añade** la línea `separatorBuilder`. El `body` queda así:
 
 ```dart
-separatorBuilder: (context, i) => const Divider(),
+body: ListView.separated(
+  itemCount: playas.length,
+  separatorBuilder: (context, i) => const Divider(),
+  itemBuilder: (context, i) => ListTile(
+    leading: CircleAvatar(child: Text('${i + 1}')),
+    title: Text(playas[i]),
+    subtitle: const Text('Cádiz'),
+    trailing: const Icon(Icons.chevron_right),
+    onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Has elegido ${playas[i]}')),
+    ),
+  ),
+),
 ```
 
 Ahora hay una línea entre fila y fila.
@@ -621,6 +757,39 @@ body: GridView.builder(
 ```
 
 `crossAxisCount: 2` = dos columnas. Cambia a 3 y guarda.
+
+??? example "Código completo de `lib/listas.dart`"
+    ```dart
+    import 'package:flutter/material.dart';
+
+    void main() => runApp(const MaterialApp(home: ListaPlayas()));
+
+    class ListaPlayas extends StatelessWidget {
+      const ListaPlayas({super.key});
+
+      static const playas = ['La Caleta', 'Santa María del Mar', 'La Victoria', 'Cortadura', 'Camposoto'];
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: const Text('Playas de Cádiz')),
+          body: ListView.separated(
+            itemCount: playas.length,
+            separatorBuilder: (context, i) => const Divider(),
+            itemBuilder: (context, i) => ListTile(
+              leading: CircleAvatar(child: Text('${i + 1}')),
+              title: Text(playas[i]),
+              subtitle: const Text('Cádiz'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Has elegido ${playas[i]}')),
+              ),
+            ),
+          ),
+        );
+      }
+    }
+    ```
 
 Ahora haz el ejercicio rápido **R5**.
 
@@ -712,7 +881,7 @@ Ahora sí cambia. Lo nuevo:
 
 ### Paso 3 · Sumar y restar, sin bajar de 0
 
-**Quita** el `floatingActionButton` y **sustituye** el `body`:
+**Quita** el `floatingActionButton` (todo el bloque, hasta su `),`) y **sustituye** el `body`:
 
 ```dart
 body: Center(
@@ -773,10 +942,66 @@ En el botón de sumar, **usa** `widget.maximo` para no pasarse:
 onPressed: _valor < widget.maximo ? () => setState(() => _valor++) : null,
 ```
 
-Y en el `main` crea el contador con otro máximo: `home: Contador(maximo: 5)`.
+Y en el `main`, crea el contador con otro máximo. Sin paréntesis vale 10 (el valor por defecto); así vale 5:
+
+```dart
+void main() => runApp(const MaterialApp(home: Contador(maximo: 5)));
+```
+
+Pulsa hasta 5: el botón de sumar se desactiva.
 
 - Los **parámetros** (lo que llega de fuera) van en la clase del widget, `Contador`.
 - Desde el `State` se leen con **`widget.`** delante: `widget.maximo`.
+
+??? example "Código completo de `lib/contador.dart`"
+    ```dart
+    import 'package:flutter/material.dart';
+
+    void main() => runApp(const MaterialApp(home: Contador(maximo: 5)));
+
+    class Contador extends StatefulWidget {
+      const Contador({super.key, this.maximo = 10});
+      final int maximo;
+
+      @override
+      State<Contador> createState() => _ContadorState();
+    }
+
+    class _ContadorState extends State<Contador> {
+      int _valor = 0;
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: const Text('Contador')),
+          body: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  '$_valor',
+                  style: TextStyle(fontSize: 48, color: _valor >= 10 ? Colors.red : Colors.black),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      onPressed: _valor > 0 ? () => setState(() => _valor--) : null,
+                      icon: const Icon(Icons.remove),
+                    ),
+                    IconButton(
+                      onPressed: _valor < widget.maximo ? () => setState(() => _valor++) : null,
+                      icon: const Icon(Icons.add),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      }
+    }
+    ```
 
 Ahora haz los ejercicios rápidos **R6** y **R7**.
 
@@ -882,7 +1107,17 @@ class FichaPlaya extends StatelessWidget {
 }
 ```
 
-Y en `Valoracion`, pasa una nota a cada ficha: `FichaPlaya(nombre: 'La Caleta', nota: 3)`, etc. Los datos bajan dos niveles: pantalla → ficha → estrellas.
+Y en `Valoracion`, pasa una nota a cada ficha. **Sustituye** la lista `children`:
+
+```dart
+children: const [
+  FichaPlaya(nombre: 'La Caleta', nota: 3),
+  FichaPlaya(nombre: 'La Victoria', nota: 5),
+  FichaPlaya(nombre: 'Cortadura', nota: 1),
+],
+```
+
+Los datos bajan dos niveles: pantalla → ficha → estrellas.
 
 ### Paso 3 · De hijo a padre: *callbacks*
 
@@ -932,10 +1167,14 @@ class FichaPlaya extends StatelessWidget {
 }
 ```
 
-Para probarlo, en `Valoracion` pasa una función que solo escriba en la consola. **Quita** el `const` de la lista `children` (una función no es constante):
+Para probarlo, en `Valoracion` pasa a cada ficha una función que solo escriba en la consola. **Sustituye** la lista `children`. Fíjate en que ya **no lleva `const`**: una función no es constante.
 
 ```dart
-FichaPlaya(nombre: 'La Caleta', nota: 3, alCambiar: (n) => print('La Caleta: $n')),
+children: [
+  FichaPlaya(nombre: 'La Caleta', nota: 3, alCambiar: (n) => print('La Caleta: $n')),
+  FichaPlaya(nombre: 'La Victoria', nota: 5, alCambiar: (n) => print('La Victoria: $n')),
+  FichaPlaya(nombre: 'Cortadura', nota: 1, alCambiar: (n) => print('Cortadura: $n')),
+],
 ```
 
 Pulsa estrellas: la consola recibe el aviso, pero las estrellas **no cambian**. Falta que alguien **guarde** la nota.
@@ -997,6 +1236,78 @@ appBar: AppBar(title: Text('Media: ${_media.toStringAsFixed(1)} ⭐')),
 ```
 
 Pulsa estrellas: la media se actualiza sola.
+
+??? example "Código completo de `lib/valoracion.dart`"
+    ```dart
+    import 'package:flutter/material.dart';
+
+    void main() => runApp(const MaterialApp(home: Valoracion()));
+
+    class Estrellas extends StatelessWidget {
+      const Estrellas({super.key, required this.valor, required this.alCambiar});
+      final int valor;
+      final ValueChanged<int> alCambiar;
+
+      @override
+      Widget build(BuildContext context) {
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            for (var i = 1; i <= 5; i++)
+              IconButton(
+                onPressed: () => alCambiar(i),
+                icon: Icon(i <= valor ? Icons.star : Icons.star_border, color: Colors.amber),
+              ),
+          ],
+        );
+      }
+    }
+
+    class FichaPlaya extends StatelessWidget {
+      const FichaPlaya({super.key, required this.nombre, required this.nota, required this.alCambiar});
+      final String nombre;
+      final int nota;
+      final ValueChanged<int> alCambiar;
+
+      @override
+      Widget build(BuildContext context) {
+        return ListTile(
+          leading: const Icon(Icons.beach_access),
+          title: Text(nombre),
+          subtitle: Estrellas(valor: nota, alCambiar: alCambiar),
+        );
+      }
+    }
+
+    class Valoracion extends StatefulWidget {
+      const Valoracion({super.key});
+
+      @override
+      State<Valoracion> createState() => _ValoracionState();
+    }
+
+    class _ValoracionState extends State<Valoracion> {
+      static const playas = ['La Caleta', 'La Victoria', 'Cortadura', 'Santa María del Mar'];
+      final _notas = [0, 0, 0, 0];
+
+      double get _media => _notas.reduce((a, b) => a + b) / _notas.length;
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: Text('Media: ${_media.toStringAsFixed(1)} ⭐')),
+          body: ListView.builder(
+            itemCount: playas.length,
+            itemBuilder: (context, i) => FichaPlaya(
+              nombre: playas[i],
+              nota: _notas[i],
+              alCambiar: (n) => setState(() => _notas[i] = n),
+            ),
+          ),
+        );
+      }
+    }
+    ```
 
 Ahora haz el ejercicio rápido **R8**.
 
@@ -1123,6 +1434,56 @@ bottomNavigationBar: Padding(
 ),
 ```
 
+Así queda la clase `Tienda` completa después de este paso:
+
+```dart
+class Tienda extends StatelessWidget {
+  const Tienda({super.key});
+
+  static const catalogo = [
+    Producto('Tortillitas de camarones', 6.5),
+    Producto('Papas aliñás', 4.0),
+    Producto('Chicharrones', 5.5),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final carrito = context.watch<Carrito>();
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Tienda'),
+        actions: [
+          Badge(
+            label: Text('${carrito.cantidad}'),
+            child: const Icon(Icons.shopping_cart),
+          ),
+          const SizedBox(width: 16),
+        ],
+      ),
+      body: ListView(
+        children: [
+          for (final p in catalogo)
+            ListTile(
+              title: Text(p.nombre),
+              subtitle: Text('${p.precio.toStringAsFixed(2)} €'),
+              trailing: IconButton(
+                icon: const Icon(Icons.add_shopping_cart),
+                onPressed: () => context.read<Carrito>().anadir(p),
+              ),
+            ),
+        ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text('Total: ${carrito.total.toStringAsFixed(2)} €',
+            style: Theme.of(context).textTheme.titleLarge),
+      ),
+    );
+  }
+}
+```
+
 Pulsa los botones: el contador y el total cambian solos.
 
 | Llamada | Qué hace | Dónde se usa |
@@ -1216,13 +1577,26 @@ Las pantallas funcionan como una **pila**: `push` pone una encima y `pop` quita 
 
 ### Paso 3 · Volver con un resultado
 
-Queremos marcar playas como **favoritas** desde el detalle. `pop` puede llevar un dato de vuelta. En `DetallePlaya`, **añade** este botón antes del `TextButton`:
+Queremos marcar playas como **favoritas** desde el detalle. `pop` puede llevar un dato de vuelta. En `DetallePlaya`, **añade** un botón antes del `TextButton`. El `body` queda así:
 
 ```dart
-FilledButton.icon(
-  onPressed: () => Navigator.pop(context, true),   // vuelve devolviendo true
-  icon: const Icon(Icons.favorite),
-  label: const Text('Marcar como favorita'),
+body: Center(
+  child: Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      const Icon(Icons.beach_access, size: 96, color: Colors.orange),
+      const SizedBox(height: 24),
+      FilledButton.icon(
+        onPressed: () => Navigator.pop(context, true),   // vuelve devolviendo true
+        icon: const Icon(Icons.favorite),
+        label: const Text('Marcar como favorita'),
+      ),
+      TextButton(
+        onPressed: () => Navigator.pop(context),
+        child: const Text('Volver'),
+      ),
+    ],
+  ),
 ),
 ```
 
@@ -1272,6 +1646,82 @@ class _ListaPlayasState extends State<ListaPlayas> {
 - `push` devuelve un **`Future`**: se completa cuando la otra pantalla hace `pop`, con el dato que le pase. Por eso lleva `await`, como en el Tema 1.
 - Si se vuelve con la flecha, el resultado es `null`. Por eso se compara con `== true`.
 - `<String>{}` es un conjunto (`Set`): no admite repetidos.
+
+??? example "Código completo de `lib/navegacion.dart`"
+    ```dart
+    import 'package:flutter/material.dart';
+
+    void main() => runApp(const MaterialApp(home: ListaPlayas()));
+
+    class ListaPlayas extends StatefulWidget {
+      const ListaPlayas({super.key});
+
+      @override
+      State<ListaPlayas> createState() => _ListaPlayasState();
+    }
+
+    class _ListaPlayasState extends State<ListaPlayas> {
+      static const playas = ['La Caleta', 'Santa María del Mar', 'La Victoria', 'Cortadura'];
+      final _favoritas = <String>{};
+
+      Future<void> _abrir(String playa) async {
+        final favorita = await Navigator.push<bool>(
+          context,
+          MaterialPageRoute(builder: (context) => DetallePlaya(nombre: playa)),
+        );
+        if (favorita == true && mounted) {
+          setState(() => _favoritas.add(playa));
+        }
+      }
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: const Text('Playas de Cádiz')),
+          body: ListView.builder(
+            itemCount: playas.length,
+            itemBuilder: (context, i) => ListTile(
+              title: Text(playas[i]),
+              trailing: _favoritas.contains(playas[i])
+                  ? const Icon(Icons.favorite, color: Colors.red)
+                  : const Icon(Icons.chevron_right),
+              onTap: () => _abrir(playas[i]),
+            ),
+          ),
+        );
+      }
+    }
+
+    class DetallePlaya extends StatelessWidget {
+      const DetallePlaya({super.key, required this.nombre});
+      final String nombre;
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(title: Text(nombre)),
+          body: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.beach_access, size: 96, color: Colors.orange),
+                const SizedBox(height: 24),
+                FilledButton.icon(
+                  onPressed: () => Navigator.pop(context, true),
+                  icon: const Icon(Icons.favorite),
+                  label: const Text('Marcar como favorita'),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Volver'),
+                ),
+              ],
+            ),
+          ),
+        );
+      }
+    }
+    ```
 
 Ahora haz los ejercicios rápidos **R9**, **R10** y **R11**.
 
@@ -1334,6 +1784,46 @@ body: _pantallas[_indice],
 
 En una app real, cada elemento de la lista sería una pantalla completa, por ejemplo `ListaPlayas()`.
 
+??? example "Código completo de `lib/pestanas.dart`"
+    ```dart
+    import 'package:flutter/material.dart';
+
+    void main() => runApp(const MaterialApp(home: Inicio()));
+
+    class Inicio extends StatefulWidget {
+      const Inicio({super.key});
+
+      @override
+      State<Inicio> createState() => _InicioState();
+    }
+
+    class _InicioState extends State<Inicio> {
+      int _indice = 0;
+
+      static const _pantallas = [
+        Center(child: Text('Catálogo')),
+        Center(child: Text('Carrito')),
+        Center(child: Text('Perfil')),
+      ];
+
+      @override
+      Widget build(BuildContext context) {
+        return Scaffold(
+          body: _pantallas[_indice],
+          bottomNavigationBar: NavigationBar(
+            selectedIndex: _indice,
+            onDestinationSelected: (i) => setState(() => _indice = i),
+            destinations: const [
+              NavigationDestination(icon: Icon(Icons.store), label: 'Catálogo'),
+              NavigationDestination(icon: Icon(Icons.shopping_cart), label: 'Carrito'),
+              NavigationDestination(icon: Icon(Icons.person), label: 'Perfil'),
+            ],
+          ),
+        );
+      }
+    }
+    ```
+
 Ahora haz el ejercicio rápido **R12**.
 
 ### Paso 6 · El carrito en otra pantalla (G3)
@@ -1385,6 +1875,101 @@ IconButton(
 ```
 
 Añade productos, abre el carrito, borra alguno y vuelve: el contador de la tienda está actualizado. **Las dos pantallas comparten el mismo `Carrito`** sin pasarse nada por parámetros: eso es lo que da `provider`.
+
+??? example "Código completo de `lib/tienda.dart`"
+    ```dart
+    import 'package:flutter/material.dart';
+    import 'package:provider/provider.dart';
+    import 'carrito.dart';
+
+    void main() {
+      runApp(
+        ChangeNotifierProvider(
+          create: (_) => Carrito(),
+          child: const MaterialApp(home: Tienda()),
+        ),
+      );
+    }
+
+    class Tienda extends StatelessWidget {
+      const Tienda({super.key});
+
+      static const catalogo = [
+        Producto('Tortillitas de camarones', 6.5),
+        Producto('Papas aliñás', 4.0),
+        Producto('Chicharrones', 5.5),
+      ];
+
+      @override
+      Widget build(BuildContext context) {
+        final carrito = context.watch<Carrito>();
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Tienda'),
+            actions: [
+              IconButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PantallaCarrito()),
+                ),
+                icon: Badge(
+                  label: Text('${carrito.cantidad}'),
+                  child: const Icon(Icons.shopping_cart),
+                ),
+              ),
+              const SizedBox(width: 16),
+            ],
+          ),
+          body: ListView(
+            children: [
+              for (final p in catalogo)
+                ListTile(
+                  title: Text(p.nombre),
+                  subtitle: Text('${p.precio.toStringAsFixed(2)} €'),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.add_shopping_cart),
+                    onPressed: () => context.read<Carrito>().anadir(p),
+                  ),
+                ),
+            ],
+          ),
+          bottomNavigationBar: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text('Total: ${carrito.total.toStringAsFixed(2)} €',
+                style: Theme.of(context).textTheme.titleLarge),
+          ),
+        );
+      }
+    }
+
+    class PantallaCarrito extends StatelessWidget {
+      const PantallaCarrito({super.key});
+
+      @override
+      Widget build(BuildContext context) {
+        final carrito = context.watch<Carrito>();
+
+        return Scaffold(
+          appBar: AppBar(title: const Text('Mi carrito')),
+          body: carrito.items.isEmpty
+              ? const Center(child: Text('El carrito está vacío'))
+              : ListView(
+                  children: [
+                    for (final p in carrito.items)
+                      ListTile(
+                        title: Text(p.nombre),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () => context.read<Carrito>().quitar(p),
+                        ),
+                      ),
+                  ],
+                ),
+        );
+      }
+    }
+    ```
 
 ??? info "Para consultar: otras formas de navegar"
     - `Drawer`: menú lateral, con `Scaffold(drawer: Drawer(...))`.
