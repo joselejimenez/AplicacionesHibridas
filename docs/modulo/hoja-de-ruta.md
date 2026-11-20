@@ -50,7 +50,7 @@ flowchart LR
 |---|---|---|---|---|
 | [**T1 · Entorno, Dart y primera app**](../tema1/index.md) | 1-3 · 28 sep, 5 oct, 19 oct | RA2 a, c (base) | Instalación y `flutter doctor`. Dart desde cero (con puentes Java/Kotlin) hasta `Future`/`Stream`. La misma app en Android, web y escritorio | «Hola, plataformas» |
 | [**T2 · Arquitectura y diseño**](../tema2/index.md) | 4 · 26 oct | RA1 a-e | Nativo, WebView, compilado, interpretado, KMP. Flutter por dentro. Elegir con criterio. Patrones, estructura y mobile-first | Informe de arquitectura y diseño (parejas) |
-| [**T3 · Interfaces y navegación**](../tema3/index.md) | 5-6 · 9 y 16 nov | RA2 a, c, e · RA1 e | Widgets y layout (desde Compose), listas, estado con `setState` y `provider`, navegación, formularios, tema y diseño adaptable | 3.1 Cádiz Market (en clase, 16 nov) · Alta de clientes como guiado |
+| [**T3 · Interfaces y navegación**](../tema3/index.md) | 5-7 · 9, 16 y 23 nov | RA2 a, c, e · RA1 e | Widgets y layout (desde Compose), listas, estado con `setState` y `provider`, navegación, formularios, tema y diseño adaptable | 3.1 Cádiz Market (en clase, 23 nov, 2 h) · Alta de clientes como guiado |
 | [**T4 · Funcionalidades nativas**](../tema4/index.md) | 7 · 23 nov | RA2 b, c | Plugins, permisos, GPS, cámara, sensores, linterna, audio, ciclo de vida | 4.2 **Eureka** (en clase, 23 nov) · GPS con IA como guiado |
 | [**T5 · Datos locales y remotos**](../tema5/index.md) | 8 y 10 · 30 nov, 21 dic | RA2 d | 30 nov: `http` + JSON, `FutureBuilder`, errores de red, CRUD contra la API de PMDM, `shared_preferences` y SQLite. 21 dic: Firebase Auth y Firestore | 5.1 Terremotos y mi API (en clase, 30 nov) · 5.2 Mis lugares (en clase, 21 dic) |
 | **1ª parcial** | 9 · 14 dic | RA1 + RA2 | Prueba teórico-práctica (sin Firebase) | — |
@@ -96,7 +96,7 @@ flowchart LR
 
 | Actividad del curso pasado (Ionic) | Versión Flutter | Tema |
 |---|---|---|
-| A2.4 Cádiz Market | Práctica 3.1: catálogo con filtros, stock y carrito con `provider` | T3 |
+| A2.4 Cádiz Market | Práctica 3.1: catálogo con filtro, stock y carrito con `setState`, en una pantalla | T3 |
 | A3.2 Calculadora y clientes | Guiado: alta y edición de clientes con validación | T3 |
 | A3.3 GPS con IA | Guiado: servicio de ubicación escrito con IA y revisado | T4 |
 | A3.4 **Eureka** | Práctica 4.2: GPS, sensores y cámara; linterna, texto y canción al tapar el sensor de luz | T4 |
@@ -113,7 +113,7 @@ flowchart LR
 | Dom 18 oct | Boletín T1 |
 | Dom 25 oct | Práctica «Hola, plataformas» |
 | Lun 9 nov (en clase) | Informe de arquitectura (T2) |
-| Lun 16 nov (en clase) | Práctica 3.1 Cádiz Market |
+| Lun 23 nov (en clase) | Práctica 3.1 Cádiz Market |
 | Dom 22 nov | Boletín T3 |
 | Lun 23 nov (en clase) | Práctica 4.2 Eureka |
 | Lun 30 nov (en clase) | Práctica 5.1 Terremotos y mi API |
@@ -138,7 +138,7 @@ Los 15 criterios de evaluación oficiales, con su peso y sus instrumentos, está
 
 | RA | Peso | Cada CE | Instrumentos principales |
 |---|---|---|---|
-| **RA1** | 20 % | 4 % | Informe de arquitectura y diseño (T2) · 1ª parcial · diseño inicial del proyecto · Práctica 3.1 (responsive) |
+| **RA1** | 20 % | 4 % | Informe de arquitectura y diseño (T2) · 1ª parcial · diseño inicial del proyecto |
 | **RA2** | 40 % | 8 % | Boletines y prácticas de T1, T3, T4 y T5 · 1ª parcial |
 | **RA3** | 40 % | 8 % | **En el aula, 70 %:** prácticas 6.1, 6.2 y 7.1 y proyecto final con defensa. **En la FFEOE, 30 %:** actividad de validación |
 

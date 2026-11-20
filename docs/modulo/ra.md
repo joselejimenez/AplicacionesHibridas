@@ -80,12 +80,12 @@ Módulo de **horas de libre configuración** del ciclo. Los resultados de aprend
 | RA1 | b | 4 % | Informe de arquitectura (parte 2) · 1ª parcial |
 | RA1 | c | 4 % | Informe de arquitectura (parte 3) · 1ª parcial |
 | RA1 | d | 4 % | Informe de arquitectura (parte 4) · diseño inicial del proyecto |
-| RA1 | e | 4 % | Informe de arquitectura (parte 4) · Práctica 3.1 (versión adaptable) |
+| RA1 | e | 4 % | Informe de arquitectura (parte 4) · Boletín T3 (diseño adaptable) |
 | RA2 | a | 8 % | Práctica «Hola, plataformas» · Boletín T3 · Práctica 3.1 · Práctica 5.2 · 1ª parcial |
 | RA2 | b | 8 % | Boletín T4 · Práctica 4.2 (Eureka) · Práctica 5.2 · 1ª parcial |
 | RA2 | c | 8 % | Boletín T1 · Práctica «Hola, plataformas» · Práctica 3.1 (estado) · Práctica 4.2 (ciclo de vida) · 1ª parcial |
 | RA2 | d | 8 % | Boletín T5 · Prácticas 5.1 y 5.2 · 1ª parcial (sin Firebase) |
-| RA2 | e | 8 % | Práctica 3.1 (navegación) · Boletín T3 · 1ª parcial |
+| RA2 | e | 8 % | Boletín T3 · Práctica 5.2 (navegación) · 1ª parcial |
 | RA3 | a | 8 % | Práctica 6.1 · proyecto final · actividad FFEOE |
 | RA3 | b | 8 % | Práctica 6.2 · proyecto final · actividad FFEOE |
 | RA3 | c | 8 % | Práctica 6.2 · proyecto final · actividad FFEOE |

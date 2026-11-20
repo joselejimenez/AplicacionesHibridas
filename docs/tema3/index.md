@@ -1,7 +1,7 @@
 # Tema 3 · Interfaces y navegación
 
 !!! abstract "Ficha del tema"
-    - **Duración:** 2 sesiones (9 y 16 de noviembre). Los apartados 8 y 9 se trabajan en casa con el boletín
+    - **Duración:** 3 sesiones (9, 16 y 23 de noviembre). Los apartados 8 y 9 se trabajan en casa con el boletín
     - **RA:** RA2 · CE a (interfaces interactivas y adaptables) · CE c (estado) · CE e (navegación) · también RA1 · CE e (diseño responsive, apartado 9)
     - **Actividades:** [16 ejercicios rápidos de clase](#ejercicios-rapidos) · 4 guiados · [Boletín de 10 ejercicios](#boletin-de-ejercicios) · [Práctica 3.1 · Cádiz Market](practica-31.md) · [Alta de clientes (guiado)](#practica-32-alta-de-clientes)
 
@@ -11,7 +11,8 @@
 | Sesión | Contenido | En clase |
 |---|---|---|
 | **1 · 9 nov** | Widgets básicos, paso a paso | Rápido R1 |
-| **2 · 16 nov** | Layout, listas, estado local, comunicación entre widgets, `provider` y navegación, todo paso a paso | Rápidos R2-R13 · Guiados G1-G4 · Práctica 3.1 |
+| **2 · 16 nov** | Layout, listas y estado local, paso a paso | Rápidos R2-R7 · Guiado G1 |
+| **3 · 23 nov** | **Práctica 3.1 en clase (2 h)** · Comunicación entre widgets, `provider` y navegación | Rápidos R8-R13 · Guiados G2-G4 |
 | **En casa** | Formularios, tema y diseño adaptable (apartados 8 y 9) | Rápidos R14-R16 · Boletín B1-B10 |
 
 ---

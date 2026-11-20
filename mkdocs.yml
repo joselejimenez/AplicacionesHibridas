@@ -55,7 +55,7 @@ hooks:
 # ─────────────────────────────────────────────────────────────
 extra:
   ocultos:
-    - tema3/practica-31.md     # se publica el 16 de noviembre
+    - tema3/practica-31.md     # se publica el 23 de noviembre
     - tema4
     - tema5
     - tema6

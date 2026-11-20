@@ -17,8 +17,9 @@ Cada tema tiene **al menos una práctica evaluable que se hace en clase** y se e
 | 4 | Lun 26 oct | Tema 2 | Los cuatro enfoques + KMP. Flutter por dentro. Elegir con criterio. Diseñar la app: patrones, estructura y mobile-first | — (pasa a la sesión 5) | RA1 a-e |
 | — | Lun 2 nov | — | **Festivo** | — | — |
 | 5 | Lun 9 nov | T2 · T3 | T3: widgets básicos paso a paso y layout (`Row`, `Column`, `Expanded`) | **Práctica T2 · Informe de arquitectura** (15:45-17:15) | RA1 a-e · RA2 a |
-| 6 | Lun 16 nov | T3 | Listas, estado con `setState`, *callbacks*, `provider` y navegación. Formularios y diseño adaptable, con el boletín | **Práctica 3.1 Cádiz Market** (última hora y cuarto) | RA2 a, c, e |
-| 7 | Lun 23 nov | T4 | Plugins, permisos, GPS, cámara, sensores, ciclo de vida | **Práctica 4.2 Eureka** | RA2 b, c |
+| 6 | Lun 16 nov | T3 | Layout, listas y estado local (`setState`), paso a paso | — | RA2 a, c |
+| 7 | Lun 23 nov | T3 | **Práctica 3.1 en clase** (2 h). Después, comunicación entre widgets (*callbacks*) | **Práctica 3.1 Cádiz Market** | RA2 a, c |
+| — | — | — | **Pendiente de replanificar hasta el examen:** `provider` y navegación (T3), T4 y T5 en las sesiones del 30 nov y el 21 dic | — | — |
 | 8 | Lun 30 nov | T5 | `http`, JSON, `FutureBuilder`, errores de red. `shared_preferences` y SQLite | **Práctica 5.1 Terremotos y mi API** | RA2 d |
 | — | Lun 7 dic | — | **Festivo** | — | — |
 | 9 | Lun 14 dic | 1ª parcial | **Prueba teórico-práctica RA1 + RA2** (sin Firebase) | **1ª parcial** | RA1, RA2 |
@@ -38,9 +39,8 @@ Cada tema tiene **al menos una práctica evaluable que se hace en clase** y se e
 | Dom 18 oct | [Boletín T1](../tema1/index.md#4-boletin-de-ejercicios) |
 | Dom 25 oct | [Práctica «Hola, plataformas»](../tema1/index.md#5-practica-hola-plataformas) |
 | Lun 9 nov (en clase) | [Informe de arquitectura](../tema2/practica.md) |
-| Lun 16 nov (en clase) | [Práctica 3.1 Cádiz Market](../tema3/practica-31.md) |
 | Dom 22 nov | [Boletín T3](../tema3/index.md#boletin-de-ejercicios) |
-| Lun 23 nov (en clase) | [Práctica 4.2 Eureka](../tema4/index.md#practica-42-eureka) |
+| Lun 23 nov (en clase) | [Práctica 3.1 Cádiz Market](../tema3/practica-31.md) |
 | Lun 30 nov (en clase) | [Práctica 5.1 Terremotos y mi API](../tema5/index.md#practica-51-terremotos-y-mi-api) |
 | Dom 6 dic | [Boletín T4](../tema4/index.md#boletin-de-ejercicios) |
 | Dom 13 dic | [Boletín T5](../tema5/index.md#boletin-de-ejercicios) (B1-B8) |
